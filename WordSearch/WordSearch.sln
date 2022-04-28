@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31702.278
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WordSearch.Android", "WordSearch.Android\WordSearch.Android.csproj", "{2057579D-8FB7-4391-9623-2E67B5D2A9E0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WordSearch.Droid", "WordSearch.Droid\WordSearch.Droid.csproj", "{2057579D-8FB7-4391-9623-2E67B5D2A9E0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WordSearch.iOS", "WordSearch.iOS\WordSearch.iOS.csproj", "{CD0A7EE9-7DFB-41C0-AAF7-405CE90A8BF6}"
 EndProject

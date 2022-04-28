@@ -1,9 +1,9 @@
-﻿using System;
-
-using Android.App;
+﻿using Android.App;
 using Android.Content.PM;
 using Android.Runtime;
 using Android.OS;
+
+using WordSearch.Core;
 
 namespace WordSearch.Droid
 {

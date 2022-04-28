@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -128,9 +128,9 @@
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
-    <ProjectReference Include="..\WordSearch\WordSearch.csproj">
-      <Project>{79995A75-501C-4315-B699-1473EA2B456B}</Project>
-      <Name>WordSearch</Name>
+    <ProjectReference Include="..\WordSearch.Core\WordSearch.Core.csproj">
+      <Project>{23a36b53-3fc4-4c6d-9d1e-302e34f1f69b}</Project>
+      <Name>WordSearch.Core</Name>
     </ProjectReference>
   </ItemGroup>
 </Project>

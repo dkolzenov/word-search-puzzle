@@ -26,11 +26,7 @@
             var languageQuery = _wordFactory.CreateLanguageQuery(languageType);
             var categoryQuery = _wordFactory.CreateCategoryQuery(categoryType);
 
-            //var wordsQuery = languageQuery + categoryQuery;
-
-            //var wordList = _wordRepository.QueryWords(categoryQuery).Result;
-
-            var result = await _wordRepository.Get();
+            var result = await _wordRepository.QueryWords(languageQuery, categoryQuery);
 
             var words = ConvertToStringList(result);
 

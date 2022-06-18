@@ -9,8 +9,7 @@
 
     public interface IWordRepository : IRepository<WordModel>
     {
-        Task<List<WordModel>> QueryWords(Expression<Func<WordModel, bool>> predicate);
-
-        Task<List<WordModel>> GetWords(string language, string category);
+        Task<List<WordModel>> QueryWords(
+            params Expression<Func<WordModel, bool>>[] predicates);
     }
 }

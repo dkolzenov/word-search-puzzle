@@ -1,6 +1,7 @@
 ﻿namespace WordSearch.Services.Word.Factories.Languages
 {
     using System;
+    using System.Linq.Expressions;
 
     using WordSearch.Services.Word.Enums;
     using WordSearch.Services.Word.Factories.Interfaces;
@@ -8,24 +9,18 @@
 
     public class LanguageQueryFactory : ILanguageQueryFactory
     {
-        public Func<WordModel, bool> CreateEnglishQuery()
+        public Expression<Func<WordModel, bool>> CreateEnglishQuery()
         {
             var language = LanguageType.English.ToString().ToLower();
 
-            var languageQuery = new Func<WordModel, bool>(
-                word => word.Language == language);
-
-            return languageQuery;
+            return Words => Words.Language == language;
         }
 
-        public Func<WordModel, bool> CreateRussianQuery()
+        public Expression<Func<WordModel, bool>> CreateRussianQuery()
         {
             var language = LanguageType.Russian.ToString().ToLower();
 
-            var languageQuery = new Func<WordModel, bool>(
-                word => word.Language == language);
-
-            return languageQuery;
+            return Words => Words.Language == language;
         }
     }
 }

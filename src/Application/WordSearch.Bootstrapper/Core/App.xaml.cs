@@ -6,12 +6,13 @@
     using Prism.Ioc;
     using Prism.DryIoc;
     using Prism.Modularity;
-    using WordSearch.Presentation.ViewModels.MainPage;
-    using WordSearch.Helpers.Interfaces;
+
     using WordSearch.Data.Properties;
     using WordSearch.Data.Database.Constants;
+    using WordSearch.Helpers.Interfaces;
     using WordSearch.Services.Interfaces;
     using WordSearch.Ioc.Modules;
+    using WordSearch.Presentation.ViewModels.MainPage;
 
     public partial class App : PrismApplication
     {

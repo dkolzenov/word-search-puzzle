@@ -1,4 +1,4 @@
-﻿namespace WordSearch.Ioc.Helpers
+﻿namespace WordSearch.Ioc.Modules.Helpers
 {
     using Prism.Ioc;
     using Prism.Modularity;

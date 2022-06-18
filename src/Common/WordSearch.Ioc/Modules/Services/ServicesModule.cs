@@ -1,4 +1,4 @@
-﻿namespace WordSearch.Ioc.Services
+﻿namespace WordSearch.Ioc.Modules.Services
 {
     using Prism.Ioc;
     using Prism.Modularity;

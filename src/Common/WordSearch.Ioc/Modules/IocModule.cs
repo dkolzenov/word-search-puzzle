@@ -1,12 +1,12 @@
-﻿namespace WordSearch.Ioc
+﻿namespace WordSearch.Ioc.Modules
 {
     using Prism.Ioc;
     using Prism.Modularity;
 
-    using WordSearch.Ioc.Data;
-    using WordSearch.Ioc.Helpers;
-    using WordSearch.Ioc.Presentation;
-    using WordSearch.Ioc.Services;
+    using WordSearch.Ioc.Modules.Data;
+    using WordSearch.Ioc.Modules.Helpers;
+    using WordSearch.Ioc.Modules.Presentation;
+    using WordSearch.Ioc.Modules.Services;
 
     public sealed class IocModule : IModule
     {

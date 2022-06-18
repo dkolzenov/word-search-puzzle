@@ -1,6 +1,7 @@
 ﻿namespace WordSearch.Services.Word.Factories
 {
     using System;
+    using System.Linq.Expressions;
 
     using WordSearch.Services.Word.Enums;
     using WordSearch.Services.Word.Factories.Interfaces;
@@ -20,7 +21,8 @@
             _languageQueryFactory = languageQueryFactory;
         }
 
-        public Func<WordModel, bool> CreateCategoryQuery(CategoryType categoryType)
+        public Expression<Func<WordModel, bool>> CreateCategoryQuery(
+            CategoryType categoryType)
         {
             switch (categoryType)
             {
@@ -38,7 +40,8 @@
             }
         }
 
-        public Func<WordModel, bool> CreateLanguageQuery(LanguageType languageType)
+        public Expression<Func<WordModel, bool>> CreateLanguageQuery(
+            LanguageType languageType)
         {
             switch (languageType)
             {

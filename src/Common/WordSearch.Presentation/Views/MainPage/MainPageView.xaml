@@ -9,7 +9,7 @@
     <StackLayout>
         <ListView x:Name="words" ItemsSource="{Binding Words}">
         </ListView>
-        <Button Text="Получить список слов" Command="{Binding GetAllWordsCommand}"/>
+        <Button Text="Get All words" Command="{Binding GetAllWordsCommand}"/>
     </StackLayout>
 
 </ContentPage>

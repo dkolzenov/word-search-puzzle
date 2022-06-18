@@ -72,29 +72,21 @@
         }
 
         public async Task<List<WordModel>> QueryWords(
-            Expression<Func<WordModel, bool>> predicate)
+            params Expression<Func<WordModel, bool>>[] predicates)
         {
             try
             {
-                var words = await _database.Table<WordModel>()
-                    .Where(predicate)
-                    .ToListAsync();
+                var result = _database.Table<WordModel>();
 
-                return words;
+                foreach (var predicate in predicates)
+                    result = result.Where(predicate);
+
+                return await result.ToListAsync();
             }
             catch (Exception ex)
             {
                 return await Task.FromException<List<WordModel>>(ex.InnerException);
             }
-        }
-
-        public async Task<List<WordModel>> GetWords(string language, string category)
-        {
-            var wordList = await QueryWords(
-                words => words.Category == category &&
-                words.Language == language);
-
-            return wordList;
         }
     }
 }

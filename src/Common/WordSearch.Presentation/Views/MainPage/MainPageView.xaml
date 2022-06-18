@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="http://prismlibrary.com"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="WordSearch.Presentation.Views.MainPage.MainPageView"
+             Title="Sas">
+
+    <StackLayout>
+        <ListView x:Name="words" ItemsSource="{Binding Words}">
+        </ListView>
+        <Button Text="Получить список слов" Command="{Binding GetAllWordsCommand}"/>
+    </StackLayout>
+
+</ContentPage>

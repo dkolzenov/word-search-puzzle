@@ -34,8 +34,6 @@
 
                 var wordService = Container.Resolve<IWordService>();
 
-                this.BindingContext = new MainPageViewModel(null, wordService);
-
                 var result = await NavigationService.NavigateAsync("MainPageView");
 
                 if (!result.Success)

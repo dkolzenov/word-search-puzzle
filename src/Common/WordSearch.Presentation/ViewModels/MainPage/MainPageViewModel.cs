@@ -2,6 +2,8 @@
 {
     using System.Collections.Generic;
 
+    using Prism;
+    using Prism.Ioc;
     using Prism.Navigation;
     using Prism.Commands;
 
@@ -35,7 +37,7 @@
             : this(navigationService)
         {
             Words = new List<string>();
-            _wordService = wordService;
+            _wordService = PrismApplicationBase.Current.Container.Resolve<IWordService>();
         }
 
         private async void GetAllWords()

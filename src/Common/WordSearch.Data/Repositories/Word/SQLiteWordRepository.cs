@@ -27,6 +27,7 @@
             try
             {
                 var words = await _database.Table<WordModel>().ToListAsync();
+
                 return words;
             }
             catch (Exception ex)
@@ -39,7 +40,9 @@
         {
             try
             {
-                throw new NotImplementedException();
+                var taskResult = _database.InsertAsync(wordModel).IsCompleted;
+
+                return taskResult;
             }
             catch (Exception ex)
             {
@@ -51,7 +54,9 @@
         {
             try
             {
-                throw new NotImplementedException();
+                var taskResult = _database.UpdateAsync(wordModel).IsCompleted;
+
+                return taskResult;
             }
             catch (Exception ex)
             {
@@ -63,7 +68,9 @@
         {
             try
             {
-                throw new NotImplementedException();
+                var taskResult = _database.DeleteAsync(wordModel).IsCompleted;
+
+                return taskResult;
             }
             catch (Exception ex)
             {

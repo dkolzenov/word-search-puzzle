@@ -1,17 +1,17 @@
-﻿namespace WordSearch.Services.EmbeddedResourceWriter
+﻿namespace WordSearch.Helpers.EmbeddedResourceWriter
 {
     using System.IO;
     using System.Reflection;
 
-    using WordSearch.Services.Interfaces;
+    using WordSearch.Helpers.Interfaces;
 
-    public class EmbeddedResourceWriterService : IEmbeddedResourceWriterService
+    public class EmbeddedResourceWriterHelper : IEmbeddedResourceWriterHelper
     {
         private readonly string _resourcePath;
 
         private readonly Assembly _assembly;
 
-        public EmbeddedResourceWriterService(Assembly assembly, string resourcePath)
+        public EmbeddedResourceWriterHelper(Assembly assembly, string resourcePath)
         {
             _resourcePath = resourcePath;
             _assembly = assembly;

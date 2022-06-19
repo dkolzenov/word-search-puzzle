@@ -9,7 +9,6 @@
     using WordSearch.Services.Word.Factories.Interfaces;
     using WordSearch.Services.Word.Factories.Categories;
     using WordSearch.Services.Word.Factories.Languages;
-    using WordSearch.Services.EmbeddedResourceWriter;
 
     public sealed class ServicesModule : IModule
     {
@@ -19,7 +18,6 @@
 
         public void RegisterTypes(IContainerRegistry containerRegistry)
         {
-            containerRegistry.RegisterSingleton<IEmbeddedResourceWriterService, EmbeddedResourceWriterService>();
             containerRegistry.RegisterSingleton<ICategoryQueryFactory, CategoryQueryFactory>();
             containerRegistry.RegisterSingleton<ILanguageQueryFactory, LanguageQueryFactory>();
             containerRegistry.RegisterSingleton<IWordQueryFactory, WordQueryFactory>();

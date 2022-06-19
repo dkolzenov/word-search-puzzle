@@ -1,18 +1,13 @@
 ﻿namespace WordSearch.Bootstrapper.Core
 {
     using System;
-    using System.Reflection;
+    using System.Diagnostics;
 
     using Prism.Ioc;
     using Prism.DryIoc;
     using Prism.Modularity;
 
-    using WordSearch.Data.Properties;
-    using WordSearch.Data.Database.Constants;
-    using WordSearch.Helpers.Interfaces;
-    using WordSearch.Services.Interfaces;
     using WordSearch.Ioc.Modules;
-    using WordSearch.Presentation.ViewModels.MainPage;
 
     public partial class App : PrismApplication
     {
@@ -24,27 +19,18 @@
             {
                 InitializeComponent();
 
-                var dbPathHelper = Container.Resolve<IDatabasePathHelper>();
-
-                var writerService = Container.Resolve<IEmbeddedResourceWriterService>(
-                    (typeof(Assembly), _ = DataProperties.Assembly),
-                    (typeof(string), _ = WordsDatabaseConstants.DbResourcePath));
-
-                writerService.Write(dbPathHelper.GetDatabasePath(WordsDatabaseConstants.DbName));
-
-                var wordService = Container.Resolve<IWordService>();
+                new Startup();
 
                 var result = await NavigationService.NavigateAsync("MainPageView");
 
                 if (!result.Success)
-                {
-                    System.Diagnostics.Debugger.Break();
-                }
+                    Debugger.Break();
             }
+
             catch (Exception ex)
             {
-                System.Diagnostics.Debug.WriteLine(ex);
-                System.Diagnostics.Debugger.Break();
+                Debug.WriteLine(ex);
+                Debugger.Break();
             }
         }
 

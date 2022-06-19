@@ -7,6 +7,8 @@
 
     public interface IWordService
     {
-        Task<List<string>> GetWords(LanguageType languageType, CategoryType categoryType);
+        Task<List<string>> GetWords(
+            LanguageType languageType,
+            CategoryType categoryType);
     }
 }

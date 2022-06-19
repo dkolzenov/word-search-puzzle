@@ -4,8 +4,8 @@
     using Prism.Modularity;
 
     using WordSearch.Helpers.Interfaces;
-    using WordSearch.Helpers.DatabasePath;
-    using WordSearch.Helpers.EmbeddedResourceWriter;
+    using WordSearch.Helpers.PlatformPath;
+    using WordSearch.Helpers.ResourceWriter;
 
     public sealed class HelpersModule : IModule
     {
@@ -16,10 +16,10 @@
         public void RegisterTypes(IContainerRegistry containerRegistry)
         {
             containerRegistry.RegisterSingleton<
-                IDatabasePathHelper, DatabasePathHelper>();
+                IPlatformPathHelper, PlatformPathHelper>();
 
             containerRegistry.RegisterSingleton<
-                IEmbeddedResourceWriterHelper, EmbeddedResourceWriterHelper>();
+                IResourceWriterHelper, ResourceWriterHelper>();
         }
     }
 }

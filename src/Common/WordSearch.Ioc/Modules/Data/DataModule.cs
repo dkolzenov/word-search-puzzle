@@ -14,7 +14,8 @@
 
         public void RegisterTypes(IContainerRegistry containerRegistry)
         {
-            containerRegistry.RegisterSingleton<IWordRepository, SQLiteWordRepository>();
+            containerRegistry.RegisterSingleton<
+                IWordRepository, SQLiteWordRepository>();
         }
     }
 }

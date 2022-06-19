@@ -8,8 +8,10 @@
 
     public interface IWordQueryFactory
     {
-        Expression<Func<WordModel, bool>> CreateCategoryQuery(CategoryType categoryType);
+        Expression<Func<WordModel, bool>> CreateCategoryQuery(
+            CategoryType categoryType);
 
-        Expression<Func<WordModel, bool>> CreateLanguageQuery(LanguageType languageType);
+        Expression<Func<WordModel, bool>> CreateLanguageQuery(
+            LanguageType languageType);
     }
 }

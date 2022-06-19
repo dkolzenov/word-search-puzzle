@@ -14,7 +14,8 @@
 
         public void RegisterTypes(IContainerRegistry containerRegistry)
         {
-            containerRegistry.RegisterForNavigation<MainPageView, MainPageViewModel>();
+            containerRegistry.RegisterForNavigation<
+                MainPageView, MainPageViewModel>();
         }
     }
 }

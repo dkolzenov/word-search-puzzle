@@ -19,7 +19,7 @@
             {
                 InitializeComponent();
 
-                new Startup();
+                _ = new Startup();
 
                 var result = await NavigationService.NavigateAsync("MainPageView");
 
@@ -34,13 +34,13 @@
             }
         }
 
-        protected override void RegisterTypes(IContainerRegistry containerRegistry)
-        {
-        }
-
         protected override void ConfigureModuleCatalog(IModuleCatalog moduleCatalog)
         {
             moduleCatalog.AddModule<IocModule>();
+        }
+
+        protected override void RegisterTypes(IContainerRegistry containerRegistry)
+        {
         }
     }
 }

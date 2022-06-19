@@ -12,18 +12,17 @@
     {
         internal Startup()
         {
-            InitializeEmbeddedDatabases();
+            InitializeDatabases();
         }
 
-        private void InitializeEmbeddedDatabases()
+        private void InitializeDatabases()
         {
-            var dbPathHelper = App.Current.Container.Resolve<IDatabasePathHelper>();
+            var writerHelper = App.Current.Container.Resolve<IResourceWriterHelper>(
+                (typeof(Assembly), _ = DataProperties.Assembly));
 
-            var writerHelper = App.Current.Container.Resolve<IEmbeddedResourceWriterHelper>(
-                (typeof(Assembly), _ = DataProperties.Assembly),
-                (typeof(string), _ = WordsDatabaseConstants.DbResourcePath));
-
-            writerHelper.Write(dbPathHelper.GetDatabasePath(WordsDatabaseConstants.DbName));
+            writerHelper.Write(
+                WordsDatabaseConstants.ResourceNamespace,
+                WordsDatabaseConstants.Name);
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿namespace WordSearch.Data.Repositories.Word
 {
     using System;
+    using System.IO;
     using System.Linq.Expressions;
     using System.Threading.Tasks;
     using System.Collections.Generic;
@@ -16,10 +17,10 @@
     {
         private readonly SQLiteAsyncConnection _database;
 
-        public SQLiteWordRepository(IDatabasePathHelper dbPathHelper)
+        public SQLiteWordRepository(IPlatformPathHelper pathHelper)
         {
             _database = new SQLiteAsyncConnection(
-                dbPathHelper.GetDatabasePath(WordsDatabaseConstants.DbName));
+                Path.Combine(pathHelper.Path, WordsDatabaseConstants.Name));
         }
 
         public async Task<List<WordModel>> Get()

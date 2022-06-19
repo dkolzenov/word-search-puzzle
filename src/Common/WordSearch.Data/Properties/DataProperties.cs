@@ -4,9 +4,12 @@
 
     public static class DataProperties
     {
-        public static Assembly Assembly
+        public static Assembly Assembly { get; }
+
+        static DataProperties()
         {
-            get => IntrospectionExtensions.GetTypeInfo(typeof(DataProperties)).Assembly;
+            Assembly = IntrospectionExtensions.GetTypeInfo(
+                typeof(DataProperties)).Assembly;
         }
     }
 }

@@ -15,18 +15,24 @@
 
         private readonly IWordRepository _wordRepository;
 
-        public WordService(IWordQueryFactory wordFactory, IWordRepository wordRepository)
+        public WordService(
+            IWordQueryFactory wordFactory,
+            IWordRepository wordRepository)
         {
             _wordFactory = wordFactory;
             _wordRepository = wordRepository;
         }
 
-        public async Task<List<string>> GetWords(LanguageType languageType, CategoryType categoryType)
+        public async Task<List<string>> GetWords(
+            LanguageType languageType,
+            CategoryType categoryType)
         {
             var languageQuery = _wordFactory.CreateLanguageQuery(languageType);
             var categoryQuery = _wordFactory.CreateCategoryQuery(categoryType);
 
-            var result = await _wordRepository.QueryWords(languageQuery, categoryQuery);
+            var result = await _wordRepository.QueryWords(
+                languageQuery,
+                categoryQuery);
 
             var words = ConvertToStringList(result);
 

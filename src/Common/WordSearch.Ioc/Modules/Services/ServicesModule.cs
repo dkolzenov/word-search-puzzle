@@ -18,9 +18,15 @@
 
         public void RegisterTypes(IContainerRegistry containerRegistry)
         {
-            containerRegistry.RegisterSingleton<ICategoryQueryFactory, CategoryQueryFactory>();
-            containerRegistry.RegisterSingleton<ILanguageQueryFactory, LanguageQueryFactory>();
-            containerRegistry.RegisterSingleton<IWordQueryFactory, WordQueryFactory>();
+            containerRegistry.RegisterSingleton<
+                ICategoryQueryFactory, CategoryQueryFactory>();
+
+            containerRegistry.RegisterSingleton<
+                ILanguageQueryFactory, LanguageQueryFactory>();
+
+            containerRegistry.RegisterSingleton<
+                IWordQueryFactory, WordQueryFactory>();
+
             containerRegistry.RegisterSingleton<IWordService, WordService>();
         }
     }

@@ -4,15 +4,15 @@
 
     public static class WordsDatabaseConstants
     {
-        public const string DbName = "Words.db";
+        public const string Name = "Words.db";
 
-        public static readonly string DbResourcePath;
+        public static readonly string ResourceNamespace;
 
         static WordsDatabaseConstants()
         {
             var assemblyName = DataProperties.Assembly.GetName().Name;
 
-            DbResourcePath = $"{assemblyName}.Database.{DbName}";
+            ResourceNamespace = $"{assemblyName}.Database.{Name}";
         }
     }
 }

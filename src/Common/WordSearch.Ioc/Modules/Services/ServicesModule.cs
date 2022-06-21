@@ -9,6 +9,10 @@
     using WordSearch.Services.Word.Factories.Interfaces;
     using WordSearch.Services.Word.Factories.Categories;
     using WordSearch.Services.Word.Factories.Languages;
+    using WordSearch.Services.Character;
+    using WordSearch.Services.Character.Factories;
+    using WordSearch.Services.Character.Factories.Interfaces;
+    using WordSearch.Services.Character.Factories.Font;
 
     public sealed class ServicesModule : IModule
     {
@@ -18,6 +22,7 @@
 
         public void RegisterTypes(IContainerRegistry containerRegistry)
         {
+            // WordService
             containerRegistry.RegisterSingleton<
                 ICategoryQueryFactory, CategoryQueryFactory>();
 
@@ -28,6 +33,16 @@
                 IWordQueryFactory, WordQueryFactory>();
 
             containerRegistry.RegisterSingleton<IWordService, WordService>();
+
+            // CharacterService
+            containerRegistry.RegisterSingleton<
+                IFontQueryFactory, FontQueryFactory>();
+
+            containerRegistry.RegisterSingleton<
+                ICharacterQueryFactory, CharacterQueryFactory>();
+
+            containerRegistry.RegisterSingleton<
+                ICharacterService, CharacterService>();
         }
     }
 }

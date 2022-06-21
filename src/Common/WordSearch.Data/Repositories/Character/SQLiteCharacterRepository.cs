@@ -1,4 +1,4 @@
-﻿namespace WordSearch.Data.Repositories.Word
+﻿namespace WordSearch.Data.Repositories.Character
 {
     using System;
     using System.IO;
@@ -10,39 +10,41 @@
 
     using WordSearch.Data.Repositories.Interfaces;
     using WordSearch.Data.Database.Constants;
-    using WordSearch.Models.Word;
+    using WordSearch.Models.Character;
     using WordSearch.Helpers.Interfaces;
 
-    public class SQLiteWordRepository : IWordRepository
+    public class SQLiteCharacterRepository : ICharacterRepository
     {
         private readonly SQLiteAsyncConnection _database;
 
-        public SQLiteWordRepository(IPlatformPathHelper pathHelper)
+        public SQLiteCharacterRepository(IPlatformPathHelper pathHelper)
         {
             _database = new SQLiteAsyncConnection(
-                Path.Combine(pathHelper.Path, WordsDbConstants.Name));
+                Path.Combine(pathHelper.Path, CharactersDbConstants.Name));
         }
 
-        public async Task<List<WordModel>> Get()
+        public async Task<List<CharacterModel>> Get()
         {
             try
             {
-                var words = await _database.Table<WordModel>().ToListAsync();
+                var characters = await _database.Table<CharacterModel>()
+                    .ToListAsync();
 
-                return words;
+                return characters;
             }
             catch (Exception ex)
             {
-                return await Task.FromException<List<WordModel>>(
+                return await Task.FromException<List<CharacterModel>>(
                     ex.InnerException);
             }
         }
 
-        public async Task<bool> Add(WordModel wordModel)
+        public async Task<bool> Add(CharacterModel characterModel)
         {
             try
             {
-                var taskResult = _database.InsertAsync(wordModel).IsCompleted;
+                var taskResult = _database.InsertAsync(characterModel)
+                    .IsCompleted;
 
                 return taskResult;
             }
@@ -52,11 +54,12 @@
             }
         }
 
-        public async Task<bool> Update(WordModel wordModel)
+        public async Task<bool> Update(CharacterModel characterModel)
         {
             try
             {
-                var taskResult = _database.UpdateAsync(wordModel).IsCompleted;
+                var taskResult = _database.UpdateAsync(characterModel)
+                    .IsCompleted;
 
                 return taskResult;
             }
@@ -66,11 +69,12 @@
             }
         }
 
-        public async Task<bool> Remove(WordModel wordModel)
+        public async Task<bool> Remove(CharacterModel characterModel)
         {
             try
             {
-                var taskResult = _database.DeleteAsync(wordModel).IsCompleted;
+                var taskResult = _database.DeleteAsync(characterModel)
+                    .IsCompleted;
 
                 return taskResult;
             }
@@ -80,12 +84,12 @@
             }
         }
 
-        public async Task<List<WordModel>> QueryWords(
-            params Expression<Func<WordModel, bool>>[] predicates)
+        public async Task<List<CharacterModel>> QueryCharacters(
+            params Expression<Func<CharacterModel, bool>>[] predicates)
         {
             try
             {
-                var result = _database.Table<WordModel>();
+                var result = _database.Table<CharacterModel>();
 
                 foreach (var predicate in predicates)
                     result = result.Where(predicate);
@@ -94,7 +98,7 @@
             }
             catch (Exception ex)
             {
-                return await Task.FromException<List<WordModel>>(
+                return await Task.FromException<List<CharacterModel>>(
                     ex.InnerException);
             }
         }

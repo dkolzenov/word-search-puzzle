@@ -9,10 +9,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="Database\Characters.db" />
     <None Remove="Database\Words.db" />
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="Database\Characters.db" />
     <EmbeddedResource Include="Database\Words.db" />
   </ItemGroup>
 

@@ -2,13 +2,13 @@
 {
     using WordSearch.Data.Properties;
 
-    public static class WordsDatabaseConstants
+    public static class CharactersDbConstants
     {
-        public const string Name = "Words.db";
+        public const string Name = "Characters.db";
 
         public static readonly string ResourceNamespace;
 
-        static WordsDatabaseConstants()
+        static CharactersDbConstants()
         {
             var assemblyName = DataProperties.Assembly.GetName().Name;
 

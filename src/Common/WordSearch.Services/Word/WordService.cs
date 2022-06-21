@@ -1,5 +1,6 @@
 ﻿namespace WordSearch.Services.Word
 {
+    using System;
     using System.Threading.Tasks;
     using System.Collections.Generic;
 
@@ -27,23 +28,34 @@
             LanguageType languageType,
             CategoryType categoryType)
         {
-            var languageQuery = _wordFactory.CreateLanguageQuery(languageType);
-            var categoryQuery = _wordFactory.CreateCategoryQuery(categoryType);
+            try
+            {
+                var languageQuery = _wordFactory
+                    .CreateLanguageQuery(languageType);
 
-            var result = await _wordRepository.QueryWords(
-                languageQuery,
-                categoryQuery);
+                var categoryQuery = _wordFactory
+                    .CreateCategoryQuery(categoryType);
 
-            var words = ConvertToStringList(result);
+                var result = await _wordRepository.QueryWords(
+                    languageQuery,
+                    categoryQuery);
 
-            return words;
+                var words = ConvertToStringList(result);
+
+                return words;
+            }
+            catch (Exception ex)
+            {
+                return await Task.FromException<List<string>>(
+                    ex.InnerException);
+            }
         }
 
-        private List<string> ConvertToStringList(List<WordModel> wordList)
+        private List<string> ConvertToStringList(List<WordModel> words)
         {
             var stringList = new List<string>();
 
-            wordList.ForEach(word => stringList.Add(word.Value));
+            words.ForEach(word => stringList.Add(word.Value));
 
             return stringList;
         }

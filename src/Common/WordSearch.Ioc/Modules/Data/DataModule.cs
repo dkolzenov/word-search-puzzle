@@ -5,6 +5,7 @@
 
     using WordSearch.Data.Repositories.Interfaces;
     using WordSearch.Data.Repositories.Word;
+    using WordSearch.Data.Repositories.Character;
 
     public sealed class DataModule : IModule
     {
@@ -16,6 +17,9 @@
         {
             containerRegistry.RegisterSingleton<
                 IWordRepository, SQLiteWordRepository>();
+
+            containerRegistry.RegisterSingleton<
+                ICharacterRepository, SQLiteCharacterRepository>();
         }
     }
 }

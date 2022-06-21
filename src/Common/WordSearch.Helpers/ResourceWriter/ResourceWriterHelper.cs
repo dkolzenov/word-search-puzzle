@@ -11,7 +11,9 @@
 
         private readonly IPlatformPathHelper _pathHelper;
 
-        public ResourceWriterHelper(Assembly assembly, IPlatformPathHelper pathHelper)
+        public ResourceWriterHelper(
+            Assembly assembly,
+            IPlatformPathHelper pathHelper)
         {
             _assembly = assembly;
             _pathHelper = pathHelper;
@@ -23,9 +25,12 @@
 
             if (!File.Exists(platformPath))
             {
-                using (Stream stream = _assembly.GetManifestResourceStream(resourceNamespace))
+                using (Stream stream = _assembly.GetManifestResourceStream(
+                    resourceNamespace))
                 {
-                    using (var fs = new FileStream(platformPath, FileMode.OpenOrCreate))
+                    using (var fs = new FileStream(
+                        platformPath,
+                        FileMode.OpenOrCreate))
                     {
                         stream.CopyTo(fs);
                     }

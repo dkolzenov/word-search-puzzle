@@ -7,9 +7,9 @@
              Title="Sas">
 
     <StackLayout>
-        <ListView x:Name="words" ItemsSource="{Binding Words}">
+        <ListView x:Name="characters" ItemsSource="{Binding Characters}">
         </ListView>
-        <Button Text="Get All words" Command="{Binding GetAllWordsCommand}"/>
+        <Button Text="Get All characters" Command="{Binding GetAllCharactersCommand}"/>
     </StackLayout>
 
 </ContentPage>

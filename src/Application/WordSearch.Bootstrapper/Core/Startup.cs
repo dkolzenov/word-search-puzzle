@@ -10,19 +10,26 @@
 
     internal class Startup
     {
+        private readonly IResourceWriterHelper _resourceWriter;
+
         internal Startup()
         {
+            _resourceWriter = App.Current.Container.
+                Resolve<IResourceWriterHelper>(
+                (typeof(Assembly), _ = DataProperties.Assembly));
+
             InitializeDatabases();
         }
 
         private void InitializeDatabases()
         {
-            var writerHelper = App.Current.Container.Resolve<IResourceWriterHelper>(
-                (typeof(Assembly), _ = DataProperties.Assembly));
+            _resourceWriter.Write(
+                WordsDbConstants.ResourceNamespace,
+                WordsDbConstants.Name);
 
-            writerHelper.Write(
-                WordsDatabaseConstants.ResourceNamespace,
-                WordsDatabaseConstants.Name);
+            _resourceWriter.Write(
+                CharactersDbConstants.ResourceNamespace,
+                CharactersDbConstants.Name);
         }
     }
 }

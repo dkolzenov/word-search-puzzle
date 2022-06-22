@@ -1,15 +1,15 @@
-﻿namespace WordSearch.Data.Properties
+﻿namespace WordSearch.Assets.Properties
 {
     using System.Reflection;
 
-    public static class DataProperties
+    public class AssetProperties
     {
         public static Assembly Assembly { get; }
 
-        static DataProperties()
+        static AssetProperties()
         {
             Assembly = IntrospectionExtensions.GetTypeInfo(
-                typeof(DataProperties)).Assembly;
+                typeof(AssetProperties)).Assembly;
         }
     }
 }

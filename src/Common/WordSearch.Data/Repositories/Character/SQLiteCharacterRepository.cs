@@ -9,7 +9,7 @@
     using SQLite;
 
     using WordSearch.Data.Repositories.Interfaces;
-    using WordSearch.Data.Database.Constants;
+    using WordSearch.Assets.Databases.Constants;
     using WordSearch.Models.Character;
     using WordSearch.Helpers.Interfaces;
 
@@ -20,7 +20,7 @@
         public SQLiteCharacterRepository(IPlatformPathHelper pathHelper)
         {
             _database = new SQLiteAsyncConnection(
-                Path.Combine(pathHelper.Path, CharactersDbConstants.Name));
+                Path.Combine(pathHelper.Path, new CharactersDbConstant().Name));
         }
 
         public async Task<List<CharacterModel>> Get()

@@ -7,8 +7,9 @@
     using Prism.Modularity;
 
     using WordSearch.Ioc.Modules;
-    using WordSearch.Data.Properties;
-    using WordSearch.Data.Database.Constants;
+    using WordSearch.Assets.Properties;
+    using WordSearch.Assets.Databases.Constants;
+
     using WordSearch.Helpers.Interfaces;
 
     internal partial class PrismBootstrapper : PrismApplication
@@ -33,15 +34,10 @@
         {
             var resourceWriter = App.Current.Container.
                 Resolve<IResourceWriterHelper>(
-                (typeof(Assembly), _ = DataProperties.Assembly));
+                (typeof(Assembly), _ = AssetProperties.Assembly));
 
-            resourceWriter.Write(
-                WordsDbConstants.ResourceNamespace,
-                WordsDbConstants.Name);
-
-            resourceWriter.Write(
-                CharactersDbConstants.ResourceNamespace,
-                CharactersDbConstants.Name);
+            resourceWriter.Write(new WordsDbConstant());
+            resourceWriter.Write(new CharactersDbConstant());
         }
     }
 }

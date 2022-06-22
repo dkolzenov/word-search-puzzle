@@ -4,6 +4,7 @@
     using System.Reflection;
 
     using WordSearch.Helpers.Interfaces;
+    using WordSearch.Assets.Interfaces;
 
     public class ResourceWriterHelper : IResourceWriterHelper
     {
@@ -19,14 +20,14 @@
             _pathHelper = pathHelper;
         }
 
-        public void Write(string resourceNamespace, string resourceName)
+        public void Write(IResourceConstant resourceConstant)
         {
-            var platformPath = Path.Combine(_pathHelper.Path, resourceName);
+            var platformPath = Path.Combine(_pathHelper.Path, resourceConstant.Name);
 
             if (!File.Exists(platformPath))
             {
                 using (Stream stream = _assembly.GetManifestResourceStream(
-                    resourceNamespace))
+                    resourceConstant.Namespace))
                 {
                     using (var fs = new FileStream(
                         platformPath,

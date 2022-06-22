@@ -12,6 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Common\WordSearch.Assets\WordSearch.Assets.csproj" />
     <ProjectReference Include="..\..\Common\WordSearch.IoC\WordSearch.Ioc.csproj" />
   </ItemGroup>
 

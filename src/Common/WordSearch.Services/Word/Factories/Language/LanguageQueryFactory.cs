@@ -1,4 +1,4 @@
-﻿namespace WordSearch.Services.Word.Factories.Languages
+﻿namespace WordSearch.Services.Word.Factories.Language
 {
     using System;
     using System.Linq.Expressions;

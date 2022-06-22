@@ -7,8 +7,8 @@
     using WordSearch.Services.Word;
     using WordSearch.Services.Word.Factories;
     using WordSearch.Services.Word.Factories.Interfaces;
-    using WordSearch.Services.Word.Factories.Categories;
-    using WordSearch.Services.Word.Factories.Languages;
+    using WordSearch.Services.Word.Factories.Category;
+    using WordSearch.Services.Word.Factories.Language;
     using WordSearch.Services.Character;
     using WordSearch.Services.Character.Factories;
     using WordSearch.Services.Character.Factories.Interfaces;

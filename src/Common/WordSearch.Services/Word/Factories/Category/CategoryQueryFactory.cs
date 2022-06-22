@@ -1,4 +1,4 @@
-﻿namespace WordSearch.Services.Word.Factories.Categories
+﻿namespace WordSearch.Services.Word.Factories.Category
 {
     using System;
     using System.Linq.Expressions;

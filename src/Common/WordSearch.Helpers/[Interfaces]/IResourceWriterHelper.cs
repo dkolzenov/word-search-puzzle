@@ -1,7 +1,9 @@
 ﻿namespace WordSearch.Helpers.Interfaces
 {
+    using WordSearch.Assets.Interfaces;
+
     public interface IResourceWriterHelper
     {
-        void Write(string resourceNamespace, string resourceName);
+        void Write(IResourceConstant resourceConstant);
     }
 }

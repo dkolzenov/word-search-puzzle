@@ -4,25 +4,21 @@
     using System.Diagnostics;
 
     using Prism.Ioc;
-    using Prism.DryIoc;
-    using Prism.Modularity;
 
-    using WordSearch.Ioc.Modules;
-
-    public partial class App : PrismApplication
+    public partial class App
     {
-        public App() { }
+        private const string StartPageName = "MainPageView";
 
-        protected override async void OnInitialized()
+        static App() => new PrismBootstrapper();
+
+        protected override async void OnInitialized() 
         {
             try
             {
                 InitializeComponent();
 
-                _ = new Startup();
-
-                var result = await NavigationService.NavigateAsync(
-                    "MainPageView");
+                var result = await NavigationService
+                    .NavigateAsync(StartPageName);
 
                 if (!result.Success)
                     Debugger.Break();
@@ -33,12 +29,6 @@
                 Debug.WriteLine(ex);
                 Debugger.Break();
             }
-        }
-
-        protected override void ConfigureModuleCatalog(
-            IModuleCatalog moduleCatalog)
-        {
-            moduleCatalog.AddModule<IocModule>();
         }
 
         protected override void RegisterTypes(

@@ -9,16 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Remove="Database\Characters.db" />
-    <None Remove="Database\Words.db" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <EmbeddedResource Include="Database\Characters.db" />
-    <EmbeddedResource Include="Database\Words.db" />
-  </ItemGroup>
-
-  <ItemGroup>
+    <ProjectReference Include="..\WordSearch.Assets\WordSearch.Assets.csproj" />
     <ProjectReference Include="..\WordSearch.Helpers\WordSearch.Helpers.csproj" />
     <ProjectReference Include="..\WordSearch.Models\WordSearch.Models.csproj" />
   </ItemGroup>

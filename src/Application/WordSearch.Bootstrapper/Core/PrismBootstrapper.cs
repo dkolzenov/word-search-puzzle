@@ -32,8 +32,7 @@
 
         private void InitializeDatabases()
         {
-            var resourceWriter = App.Current.Container.
-                Resolve<IResourceWriterHelper>(
+            var resourceWriter = Container.Resolve<IResourceWriterHelper>(
                 (typeof(Assembly), _ = AssetProperties.Assembly));
 
             resourceWriter.Write(new WordsDbConstant());

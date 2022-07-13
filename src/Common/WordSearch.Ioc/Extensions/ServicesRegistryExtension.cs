@@ -1,7 +1,6 @@
-﻿namespace WordSearch.Ioc.Modules.Services
+﻿namespace WordSearch.Ioc.Extensions
 {
     using Prism.Ioc;
-    using Prism.Modularity;
 
     using WordSearch.Services.Interfaces;
     using WordSearch.Services.Word;
@@ -14,13 +13,10 @@
     using WordSearch.Services.Character.Factories.Interfaces;
     using WordSearch.Services.Character.Factories.Font;
 
-    public sealed class ServicesModule : IModule
+    public static class ServicesRegistryExtension
     {
-        public void OnInitialized(IContainerProvider containerProvider)
-        {
-        }
-
-        public void RegisterTypes(IContainerRegistry containerRegistry)
+        public static void RegisterServicesSingleton(
+            this IContainerRegistry containerRegistry)
         {
             // WordService
             containerRegistry.RegisterSingleton<

@@ -6,13 +6,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Databases\Characters.db" />
-    <None Remove="Databases\Words.db" />
+    <None Remove="Databases\WordSearch.db" />
+    <None Remove="Settings\appsettings.json" />
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="Databases\Characters.db" />
-    <EmbeddedResource Include="Databases\Words.db" />
+    <EmbeddedResource Include="Databases\WordSearch.db" />
+    <EmbeddedResource Include="Settings\appsettings.json" />
   </ItemGroup>
 
 </Project>

@@ -3,10 +3,7 @@
     using Prism.Ioc;
     using Prism.Modularity;
 
-    using WordSearch.Ioc.Modules.Data;
-    using WordSearch.Ioc.Modules.Helpers;
-    using WordSearch.Ioc.Modules.Presentation;
-    using WordSearch.Ioc.Modules.Services;
+    using WordSearch.Ioc.Extensions;
 
     public sealed class IocModule : IModule
     {
@@ -16,10 +13,11 @@
 
         public void RegisterTypes(IContainerRegistry containerRegistry)
         {
-            new DataModule().RegisterTypes(containerRegistry);
-            new HelpersModule().RegisterTypes(containerRegistry);
-            new PresentationModule().RegisterTypes(containerRegistry);
-            new ServicesModule().RegisterTypes(containerRegistry);
+            containerRegistry.RegisterAssetsSingleton();
+            containerRegistry.RegisterRepositoriesSingleton();
+            containerRegistry.RegisterHelpersSingleton();
+            containerRegistry.RegisterPresentationSingleton();
+            containerRegistry.RegisterServicesSingleton();
         }
     }
 }

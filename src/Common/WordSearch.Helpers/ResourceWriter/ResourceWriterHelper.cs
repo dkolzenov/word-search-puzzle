@@ -20,14 +20,14 @@
             _pathHelper = pathHelper;
         }
 
-        public void Write(IResourceConstant resourceConstant)
+        public void Write(IEmbeddableResourceBase resource)
         {
-            var platformPath = Path.Combine(_pathHelper.Path, resourceConstant.Name);
+            var platformPath = Path.Combine(_pathHelper.Path, resource.Name);
 
             if (!File.Exists(platformPath))
             {
                 using (Stream stream = _assembly.GetManifestResourceStream(
-                    resourceConstant.Namespace))
+                    resource.Namespace))
                 {
                     using (var fs = new FileStream(
                         platformPath,

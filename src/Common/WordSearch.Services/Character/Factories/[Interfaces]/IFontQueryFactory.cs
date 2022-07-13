@@ -1,14 +1,13 @@
 ﻿namespace WordSearch.Services.Character.Factories.Interfaces
 {
     using System;
-    using System.Linq.Expressions;
 
-    using WordSearch.Models.Character;
+    using WordSearch.Data.Entities.Character;
 
     public interface IFontQueryFactory
     {
-        Expression<Func<CharacterModel, bool>> CreateCyrillicQuery();
+        Func<CharacterEntity, bool> CreateCyrillicQuery();
 
-        Expression<Func<CharacterModel, bool>> CreateLatinQuery();
+        Func<CharacterEntity, bool> CreateLatinQuery();
     }
 }

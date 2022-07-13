@@ -4,6 +4,6 @@
 
     public interface IResourceWriterHelper
     {
-        void Write(IResourceConstant resourceConstant);
+        void Write(IEmbeddableResourceBase resource);
     }
 }

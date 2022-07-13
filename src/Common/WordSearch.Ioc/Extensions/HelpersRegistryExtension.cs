@@ -1,19 +1,15 @@
-﻿namespace WordSearch.Ioc.Modules.Helpers
+﻿namespace WordSearch.Ioc.Extensions
 {
     using Prism.Ioc;
-    using Prism.Modularity;
 
     using WordSearch.Helpers.Interfaces;
     using WordSearch.Helpers.PlatformPath;
     using WordSearch.Helpers.ResourceWriter;
 
-    public sealed class HelpersModule : IModule
+    public static class HelpersRegistryExtension
     {
-        public void OnInitialized(IContainerProvider containerProvider)
-        {
-        }
-
-        public void RegisterTypes(IContainerRegistry containerRegistry)
+        public static void RegisterHelpersSingleton(
+            this IContainerRegistry containerRegistry)
         {
             containerRegistry.RegisterSingleton<
                 IPlatformPathHelper, PlatformPathHelper>();

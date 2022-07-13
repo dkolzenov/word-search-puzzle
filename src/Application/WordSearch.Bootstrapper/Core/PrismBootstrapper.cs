@@ -6,17 +6,16 @@
     using Prism.DryIoc;
     using Prism.Modularity;
 
+    using WordSearch.Bootstrapper.Extensions;
     using WordSearch.Ioc.Modules;
     using WordSearch.Assets.Properties;
-    using WordSearch.Assets.Databases.Constants;
-
     using WordSearch.Helpers.Interfaces;
 
     internal partial class PrismBootstrapper : PrismApplication
     {
         protected override void OnInitialized()
         {
-            InitializeDatabases();
+            WriteAssets();
         }
 
         protected override void ConfigureModuleCatalog(
@@ -30,13 +29,12 @@
         {
         }
 
-        private void InitializeDatabases()
+        private void WriteAssets()
         {
             var resourceWriter = Container.Resolve<IResourceWriterHelper>(
                 (typeof(Assembly), _ = AssetProperties.Assembly));
 
-            resourceWriter.Write(new WordsDbConstant());
-            resourceWriter.Write(new CharactersDbConstant());
+            resourceWriter.WriteAssets();
         }
     }
 }

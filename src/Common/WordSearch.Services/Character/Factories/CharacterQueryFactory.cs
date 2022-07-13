@@ -1,9 +1,8 @@
 ﻿namespace WordSearch.Services.Character.Factories
 {
     using System;
-    using System.Linq.Expressions;
 
-    using WordSearch.Models.Character;
+    using WordSearch.Data.Entities.Character;
     using WordSearch.Services.Character.Enums;
     using WordSearch.Services.Character.Factories.Interfaces;
 
@@ -16,7 +15,7 @@
             _fontQueryFactory = fontQueryFactory;
         }
 
-        public Expression<Func<CharacterModel, bool>> CreateFontQuery(
+        public Func<CharacterEntity, bool> CreateFontQuery(
             FontType fontType)
         {
             switch (fontType)

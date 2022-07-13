@@ -8,7 +8,7 @@
     using WordSearch.Services.Word.Factories.Interfaces;
     using WordSearch.Services.Word.Enums;
     using WordSearch.Data.Repositories.Interfaces;
-    using WordSearch.Models.Word;
+    using WordSearch.Data.Entities.Word;
 
     public class WordService : IWordService
     {
@@ -36,7 +36,7 @@
                 var categoryQuery = _wordFactory
                     .CreateCategoryQuery(categoryType);
 
-                var result = await _wordRepository.QueryWords(
+                var result = await _wordRepository.QueryAsync(
                     languageQuery,
                     categoryQuery);
 
@@ -51,7 +51,7 @@
             }
         }
 
-        private List<string> ConvertToStringList(List<WordModel> words)
+        private List<string> ConvertToStringList(List<WordEntity> words)
         {
             var stringList = new List<string>();
 

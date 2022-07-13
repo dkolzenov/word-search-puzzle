@@ -1,16 +1,15 @@
 ﻿namespace WordSearch.Services.Word.Factories.Interfaces
 {
     using System;
-    using System.Linq.Expressions;
 
-    using WordSearch.Models.Word;
+    using WordSearch.Data.Entities.Word;
 
     public interface ICategoryQueryFactory
     {
-        Expression<Func<WordModel, bool>> CreateAnimalsQuery();
+        Func<WordEntity, bool> CreateAnimalsQuery();
 
-        Expression<Func<WordModel, bool>> CreateVegetablesQuery();
+        Func<WordEntity, bool> CreateVegetablesQuery();
 
-        Expression<Func<WordModel, bool>> CreateFruitsQuery();
+        Func<WordEntity, bool> CreateFruitsQuery();
     }
 }

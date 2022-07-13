@@ -1,6 +1,9 @@
-﻿namespace WordSearch.Models.Word
+﻿namespace WordSearch.Data.Entities.Word
 {
-    public class WordModel
+    using System.ComponentModel.DataAnnotations.Schema;
+
+    [Table("Words")]
+    public class WordEntity
     {
         public int Id { get; set; }
 

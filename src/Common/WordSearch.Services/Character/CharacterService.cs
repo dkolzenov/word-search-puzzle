@@ -8,7 +8,7 @@
     using WordSearch.Services.Character.Factories.Interfaces;
     using WordSearch.Services.Character.Enums;
     using WordSearch.Data.Repositories.Interfaces;
-    using WordSearch.Models.Character;
+    using WordSearch.Data.Entities.Character;
 
     public class CharacterService : ICharacterService
     {
@@ -30,8 +30,7 @@
             {
                 var fontQuery = _characterFactory.CreateFontQuery(fontType);
 
-                var result = await _characterRepository
-                    .QueryCharacters(fontQuery);
+                var result = await _characterRepository.GetAllAsync();
 
                 var characters = ConvertToStringList(result);
 
@@ -45,7 +44,7 @@
         }
 
         private List<string> ConvertToStringList(
-            List<CharacterModel> characters)
+            List<CharacterEntity> characters)
         {
             var stringList = new List<string>();
 

@@ -14,26 +14,17 @@
 
     public class MainPageViewModel : BaseViewModel
     {
-        private List<string> _words = null!;
-
-        private List<string> _characters = null!;
+        private List<string> _items = null!;
 
         private IWordService _wordService = null!;
 
         private ICharacterService _characterService = null!;
 
-        public List<string> Words
+        public List<string> Items
         {
-            get => _words;
+            get => _items;
 
-            set => SetProperty(ref _words, value);
-        }
-
-        public List<string> Characters
-        {
-            get => _characters;
-
-            set => SetProperty(ref _characters, value);
+            set => SetProperty(ref _items, value);
         }
 
         public DelegateCommand GetAllWordsCommand { get; set; } = null!;
@@ -45,8 +36,7 @@
         {
             Title = "Main Page";
 
-            Words = new List<string>();
-            Characters = new List<string>();
+            Items = new List<string>();
 
             InitializeCommand();
             InitializeService();
@@ -54,15 +44,15 @@
 
         private async void GetAllWords()
         {
-            Words = await _wordService.GetWords(
+            Items = await _wordService.GetWords(
                 LanguageType.Russian,
                 CategoryType.Animals);
         }
 
         private async void GetAllCharacters()
         {
-            Characters = await _characterService.GetCharacters(
-                FontType.Latin);
+            Items = await _characterService.GetCharacters(
+                FontType.Cyrillic);
         }
 
         private void InitializeCommand()

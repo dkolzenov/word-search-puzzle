@@ -1,6 +1,7 @@
 ﻿namespace WordSearch.Services.Word.Factories.Category
 {
     using System;
+    using System.Linq.Expressions;
 
     using WordSearch.Services.Word.Enums;
     using WordSearch.Services.Word.Factories.Interfaces;
@@ -8,21 +9,21 @@
 
     public class CategoryQueryFactory : ICategoryQueryFactory
     {
-        public Func<WordEntity, bool> CreateAnimalsQuery()
+        public Expression<Func<WordEntity, bool>> CreateAnimalsQuery()
         {
             var category = CategoryType.Animals.ToString().ToLower();
 
             return Words => Words.Category == category;
         }
 
-        public Func<WordEntity, bool> CreateVegetablesQuery()
+        public Expression<Func<WordEntity, bool>> CreateVegetablesQuery()
         {
             var category = CategoryType.Vegetables.ToString().ToLower();
 
             return Words => Words.Category == category;
         }
 
-        public Func<WordEntity, bool> CreateFruitsQuery()
+        public Expression<Func<WordEntity, bool>> CreateFruitsQuery()
         {
             var category = CategoryType.Fruits.ToString().ToLower();
 

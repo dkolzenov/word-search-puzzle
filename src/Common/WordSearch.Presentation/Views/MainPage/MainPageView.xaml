@@ -4,12 +4,13 @@
              xmlns:prism="http://prismlibrary.com"
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="WordSearch.Presentation.Views.MainPage.MainPageView"
-             Title="Sas">
+             Title="Word Search">
 
     <StackLayout>
-        <ListView x:Name="characters" ItemsSource="{Binding Characters}">
+        <ListView x:Name="items" ItemsSource="{Binding Items}">
         </ListView>
-        <Button Text="Get All characters" Command="{Binding GetAllCharactersCommand}"/>
+        <Button Text="Get all characters" Command="{Binding GetAllCharactersCommand}"/>
+        <Button Text="Get all words" Command="{Binding GetAllWordsCommand}"/>
     </StackLayout>
 
 </ContentPage>

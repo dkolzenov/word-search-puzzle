@@ -1,13 +1,14 @@
 ﻿namespace WordSearch.Services.Word.Factories.Interfaces
 {
     using System;
+    using System.Linq.Expressions;
 
     using WordSearch.Data.Entities.Word;
 
     public interface ILanguageQueryFactory
     {
-        Func<WordEntity, bool> CreateEnglishQuery();
+        Expression<Func<WordEntity, bool>> CreateEnglishQuery();
 
-        Func<WordEntity, bool> CreateRussianQuery();
+        Expression<Func<WordEntity, bool>> CreateRussianQuery();
     }
 }

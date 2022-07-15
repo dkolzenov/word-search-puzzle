@@ -11,7 +11,7 @@
     using WordSearch.Assets.Properties;
     using WordSearch.Helpers.Interfaces;
 
-    internal partial class PrismBootstrapper : PrismApplication
+    internal partial class AppBootstrapper : PrismApplication
     {
         protected override void OnInitialized()
         {

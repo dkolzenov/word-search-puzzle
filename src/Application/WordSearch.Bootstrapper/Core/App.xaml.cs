@@ -14,7 +14,7 @@
     {
         private const string StartPageName = "MainPageView";
 
-        static App() => new PrismBootstrapper();
+        static App() => new AppBootstrapper();
 
         protected override async void OnInitialized()
         {

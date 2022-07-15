@@ -2,6 +2,7 @@
 {
     using System;
     using System.Linq;
+    using System.Linq.Expressions;
     using System.Threading.Tasks;
     using System.Collections.Generic;
 
@@ -91,16 +92,16 @@
         }
 
         public async Task<List<TEntity>> QueryAsync(
-            params Func<TEntity, bool>[] predicates)
+            params Expression<Func<TEntity, bool>>[] predicates)
         {
             try
             {
-                var result = _context.Set<TEntity>().AsEnumerable();
+                var result = _context.Set<TEntity>().AsQueryable();
 
                 foreach (var predicate in predicates)
                     result = result.Where(predicate);
 
-                return await result.AsQueryable().ToListAsync();
+                return await result.ToListAsync();
             }
             catch (Exception ex)
             {

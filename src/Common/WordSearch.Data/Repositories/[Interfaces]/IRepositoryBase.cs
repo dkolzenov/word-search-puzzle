@@ -1,6 +1,7 @@
 ﻿namespace WordSearch.Data.Repositories.Interfaces
 {
     using System;
+    using System.Linq.Expressions;
     using System.Threading.Tasks;
     using System.Collections.Generic;
 
@@ -15,6 +16,6 @@
         Task<bool> RemoveAsync(TEntity entity);
 
         Task<List<TEntity>> QueryAsync(
-            params Func<TEntity, bool>[] predicates);
+            params Expression<Func<TEntity, bool>>[] predicates);
     }
 }

@@ -30,7 +30,7 @@
             {
                 var fontQuery = _characterFactory.CreateFontQuery(fontType);
 
-                var result = await _characterRepository.GetAllAsync();
+                var result = await _characterRepository.QueryAsync(fontQuery);
 
                 var characters = ConvertToStringList(result);
 

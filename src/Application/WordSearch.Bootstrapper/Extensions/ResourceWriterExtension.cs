@@ -17,7 +17,7 @@
             {
                 var instance = Activator.CreateInstance(resource);
 
-                resourceWriter.Write((IEmbeddableResourceBase)instance);
+                //resourceWriter.Write((IEmbeddableResourceBase)instance);
             }
         }
 

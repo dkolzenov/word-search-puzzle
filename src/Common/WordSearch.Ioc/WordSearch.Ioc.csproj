@@ -10,7 +10,6 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.0.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="2.2.0" />
     <PackageReference Include="Prism.DryIoc.Forms" Version="8.1.97" />
-    <PackageReference Include="System.Text.Json" Version="4.6.0" />
   </ItemGroup>
 
   <ItemGroup>

@@ -3,8 +3,6 @@
     using System;
     using System.Diagnostics;
 
-    using Microsoft.Extensions.Configuration;
-
     using Prism.Ioc;
 
     using WordSearch.Bootstrapper.Extensions;
@@ -38,20 +36,9 @@
         protected override void RegisterTypes(
             IContainerRegistry containerRegistry)
         {
-            IConfiguration configuration = GetConfiguration();
+            var wordSearchDb = Container.Resolve<IWordSearchDatabase>();
 
-            containerRegistry.RegisterSqliteDbContext(configuration);
-        }
-
-        private IConfiguration GetConfiguration()
-        {
-            string path = Container.Resolve<IAppSettingsResource>().AbsolutePath;
-
-            var configuration = new ConfigurationBuilder()
-                .AddJsonFile(path)
-                .Build();
-
-            return configuration;
+            containerRegistry.RegisterSqliteDbContext(wordSearchDb);
         }
     }
 }

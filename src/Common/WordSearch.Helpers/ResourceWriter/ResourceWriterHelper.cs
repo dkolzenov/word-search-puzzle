@@ -4,33 +4,25 @@
     using System.Reflection;
 
     using WordSearch.Helpers.Interfaces;
-    using WordSearch.Assets.Interfaces;
 
     public class ResourceWriterHelper : IResourceWriterHelper
     {
         private readonly Assembly _assembly;
 
-        private readonly IPlatformPathHelper _pathHelper;
-
-        public ResourceWriterHelper(
-            Assembly assembly,
-            IPlatformPathHelper pathHelper)
+        public ResourceWriterHelper(Assembly assembly)
         {
             _assembly = assembly;
-            _pathHelper = pathHelper;
         }
 
-        public void Write(IEmbeddableResourceBase resource)
+        public void Write(string namespacePath, string resourceDestinationPath)
         {
-            var platformPath = Path.Combine(_pathHelper.Path, resource.Name);
-
-            if (!File.Exists(platformPath))
+            if (!File.Exists(resourceDestinationPath))
             {
-                using (Stream stream = _assembly.GetManifestResourceStream(
-                    resource.Namespace))
+                using (Stream stream = _assembly
+                    .GetManifestResourceStream(namespacePath))
                 {
                     using (var fs = new FileStream(
-                        platformPath,
+                        resourceDestinationPath,
                         FileMode.OpenOrCreate))
                     {
                         stream.CopyTo(fs);

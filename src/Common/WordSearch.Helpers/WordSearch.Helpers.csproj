@@ -5,8 +5,4 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\WordSearch.Assets\WordSearch.Assets.csproj" />
-  </ItemGroup>
-
 </Project>

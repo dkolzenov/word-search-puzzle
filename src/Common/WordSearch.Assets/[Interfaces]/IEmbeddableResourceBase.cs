@@ -6,8 +6,8 @@
 
         string Namespace { get; }
 
-        string RelativePath { get; }
+        string RelativeDestinationPath { get; }
 
-        string AbsolutePath { get; }
+        string AbsoluteDestinationPath { get; }
     }
 }

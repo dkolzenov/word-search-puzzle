@@ -1,7 +1,7 @@
 ﻿namespace WordSearch.Bootstrapper.Extensions
 {
-    using Microsoft.Extensions.DependencyInjection;
     using Microsoft.EntityFrameworkCore;
+    using Microsoft.Extensions.DependencyInjection;
 
     using Prism;
     using Prism.Ioc;
@@ -9,13 +9,13 @@
     using WordSearch.Assets.Interfaces;
     using WordSearch.Data.Contexts.ApplicationDb;
 
-    public static class DatabaseContextExtension
+    public static class DbContextExtension
     {
         public static void RegisterSqliteDbContext(
             this IContainerRegistry containerRegistry,
-            IDatabasableBase database)
+            IWordSearchDatabase database)
         {
-            var dbConnectionString = database.DbConnectionString;
+            string dbConnectionString = database.DbConnectionString;
 
             containerRegistry.RegisterServices(
                 service => service.AddDbContext<ApplicationDbContext>(

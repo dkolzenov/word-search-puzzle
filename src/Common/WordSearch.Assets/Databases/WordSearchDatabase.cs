@@ -1,19 +1,19 @@
 ﻿namespace WordSearch.Assets.Databases
 {
+    using Microsoft.Extensions.Configuration;
+
     using WordSearch.Assets.Interfaces;
-    using WordSearch.Assets.DatabaseBase;
+    using WordSearch.Assets.ResourceBase;
     using WordSearch.Assets.Databases.Extensions;
     using WordSearch.Helpers.Interfaces;
 
-    public class WordSearchDatabase : DatabaseBase, IWordSearchDatabase
+    public class WordSearchDatabase : EmbeddedResourceBase, IWordSearchDatabase
     {
-        private const string DefaultConnectionName = "DefaultConnection";
+        private const string DefaultConnectionKey = "DefaultConnection";
 
         private readonly string _name;
 
         private readonly string _dbConnectionString;
-
-        private readonly SqliteConnectionStringInfo _connectionStringInfo;
 
         public WordSearchDatabase(
             IPlatformPathHelper platformPathHelper,
@@ -21,24 +21,24 @@
             IAppSettings appSettings)
             : base(platformPathHelper)
         {
-            var configuration = appSettings.Configuration;
+            var tuple = appSettings
+                .Configuration
+                .GetSqliteDbResourceTuple(DefaultConnectionKey);
 
-            _connectionStringInfo = configuration
-                .GetSqliteConnectionStringInfo(DefaultConnectionName);
+            _name = tuple.dbName;
 
-            _name = _connectionStringInfo.DatabaseName;
+            RelativeDestinationPath = tuple.dbRelativePath;
 
-            RelativeDestinationPath = _connectionStringInfo.DatabaseRelativePath;
-
-            _dbConnectionString = $"{_connectionStringInfo.Keyword}" +
-                $"={AbsoluteDestinationPath}" +
-                $"{_connectionStringInfo.AdditionalParameters}";
+            _dbConnectionString = appSettings
+                .Configuration
+                .GetConnectionString(DefaultConnectionKey)
+                .Replace(RelativeDestinationPath, AbsoluteDestinationPath);
 
             resourceWriterHelper.Write(Namespace, AbsoluteDestinationPath);
         }
 
         public override string Name => _name;
 
-        public override string DbConnectionString => _dbConnectionString;
+        public string DbConnectionString => _dbConnectionString;
     }
 }

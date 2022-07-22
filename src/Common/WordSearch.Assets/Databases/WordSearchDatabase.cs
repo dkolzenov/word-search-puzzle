@@ -11,25 +11,21 @@
     {
         private const string DefaultConnectionKey = "DefaultConnection";
 
-        private readonly string _name;
-
-        private readonly string _dbConnectionString;
-
         public WordSearchDatabase(
             IPlatformPathHelper platformPathHelper,
             IResourceWriterHelper resourceWriterHelper,
             IAppSettings appSettings)
             : base(platformPathHelper)
         {
-            var tuple = appSettings
+            (string dbName, string dbRelativePath) = appSettings
                 .Configuration
                 .GetSqliteDbResourceTuple(DefaultConnectionKey);
 
-            _name = tuple.dbName;
+            Name = dbName;
 
-            RelativeDestinationPath = tuple.dbRelativePath;
+            RelativeDestinationPath = dbRelativePath;
 
-            _dbConnectionString = appSettings
+            DbConnectionString = appSettings
                 .Configuration
                 .GetConnectionString(DefaultConnectionKey)
                 .Replace(RelativeDestinationPath, AbsoluteDestinationPath);
@@ -37,8 +33,8 @@
             resourceWriterHelper.Write(Namespace, AbsoluteDestinationPath);
         }
 
-        public override string Name => _name;
+        public override string Name { get; }
 
-        public string DbConnectionString => _dbConnectionString;
+        public string DbConnectionString { get; }
     }
 }

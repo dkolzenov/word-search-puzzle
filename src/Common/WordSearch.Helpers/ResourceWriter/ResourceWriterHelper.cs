@@ -21,6 +21,10 @@
                 using (Stream stream = _assembly
                     .GetManifestResourceStream(namespacePath))
                 {
+                    string dir = Path.GetDirectoryName(resourceDestinationPath);
+
+                    Directory.CreateDirectory(dir);
+
                     using (var fs = new FileStream(
                         resourceDestinationPath,
                         FileMode.OpenOrCreate))

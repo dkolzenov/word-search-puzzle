@@ -1,13 +1,12 @@
 ﻿namespace WordSearch.Assets.Databases.Extensions
 {
-    using System;
     using System.Text.RegularExpressions;
 
     using Microsoft.Extensions.Configuration;
 
     public static class DbConnectionStringParserExtension
     {
-        private const string DbExtensions = @".db|.db3|.sqlite";
+        private const string DbExtensions = @".db|.db3|.sqlite|.sqlite3";
 
         private const string SplitSeparator = "=";
 
@@ -26,22 +25,14 @@
             this IConfiguration configuration,
             string connectionStringKey)
         {
-            try
-            {
-                string connectionString = configuration
-                    .GetConnectionString(connectionStringKey);
+            string connectionString = configuration
+                .GetConnectionString(connectionStringKey);
 
-                (string, string) tuple = (
-                    connectionString.GetDatabaseName(),
-                    connectionString.GetDatabaseRelativePath());
+            (string, string) tuple = (
+                connectionString.GetDatabaseName(),
+                connectionString.GetDatabaseRelativePath());
 
-                return tuple;
-            }
-            catch (Exception ex)
-            {
-                // поменяй это, так не обрабатывают исключения!
-                throw new Exception(ex.Message);
-            }
+            return tuple;
         }
 
         private static string GetDatabaseName(this string connectionString)

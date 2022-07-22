@@ -8,20 +8,18 @@
 
     public class AppSettings : EmbeddedResourceBase, IAppSettings
     {
-        private readonly IConfiguration _configuration;
-
         public AppSettings(
             IPlatformPathHelper platformPathHelper,
             IResourceWriterHelper resourceWriterHelper)
             : base(platformPathHelper, resourceWriterHelper)
         {
-            _configuration = new ConfigurationBuilder()
+            Configuration = new ConfigurationBuilder()
                 .AddJsonFile(AbsoluteDestinationPath)
                 .Build();
         }
 
         public override string Name => "appsettings.json";
 
-        public IConfiguration Configuration => _configuration;
+        public IConfiguration Configuration { get; }
     }
 }

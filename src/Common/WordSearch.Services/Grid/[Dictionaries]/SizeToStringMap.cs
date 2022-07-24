@@ -23,9 +23,9 @@
             };
         }
 
-        public string GetItemString(SizeType size)
+        public string GetItemString(SizeType sizeType)
         {
-            return _map[size];
+            return _map[sizeType];
         }
     }
 }

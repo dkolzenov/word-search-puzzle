@@ -20,9 +20,9 @@
             };
         }
 
-        public string GetItemString(FontType font)
+        public string GetItemString(FontType fontType)
         {
-            return _map[font];
+            return _map[fontType];
         }
     }
 }

@@ -20,9 +20,9 @@
             };
         }
 
-        public string GetItemString(LanguageType language)
+        public string GetItemString(LanguageType languageType)
         {
-            return _map[language];
+            return _map[languageType];
         }
     }
 }

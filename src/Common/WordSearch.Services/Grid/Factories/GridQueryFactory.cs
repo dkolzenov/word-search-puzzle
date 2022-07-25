@@ -9,30 +9,12 @@
 
     public class GridQueryFactory : IGridQueryFactory
     {
-        private readonly ISizeQueryFactory _sizeQueryFactory;
-
-        public GridQueryFactory(ISizeQueryFactory sizeQueryFactory)
-        {
-            _sizeQueryFactory = sizeQueryFactory;
-        }
-
         public Expression<Func<GridEntity, bool>> CreateSizeQuery(
             SizeType sizeType)
         {
-            switch (sizeType)
-            {
-                case SizeType.Small:
-                    return _sizeQueryFactory.CreateSmallQuery();
+            var size = sizeType.ToString().ToLower();
 
-                case SizeType.Medium:
-                    return _sizeQueryFactory.CreateMediumQuery();
-
-                case SizeType.Large:
-                    return _sizeQueryFactory.CreateLargeQuery();
-
-                default:
-                    throw new ArgumentNullException();
-            }
+            return Grid => Grid.Size == size;
         }
     }
 }

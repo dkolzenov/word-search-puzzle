@@ -9,27 +9,12 @@
 
     public class CharacterQueryFactory : ICharacterQueryFactory
     {
-        private readonly IFontQueryFactory _fontQueryFactory;
-
-        public CharacterQueryFactory(IFontQueryFactory fontQueryFactory)
-        {
-            _fontQueryFactory = fontQueryFactory;
-        }
-
         public Expression<Func<CharacterEntity, bool>> CreateFontQuery(
             FontType fontType)
         {
-            switch (fontType)
-            {
-                case FontType.Cyrillic:
-                    return _fontQueryFactory.CreateCyrillicQuery();
+            var font = fontType.ToString().ToLower();
 
-                case FontType.Latin:
-                    return _fontQueryFactory.CreateLatinQuery();
-
-                default:
-                    throw new ArgumentNullException();
-            }
+            return Characters => Characters.Font == font;
         }
     }
 }

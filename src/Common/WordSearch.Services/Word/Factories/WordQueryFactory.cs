@@ -9,51 +9,20 @@
 
     public class WordQueryFactory : IWordQueryFactory
     {
-        private readonly ICategoryQueryFactory _categoryQueryFactory;
-
-        private readonly ILanguageQueryFactory _languageQueryFactory;
-
-        public WordQueryFactory(
-            ICategoryQueryFactory categoryQueryFactory,
-            ILanguageQueryFactory languageQueryFactory)
-        {
-            _categoryQueryFactory = categoryQueryFactory;
-            _languageQueryFactory = languageQueryFactory;
-        }
-
         public Expression<Func<WordEntity, bool>> CreateCategoryQuery(
             CategoryType categoryType)
         {
-            switch (categoryType)
-            {
-                case CategoryType.Animals:
-                    return _categoryQueryFactory.CreateAnimalsQuery();
+            var category = categoryType.ToString().ToLower();
 
-                case CategoryType.Vegetables:
-                    return _categoryQueryFactory.CreateVegetablesQuery();
-
-                case CategoryType.Fruits:
-                    return _categoryQueryFactory.CreateFruitsQuery();
-
-                default:
-                    throw new ArgumentNullException();
-            }
+            return Words => Words.Category == category;
         }
 
         public Expression<Func<WordEntity, bool>> CreateLanguageQuery(
             LanguageType languageType)
         {
-            switch (languageType)
-            {
-                case LanguageType.English:
-                    return _languageQueryFactory.CreateEnglishQuery();
+            var language = languageType.ToString().ToLower();
 
-                case LanguageType.Russian:
-                    return _languageQueryFactory.CreateRussianQuery();
-
-                default:
-                    throw new ArgumentNullException();
-            }
+            return Words => Words.Language == language;
         }
     }
 }

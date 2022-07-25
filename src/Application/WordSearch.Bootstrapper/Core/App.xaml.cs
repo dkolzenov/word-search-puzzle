@@ -39,6 +39,7 @@
             var wordSearchDb = Container.Resolve<IWordSearchDatabase>();
 
             containerRegistry.RegisterSqliteDbContext(wordSearchDb);
+            containerRegistry.RegisterAutoMapper();
         }
     }
 }

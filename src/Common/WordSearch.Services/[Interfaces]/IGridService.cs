@@ -3,10 +3,10 @@
     using System.Threading.Tasks;
 
     using WordSearch.Services.Grid.Enums;
-    using WordSearch.Data.Entities.Grid;
+    using WordSearch.Models.Grid;
 
     public interface IGridService
     {
-        Task<GridEntity> GetGrid(SizeType size);
+        Task<GridModel> GetGrid(SizeType size);
     }
 }

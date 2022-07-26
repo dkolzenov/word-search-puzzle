@@ -7,10 +7,44 @@
              Title="Word Search">
 
     <StackLayout>
-        <ListView x:Name="items" ItemsSource="{Binding Items}">
+        <ListView x:Name="words" ItemsSource="{Binding Words}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <ViewCell.View>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="{Binding Id} " FontSize="Medium" />
+                                <Label Text="{Binding Value} " FontSize="Medium" />
+                                <Label Text="{Binding Category} " FontSize="Medium" />
+                                <Label Text="{Binding Language}" FontSize="Medium" />
+                            </StackLayout>
+                        </ViewCell.View>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
         </ListView>
-        <Button Text="Get all characters" Command="{Binding GetAllCharactersCommand}"/>
+
+        <ListView x:Name="characters" ItemsSource="{Binding Characters}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <ViewCell.View>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="{Binding Id} " FontSize="Medium" />
+                                <Label Text="{Binding Value} " FontSize="Medium" />
+                                <Label Text="{Binding Font} " FontSize="Medium" />
+                            </StackLayout>
+                        </ViewCell.View>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <Label Text="{Binding GridInfo}"></Label>
+
+            <Button Text="Get all characters" Command="{Binding GetAllCharactersCommand}"/>
         <Button Text="Get all words" Command="{Binding GetAllWordsCommand}"/>
+        <Button Text="Get grid info" Command="{Binding GetGridInfoCommand}"/>
     </StackLayout>
 
 </ContentPage>

@@ -11,32 +11,58 @@
     using WordSearch.Services.Interfaces;
     using WordSearch.Services.Word.Enums;
     using WordSearch.Services.Character.Enums;
+    using WordSearch.Services.Grid.Enums;
+    using WordSearch.Models.Word;
+    using WordSearch.Models.Character;
 
     public class MainPageViewModel : BaseViewModel
     {
-        private List<string> _items = null!;
+        private List<WordModel> _words = null!;
+
+        private List<CharacterModel> _characters = null!;
+
+        private string _gridInfo = null!;
 
         private IWordService _wordService = null!;
 
         private ICharacterService _characterService = null!;
 
-        public List<string> Items
-        {
-            get => _items;
+        private IGridService _gridService = null!;
 
-            set => SetProperty(ref _items, value);
+        public List<WordModel> Words
+        {
+            get => _words;
+
+            set => SetProperty(ref _words, value);
+        }
+
+        public List<CharacterModel> Characters
+        {
+            get => _characters;
+
+            set => SetProperty(ref _characters, value);
+        }
+
+        public string GridInfo
+        {
+            get => _gridInfo;
+
+            set => SetProperty(ref _gridInfo, value);
         }
 
         public DelegateCommand GetAllWordsCommand { get; set; } = null!;
 
         public DelegateCommand GetAllCharactersCommand { get; set; } = null!;
 
+        public DelegateCommand GetGridInfoCommand { get; set; } = null!;
+
         public MainPageViewModel(INavigationService navigationService)
             : base(navigationService)
         {
             Title = "Main Page";
 
-            Items = new List<string>();
+            Words = new List<WordModel>();
+            Characters = new List<CharacterModel>();
 
             InitializeCommand();
             InitializeService();
@@ -44,21 +70,30 @@
 
         private async void GetAllWords()
         {
-            Items = await _wordService.GetWords(
+            Words = await _wordService.GetWords(
                 LanguageType.Russian,
                 CategoryType.Animals);
         }
 
         private async void GetAllCharacters()
         {
-            Items = await _characterService.GetCharacters(
+            Characters = await _characterService.GetCharacters(
                 FontType.Cyrillic);
+        }
+
+        private async void GetGridInfo()
+        {
+            var gridModel = await _gridService.GetGrid(SizeType.Medium);
+
+            GridInfo = $"{gridModel.Id} {gridModel.Row} {gridModel.Column} " +
+                $"{gridModel.Size}";
         }
 
         private void InitializeCommand()
         {
             GetAllWordsCommand = new DelegateCommand(GetAllWords);
             GetAllCharactersCommand = new DelegateCommand(GetAllCharacters);
+            GetGridInfoCommand = new DelegateCommand(GetGridInfo);
         }
 
         private void InitializeService()
@@ -68,6 +103,9 @@
 
             _characterService = PrismApplicationBase.Current.Container
                 .Resolve<ICharacterService>();
+
+            _gridService = PrismApplicationBase.Current.Container
+                .Resolve<IGridService>();
         }
     }
 }

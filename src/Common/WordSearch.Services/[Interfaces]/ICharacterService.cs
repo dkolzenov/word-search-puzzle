@@ -4,9 +4,10 @@
     using System.Collections.Generic;
 
     using WordSearch.Services.Character.Enums;
+    using WordSearch.Models.Character;
 
     public interface ICharacterService
     {
-        Task<List<string>> GetCharacters(FontType fontType);
+        Task<List<CharacterModel>> GetCharacters(FontType fontType);
     }
 }

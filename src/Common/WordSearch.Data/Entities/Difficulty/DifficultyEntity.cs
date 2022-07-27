@@ -13,6 +13,8 @@
 
         public int WordCount { get; set; }
 
+        public int MaxWordLength { get; set; }
+
         // TODO: Future updates
 
         //public int TimeLimit { get; set; }

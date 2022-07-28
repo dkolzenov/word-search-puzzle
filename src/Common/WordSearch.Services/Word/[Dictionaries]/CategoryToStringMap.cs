@@ -12,18 +12,13 @@
         {
             _map = new Dictionary<CategoryType, string>()
             {
-                {CategoryType.Animals,    "Животные"},
-                {CategoryType.Animals,    "Animals"},
-
-                {CategoryType.Vegetables, "Овощи"},
-                {CategoryType.Vegetables, "Vegetables"},
-
-                {CategoryType.Fruits,     "Фрукты"},
-                {CategoryType.Fruits,     "Fruits"}
+                {CategoryType.Animals,    "animals"},
+                {CategoryType.Vegetables, "vegetables"},
+                {CategoryType.Fruits,     "fruits"}
             };
         }
 
-        public string GetItemString(CategoryType categoryType)
+        public string GetCategoryString(CategoryType categoryType)
         {
             return _map[categoryType];
         }

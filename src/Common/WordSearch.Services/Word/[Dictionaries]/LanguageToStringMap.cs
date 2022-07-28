@@ -12,15 +12,12 @@
         {
             _map = new Dictionary<LanguageType, string>()
             {
-                {LanguageType.Russian, "Русский"},
-                {LanguageType.Russian, "Russian"},
-
-                {LanguageType.English, "Английский"},
-                {LanguageType.English, "English"}
+                {LanguageType.Russian, "russian"},
+                {LanguageType.English, "english"}
             };
         }
 
-        public string GetItemString(LanguageType languageType)
+        public string GetLanguageString(LanguageType languageType)
         {
             return _map[languageType];
         }

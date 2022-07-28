@@ -1,5 +1,8 @@
 ﻿namespace WordSearch.Data.Entities.GameSettings
 {
+    using System.ComponentModel.DataAnnotations.Schema;
+
+    [Table("GameSettings")]
     public class GameSettingsEntity
     {
         public int Id { get; set; }

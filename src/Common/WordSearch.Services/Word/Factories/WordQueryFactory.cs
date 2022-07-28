@@ -23,7 +23,7 @@
         public Expression<Func<WordEntity, bool>> CreateCategoryQuery(
             CategoryType categoryType)
         {
-            var category = _categoryMap.GetItemString(categoryType);
+            string category = _categoryMap.GetCategoryString(categoryType);
 
             return Words => Words.Category == category;
         }
@@ -31,7 +31,7 @@
         public Expression<Func<WordEntity, bool>> CreateLanguageQuery(
             LanguageType languageType)
         {
-            var language = _languageMap.GetItemString(languageType);
+            string language = _languageMap.GetLanguageString(languageType);
 
             return Words => Words.Language == language;
         }

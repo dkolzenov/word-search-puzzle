@@ -17,7 +17,7 @@
             };
         }
 
-        public string GetItemString(LanguageType languageType)
+        public string GetLanguageString(LanguageType languageType)
         {
             return _map[languageType];
         }

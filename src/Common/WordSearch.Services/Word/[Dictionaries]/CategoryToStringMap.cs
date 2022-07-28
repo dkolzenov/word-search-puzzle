@@ -18,7 +18,7 @@
             };
         }
 
-        public string GetItemString(CategoryType categoryType)
+        public string GetCategoryString(CategoryType categoryType)
         {
             return _map[categoryType];
         }

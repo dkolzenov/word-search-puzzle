@@ -29,9 +29,26 @@
             _gameSettingsRepository = gameSettingsRepository;
         }
 
-        public Task<GameSettingsModel> GetSettings(DifficultyType difficultyType)
+        public async Task<GameSettingsModel> GetSettings(
+            DifficultyType difficultyType)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var difficultyQuery = _gameSettingsFactory
+                    .CreateDifficultyQuery(difficultyType);
+
+                var result = await _gameSettingsRepository
+                    .QueryAsync(difficultyQuery);
+
+                var settings = _mapper.Map<GameSettingsModel>(result[0]);
+
+                return settings;
+            }
+            catch (Exception ex)
+            {
+                return await Task.FromException<GameSettingsModel>(
+                    ex.InnerException);
+            }
         }
     }
 }

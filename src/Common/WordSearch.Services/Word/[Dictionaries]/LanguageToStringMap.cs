@@ -12,11 +12,8 @@
         {
             _map = new Dictionary<LanguageType, string>()
             {
-                {LanguageType.Russian, "Русский"},
-                {LanguageType.Russian, "Russian"},
-
-                {LanguageType.English, "Английский"},
-                {LanguageType.English, "English"}
+                {LanguageType.Russian, "russian"},
+                {LanguageType.English, "english"}
             };
         }
 

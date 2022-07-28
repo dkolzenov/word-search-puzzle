@@ -6,6 +6,7 @@
     using WordSearch.Data.Repositories.Word;
     using WordSearch.Data.Repositories.Character;
     using WordSearch.Data.Repositories.Grid;
+    using WordSearch.Data.Repositories.GameSettings;
 
     public static class DataRegistryExtension
     {
@@ -20,6 +21,9 @@
 
             containerRegistry.RegisterSingleton<
                 IGridRepository, GridRepository>();
+
+            containerRegistry.RegisterSingleton<
+                IGameSettingsRepository, GameSettingsRepository>();
         }
     }
 }

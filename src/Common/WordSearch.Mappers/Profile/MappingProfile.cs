@@ -5,9 +5,11 @@
     using WordSearch.Data.Entities.Character;
     using WordSearch.Data.Entities.Grid;
     using WordSearch.Data.Entities.Word;
+    using WordSearch.Data.Entities.GameSettings;
     using WordSearch.Models.Character;
     using WordSearch.Models.Grid;
     using WordSearch.Models.Word;
+    using WordSearch.Models.GameSettings;
 
     public class MappingProfile : Profile
     {
@@ -18,6 +20,7 @@
             CreateMap<CharacterEntity, CharacterModel>();
             CreateMap<GridEntity, GridModel>();
             CreateMap<WordEntity, WordModel>();
+            CreateMap<GameSettingsEntity, GameSettingsModel>();
 
             #endregion
 
@@ -26,6 +29,7 @@
             CreateMap<CharacterModel, CharacterEntity>();
             CreateMap<GridModel, GridEntity>();
             CreateMap<WordModel, WordEntity>();
+            CreateMap<GameSettingsModel, GameSettingsEntity>();
 
             #endregion
         }

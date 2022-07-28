@@ -41,10 +41,12 @@
         </ListView>
 
         <Label Text="{Binding GridInfo}"></Label>
+        <Label Text="{Binding GameSettingsInfo}"></Label>
 
-            <Button Text="Get all characters" Command="{Binding GetAllCharactersCommand}"/>
+        <Button Text="Get all characters" Command="{Binding GetAllCharactersCommand}"/>
         <Button Text="Get all words" Command="{Binding GetAllWordsCommand}"/>
         <Button Text="Get grid info" Command="{Binding GetGridInfoCommand}"/>
+        <Button Text="Get game settings" Command="{Binding GetGameSettingsCommand}"/>
     </StackLayout>
 
 </ContentPage>

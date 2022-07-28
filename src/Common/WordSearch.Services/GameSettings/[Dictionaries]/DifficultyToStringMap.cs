@@ -12,18 +12,13 @@
         {
             _map = new Dictionary<DifficultyType, string>()
             {
-                {DifficultyType.Easy, "Легко"},
-                {DifficultyType.Easy, "Easy"},
-
-                {DifficultyType.Normal, "Нормально"},
-                {DifficultyType.Normal, "Normal"},
-
-                {DifficultyType.Hard, "Тяжело"},
-                {DifficultyType.Hard, "Hard"},
+                {DifficultyType.Easy, "easy"},
+                {DifficultyType.Normal, "normal"},
+                {DifficultyType.Hard, "hard"},
             };
         }
 
-        public string GetItemString(DifficultyType difficultyType)
+        public string GetDifficultyString(DifficultyType difficultyType)
         {
             return _map[difficultyType];
         }

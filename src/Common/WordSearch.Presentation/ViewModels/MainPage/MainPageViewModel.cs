@@ -12,6 +12,7 @@
     using WordSearch.Services.Word.Enums;
     using WordSearch.Services.Character.Enums;
     using WordSearch.Services.Grid.Enums;
+    using WordSearch.Services.GameSettings.Enums;
     using WordSearch.Models.Word;
     using WordSearch.Models.Character;
 
@@ -23,11 +24,15 @@
 
         private string _gridInfo = null!;
 
+        private string _gameSettingsInfo = null!;
+
         private IWordService _wordService = null!;
 
         private ICharacterService _characterService = null!;
 
         private IGridService _gridService = null!;
+
+        private IGameSettingsService _gameSettingsService = null!;
 
         public List<WordModel> Words
         {
@@ -50,11 +55,20 @@
             set => SetProperty(ref _gridInfo, value);
         }
 
+        public string GameSettingsInfo
+        {
+            get => _gameSettingsInfo;
+
+            set => SetProperty(ref _gameSettingsInfo, value);
+        }
+
         public DelegateCommand GetAllWordsCommand { get; set; } = null!;
 
         public DelegateCommand GetAllCharactersCommand { get; set; } = null!;
 
         public DelegateCommand GetGridInfoCommand { get; set; } = null!;
+
+        public DelegateCommand GetGameSettingsCommand { get; set; } = null!;
 
         public MainPageViewModel(INavigationService navigationService)
             : base(navigationService)
@@ -89,11 +103,22 @@
                 $"{gridModel.Size}";
         }
 
+        private async void GetGameSettings()
+        {
+            var settingsModel = await _gameSettingsService
+                .GetSettings(DifficultyType.Easy);
+
+            GameSettingsInfo = $"{settingsModel.Difficulty} " +
+                $"{settingsModel.GridSize} {settingsModel.WordCount} " +
+                $"{settingsModel.MaxWordLength}";
+        }
+
         private void InitializeCommand()
         {
             GetAllWordsCommand = new DelegateCommand(GetAllWords);
             GetAllCharactersCommand = new DelegateCommand(GetAllCharacters);
             GetGridInfoCommand = new DelegateCommand(GetGridInfo);
+            GetGameSettingsCommand = new DelegateCommand(GetGameSettings);
         }
 
         private void InitializeService()
@@ -106,6 +131,9 @@
 
             _gridService = PrismApplicationBase.Current.Container
                 .Resolve<IGridService>();
+
+            _gameSettingsService = PrismApplicationBase.Current.Container
+                .Resolve<IGameSettingsService>();
         }
     }
 }

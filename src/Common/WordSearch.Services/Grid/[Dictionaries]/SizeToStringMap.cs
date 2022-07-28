@@ -12,18 +12,13 @@
         {
             _map = new Dictionary<SizeType, string>()
             {
-                {SizeType.Small, "Маленький"},
-                {SizeType.Small, "Small"},
-
-                {SizeType.Medium, "Средний"},
-                {SizeType.Medium, "Medium"},
-
-                {SizeType.Large, "Большой"},
-                {SizeType.Large, "Large"},
+                {SizeType.Small, "small"},
+                {SizeType.Medium, "medium"},
+                {SizeType.Large, "large"},
             };
         }
 
-        public string GetItemString(SizeType sizeType)
+        public string GetSizeString(SizeType sizeType)
         {
             return _map[sizeType];
         }

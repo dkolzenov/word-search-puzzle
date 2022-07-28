@@ -12,6 +12,9 @@
     using WordSearch.Services.Grid;
     using WordSearch.Services.Grid.Factories;
     using WordSearch.Services.Grid.Factories.Interfaces;
+    using WordSearch.Services.GameSettings;
+    using WordSearch.Services.GameSettings.Factories;
+    using WordSearch.Services.GameSettings.Factories.Interfaces;
 
     public static class ServicesRegistryExtension
     {
@@ -36,6 +39,13 @@
                 IGridQueryFactory, GridQueryFactory>();
 
             containerRegistry.RegisterSingleton<IGridService, GridService>();
+
+            // GameSettingsService
+            containerRegistry.RegisterSingleton<
+                IGameSettingsQueryFactory, GameSettingsQueryFactory>();
+
+            containerRegistry.RegisterSingleton<
+                IGameSettingsService, GameSettingsService>();
         }
     }
 }

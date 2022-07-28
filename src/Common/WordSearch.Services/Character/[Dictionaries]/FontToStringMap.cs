@@ -12,15 +12,12 @@
         {
             _map = new Dictionary<FontType, string>()
             {
-                {FontType.Cyrillic, "Кириллица"},
-                {FontType.Cyrillic, "Cyrillic"},
-
-                {FontType.Latin, "Латиница"},
-                {FontType.Latin, "Latin"}
+                {FontType.Cyrillic, "cyrillic"},
+                {FontType.Latin, "latin"}
             };
         }
 
-        public string GetItemString(FontType fontType)
+        public string GetFontString(FontType fontType)
         {
             return _map[fontType];
         }

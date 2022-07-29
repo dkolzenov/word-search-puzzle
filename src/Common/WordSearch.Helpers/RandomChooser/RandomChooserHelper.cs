@@ -15,28 +15,39 @@
             s_random = new Random();
         }
 
-        public T GetRandomChooseItem<T>(List<T> sourceList)
+        public T GetRandomEnumValue<T>() where T : Enum
+        {
+            Array enumArray = Enum.GetValues(typeof(T));
+
+            int randomIndex = s_random.Next(enumArray.Length);
+
+            T randomEnumValue = (T)enumArray.GetValue(randomIndex);
+
+            return randomEnumValue;
+        }
+
+        public T GetRandomItem<T>(List<T> sourceList)
         {
             int randomIndex = s_random.Next(sourceList.Count - 1);
 
-            T randomChooseItem = sourceList.ElementAt(randomIndex);
+            T randomItem = sourceList.ElementAt(randomIndex);
 
-            return randomChooseItem;
+            return randomItem;
         }
 
-        public List<T> GetRandomChooseList<T>(List<T> sourceList, int randomCount)
+        public List<T> GetRandomUniqueList<T>(List<T> sourceList, int randomCount)
         {
-            var randomChooseSet = new HashSet<T>();
+            var randomSet = new HashSet<T>();
 
-            while (randomChooseSet.Count != randomCount)
+            while (randomSet.Count != randomCount)
             {
                 int randomIndex = s_random.Next(sourceList.Count - 1);
-                randomChooseSet.Add(sourceList.ElementAt(randomIndex));
+                randomSet.Add(sourceList.ElementAt(randomIndex));
             }
 
-            List<T> randomChooseList = randomChooseSet.ToList();
+            List<T> randomList = randomSet.ToList();
 
-            return randomChooseList;
+            return randomList;
         }
     }
 }

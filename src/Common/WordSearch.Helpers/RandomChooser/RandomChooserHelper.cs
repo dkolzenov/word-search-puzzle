@@ -15,6 +15,13 @@
             s_random = new Random();
         }
 
+        public int GetRandomIntValue(
+            int minValue = 0,
+            int maxValue = int.MaxValue)
+        {
+            return s_random.Next(minValue, maxValue);
+        }
+
         public T GetRandomEnumValue<T>() where T : Enum
         {
             Array enumArray = Enum.GetValues(typeof(T));

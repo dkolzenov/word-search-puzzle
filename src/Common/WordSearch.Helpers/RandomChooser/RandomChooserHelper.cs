@@ -5,6 +5,7 @@
     using System.Collections.Generic;
 
     using WordSearch.Helpers.Interfaces;
+    using WordSearch.Models.Word;
 
     public class RandomChooserHelper : IRandomChooserHelper
     {
@@ -55,6 +56,27 @@
             List<T> randomList = randomSet.ToList();
 
             return randomList;
+        }
+
+        public List<WordModel> GetRandomUniqueWordList(
+            List<WordModel> wordList,
+            int wordCount,
+            int maxWordLength)
+        {
+            var wordSet = new HashSet<WordModel>();
+
+            while (wordSet.Count != wordCount)
+            {
+                int randomIndex = s_random.Next(wordList.Count - 1);
+                WordModel word = wordList.ElementAt(randomIndex);
+
+                if (word.Value.Length <= maxWordLength)
+                    wordSet.Add(word);
+            }
+
+            List<WordModel> uniqueWordList = wordSet.ToList();
+
+            return uniqueWordList;
         }
     }
 }

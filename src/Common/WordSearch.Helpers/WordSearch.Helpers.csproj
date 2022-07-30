@@ -5,4 +5,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\WordSearch.Models\WordSearch.Models.csproj" />
+  </ItemGroup>
+
 </Project>

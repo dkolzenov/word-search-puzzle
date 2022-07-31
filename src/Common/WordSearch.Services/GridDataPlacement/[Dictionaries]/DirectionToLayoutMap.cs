@@ -9,8 +9,6 @@
     {
         private readonly Dictionary<DirectionType, LayoutType> _map;
 
-        private readonly List<DirectionType> _directionList;
-
         public DirectionToLayoutMap()
         {
             _map = new Dictionary<DirectionType, LayoutType>()
@@ -26,22 +24,20 @@
                 {DirectionType.LeftToTop,     LayoutType.Diagonal},
                 {DirectionType.RightToTop,    LayoutType.Diagonal}
             };
-
-            _directionList = new List<DirectionType>();
         }
 
         public List<DirectionType> GetDirectionsByLayout(LayoutType layoutType)
         {
             var directions = _map.Where(x => x.Value == layoutType);
 
-            _directionList.Clear();
+            var directionList = new List<DirectionType>();
 
             foreach (var direction in directions)
             {
-                _directionList.Add(direction.Key);
+                directionList.Add(direction.Key);
             }
 
-            return _directionList;
+            return directionList;
         }
     }
 }

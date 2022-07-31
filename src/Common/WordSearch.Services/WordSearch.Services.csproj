@@ -16,7 +16,6 @@
 
   <ItemGroup>
     <Folder Include="GridDataPlacement\[Dictionaries]\" />
-    <Folder Include="GridDataPlacement\[Enums]\" />
   </ItemGroup>
 
 </Project>

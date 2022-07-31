@@ -14,4 +14,9 @@
     <ProjectReference Include="..\WordSearch.Models\WordSearch.Models.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="GridDataPlacement\[Dictionaries]\" />
+    <Folder Include="GridDataPlacement\[Enums]\" />
+  </ItemGroup>
+
 </Project>

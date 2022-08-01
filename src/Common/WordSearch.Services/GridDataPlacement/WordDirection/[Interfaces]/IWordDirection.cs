@@ -7,7 +7,7 @@
 
     public struct MovementState
     {
-        public const int Stay = 0;
+        public const int None = 0;
 
         public const int ShiftOneCell = 1;
     }

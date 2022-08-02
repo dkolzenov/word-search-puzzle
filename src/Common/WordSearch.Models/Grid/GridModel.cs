@@ -1,9 +1,19 @@
 ﻿namespace WordSearch.Models.Grid
 {
+    using System;
+    using System.Collections.Generic;
+
     using WordSearch.Models.Cell;
 
     public class GridModel
     {
+        private readonly List<CellModel> _cells;
+
+        public GridModel()
+        {
+            _cells = new List<CellModel>();
+        }
+
         public int Id { get; set; }
 
         public int Row { get; set; }
@@ -12,6 +22,36 @@
 
         public string Size { get; set; } = null!;
 
-        public CellModel[,] Array { get; set; } = null!;
+        public CellModel this[int rowIndex, int columnIndex]
+        {
+            get
+            {
+                if (IsOutOfRange(rowIndex, columnIndex))
+                    throw new ArgumentOutOfRangeException();
+
+                int index = rowIndex * Column + columnIndex;
+
+                return _cells[index];
+            }
+            set
+            {
+                if (IsOutOfRange(rowIndex, columnIndex))
+                    throw new ArgumentOutOfRangeException();
+
+                int index = rowIndex * Column + columnIndex;
+
+                _cells[index] = value;
+            }
+        }
+
+        private bool IsOutOfRange(int rowIndex, int columnIndex)
+        {
+            if (rowIndex < 0 || columnIndex < 0 ||
+                rowIndex >= Row  || columnIndex >= Column)
+            {
+                return true;
+            }
+            return false;
+        }
     }
 }

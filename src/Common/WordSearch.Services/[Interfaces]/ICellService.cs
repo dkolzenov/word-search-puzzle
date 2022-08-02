@@ -1,9 +1,12 @@
 ﻿namespace WordSearch.Services.Interfaces
 {
+    using System.Threading.Tasks;
+    using System.Collections.Generic;
+
     using WordSearch.Models.Cell;
 
     public interface ICellService
     {
-        CellModel[,] GetTwoDimensionalCellArray(int row, int column);
+        Task<List<CellModel>> GetCellList(int count);
     }
 }

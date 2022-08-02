@@ -1,27 +1,24 @@
 ﻿namespace WordSearch.Services.Cell
 {
+    using System.Threading.Tasks;
+    using System.Collections.Generic;
+
     using WordSearch.Services.Interfaces;
     using WordSearch.Models.Cell;
 
     public class CellService : ICellService
     {
-        public CellModel[,] GetTwoDimensionalCellArray(int row, int column)
+        public Task<List<CellModel>> GetCellList(int count)
         {
-            var cellArray = new CellModel[row, column];
+            var cellList = new List<CellModel>();
 
-            for (int i = 0; i < row; i++)
+            for (int i = 0; i < count; i++)
             {
-                for (int j = 0; j < column; j++)
-                {
-                    var cell = new CellModel()
-                    {
-                        Row = i + 1,
-                        Column = j + 1
-                    };
-                    cellArray[i, j] = cell;
-                }
+                var cell = new CellModel();
+
+                cellList.Add(cell);
             }
-            return cellArray;
+            return Task.FromResult(cellList);
         }
     }
 }

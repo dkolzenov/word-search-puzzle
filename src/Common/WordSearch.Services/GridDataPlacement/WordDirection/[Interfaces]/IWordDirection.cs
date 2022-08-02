@@ -2,7 +2,7 @@
 {
     public interface IWordDirection
     {
-        void MoveInGrid(ref int row, ref int column);
+        void MoveOnGrid(ref int row, ref int column);
     }
 
     public struct MovementState

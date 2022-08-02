@@ -4,7 +4,7 @@
 
     public class LeftToTop : IWordDirection
     {
-        public void MoveInGrid(ref int row, ref int column)
+        public void MoveOnGrid(ref int row, ref int column)
         {
             row -= MovementState.ShiftOneCell;
             column += MovementState.ShiftOneCell;

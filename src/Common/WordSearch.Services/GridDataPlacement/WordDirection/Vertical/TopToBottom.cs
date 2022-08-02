@@ -4,7 +4,7 @@
 
     public class TopToBottom : IWordDirection
     {
-        public void MoveInGrid(ref int row, ref int column)
+        public void MoveOnGrid(ref int row, ref int column)
         {
             row += MovementState.ShiftOneCell;
             column += MovementState.None;

@@ -1,6 +1,6 @@
 ﻿namespace WordSearch.Models.Grid
 {
-    using System;
+    using WordSearch.Models.Cell;
 
     public class GridModel
     {
@@ -12,6 +12,6 @@
 
         public string Size { get; set; } = null!;
 
-        public Array Array { get; set; } = null!;
+        public CellModel[,] Array { get; set; } = null!;
     }
 }

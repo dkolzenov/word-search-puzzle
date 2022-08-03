@@ -6,7 +6,7 @@
 
         public int ColumnMovement { get; set; }
 
-        public string LayoutType { get; set; } = null!;
+        public string Layout { get; set; } = null!;
 
         public string DirectionType { get; set; } = null!;
     }

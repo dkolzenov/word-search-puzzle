@@ -6,6 +6,7 @@
     using WordSearch.Data.Entities.Character;
     using WordSearch.Data.Entities.Grid;
     using WordSearch.Data.Entities.GameSettings;
+    using WordSearch.Data.Entities.Direction;
 
     public class ApplicationDbContext : DbContext
     {
@@ -16,6 +17,8 @@
         public DbSet<GridEntity> Grids { get; set; } = null!;
 
         public DbSet<GameSettingsEntity> GameSettings { get; set; } = null!;
+
+        public DbSet<DirectionEntity> Directions { get; set; } = null!;
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)

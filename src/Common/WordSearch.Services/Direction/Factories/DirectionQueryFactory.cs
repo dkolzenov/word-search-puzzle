@@ -22,7 +22,7 @@
         {
             string layout = _layoutMap.GetLayoutString(layoutType);
 
-            return Directions => Directions.LayoutType == layout;
+            return Directions => Directions.Layout == layout;
         }
     }
 }

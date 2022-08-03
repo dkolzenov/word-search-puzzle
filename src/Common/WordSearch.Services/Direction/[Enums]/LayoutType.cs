@@ -1,4 +1,4 @@
-﻿namespace WordSearch.Services.GridDataPlacement.Enums
+﻿namespace WordSearch.Services.Direction.Enums
 {
     public enum LayoutType
     {

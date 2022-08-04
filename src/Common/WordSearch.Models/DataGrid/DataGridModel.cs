@@ -1,4 +1,4 @@
-﻿namespace WordSearch.Models.GridDataPlacement
+﻿namespace WordSearch.Models.DataGrid
 {
     using System.Collections.Generic;
 
@@ -6,7 +6,7 @@
     using WordSearch.Models.Cell;
     using WordSearch.Models.Character;
 
-    public class GridDataPlacementModel
+    public class DataGridModel
     {
         public List<WordModel> Words { get; set; } = null!;
 

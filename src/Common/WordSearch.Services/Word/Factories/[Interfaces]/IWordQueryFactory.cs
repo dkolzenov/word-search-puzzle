@@ -13,5 +13,7 @@
 
         Expression<Func<WordEntity, bool>> CreateLanguageQuery(
             LanguageType languageType);
+
+        Expression<Func<WordEntity, bool>> CreateMaxLengthQuery(int maxLength);
     }
 }

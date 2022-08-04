@@ -2,16 +2,13 @@
 {
     using System.Collections.Generic;
 
+    using WordSearch.Models.Grid;
     using WordSearch.Models.Word;
-    using WordSearch.Models.Cell;
-    using WordSearch.Models.Character;
 
     public class DataGridModel
     {
+        public GridModel Grid { get; set; } = null!;
+
         public List<WordModel> Words { get; set; } = null!;
-
-        public List<CharacterModel> Characters { get; set; } = null!;
-
-        public List<CellModel> Cells { get; set; } = null!;
     }
 }

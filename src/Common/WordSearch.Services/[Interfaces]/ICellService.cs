@@ -7,6 +7,6 @@
 
     public interface ICellService
     {
-        Task<List<CellModel>> GetCellList(int count);
+        Task<List<CellModel>> GetCells(int count);
     }
 }

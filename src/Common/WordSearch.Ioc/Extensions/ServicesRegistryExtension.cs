@@ -15,6 +15,7 @@
     using WordSearch.Services.GameSettings;
     using WordSearch.Services.GameSettings.Factories;
     using WordSearch.Services.GameSettings.Factories.Interfaces;
+    using WordSearch.Services.Cell;
 
     public static class ServicesRegistryExtension
     {
@@ -46,6 +47,9 @@
 
             containerRegistry.RegisterSingleton<
                 IGameSettingsService, GameSettingsService>();
+
+            // CellService
+            containerRegistry.RegisterSingleton<ICellService, CellService>();
         }
     }
 }

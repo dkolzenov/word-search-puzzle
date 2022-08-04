@@ -8,7 +8,7 @@
 
     public class CellService : ICellService
     {
-        public Task<List<CellModel>> GetCellList(int count)
+        public Task<List<CellModel>> GetCells(int count)
         {
             var cellList = new List<CellModel>();
 

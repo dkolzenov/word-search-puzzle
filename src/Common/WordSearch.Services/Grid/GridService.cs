@@ -2,6 +2,7 @@
 {
     using System;
     using System.Threading.Tasks;
+    using System.Collections.Generic;
 
     using AutoMapper;
 
@@ -10,6 +11,7 @@
     using WordSearch.Services.Grid.Enums;
     using WordSearch.Data.Repositories.Interfaces;
     using WordSearch.Models.Grid;
+    using WordSearch.Models.Cell;
 
     public class GridService : IGridService
     {
@@ -19,14 +21,18 @@
 
         private readonly IGridRepository _gridRepository;
 
+        private readonly ICellService _cellService;
+
         public GridService(
             IMapper mapper,
             IGridQueryFactory gridFactory,
-            IGridRepository gridRepository)
+            IGridRepository gridRepository,
+            ICellService cellService)
         {
             _mapper = mapper;
             _gridFactory = gridFactory;
             _gridRepository = gridRepository;
+            _cellService = cellService;
         }
 
         public async Task<GridModel> GetGrid(SizeType sizeType)
@@ -39,12 +45,37 @@
 
                 var grid = _mapper.Map<GridModel>(result[0]);
 
+                var totalCells = grid.Row * grid.Column;
+
+                var cells = await _cellService.GetCells(totalCells);
+
+                PlaceCellsOnGrid(ref grid, cells);
+
                 return grid;
             }
             catch (Exception ex)
             {
                 return await Task.FromException<GridModel>(
                     ex.InnerException);
+            }
+        }
+
+        private void PlaceCellsOnGrid(
+            ref GridModel grid,
+            List<CellModel> cellList)
+        {
+            for (int i = 0; i < grid.Row; i++)
+            {
+                for (int j = 0; j < grid.Column; j++)
+                {
+                    int cellIndex = i * grid.Column + j;
+                    CellModel cell = cellList[cellIndex];
+
+                    cell.Row = i + 1;
+                    cell.Column = j + 1;
+
+                    grid[i, j] = cell;
+                }
             }
         }
     }

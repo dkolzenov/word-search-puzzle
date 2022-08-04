@@ -10,6 +10,7 @@
     {
         Task<List<WordModel>> GetWords(
             LanguageType languageType,
-            CategoryType categoryType);
+            CategoryType categoryType,
+            int maxLength = int.MaxValue);
     }
 }

@@ -32,7 +32,8 @@
 
         public async Task<List<WordModel>> GetWords(
             LanguageType languageType,
-            CategoryType categoryType)
+            CategoryType categoryType,
+            int maxLength = int.MaxValue)
         {
             try
             {
@@ -42,9 +43,13 @@
                 var categoryQuery = _wordFactory
                     .CreateCategoryQuery(categoryType);
 
+                var maxLengthQuery = _wordFactory
+                    .CreateMaxLengthQuery(maxLength);
+
                 var result = await _wordRepository.QueryAsync(
                     languageQuery,
-                    categoryQuery);
+                    categoryQuery,
+                    maxLengthQuery);
 
                 var words = _mapper.Map<List<WordModel>>(result);
 

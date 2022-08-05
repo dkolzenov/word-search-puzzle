@@ -12,6 +12,7 @@
     using WordSearch.Models.Word;
     using WordSearch.Models.GameSettings;
     using WordSearch.Models.Direction;
+    using WordSearch.Presentation.Models.GameMenu;
 
     public class MappingProfile : Profile
     {
@@ -34,6 +35,13 @@
             CreateMap<WordModel, WordEntity>();
             CreateMap<GameSettingsModel, GameSettingsEntity>();
             CreateMap<DirectionModel, DirectionEntity>();
+
+            #endregion
+
+            #region Models to Models
+
+            CreateMap<GameMenuModel, GameSettingsModel>();
+            CreateMap<GameSettingsModel, GameMenuModel>();
 
             #endregion
         }

@@ -23,7 +23,7 @@
         }
 
         public async Task<GridDataModel> GetGridData(
-            AdvancedGameSettingsModel gameSettings)
+            GameSettingsModel gameSettings)
         {
             var wordLanguage = Enum.Parse<LanguageType>(
                 gameSettings.WordLanguage,

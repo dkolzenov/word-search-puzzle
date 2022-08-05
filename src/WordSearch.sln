@@ -28,7 +28,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WordSearch.Assets", "Common
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WordSearch.Mappers", "Common\WordSearch.Mappers\WordSearch.Mappers.csproj", "{E79B29CC-DC94-461C-A7DF-D28C6ECCAD35}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WordSearch.Presentation.Models", "Common\WordSearch.Presentation.Models\WordSearch.Presentation.Models.csproj", "{20FE0239-D640-4846-8DCA-7833CAC46C07}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WordSearch.Presentation.Models", "Common\WordSearch.Presentation.Models\WordSearch.Presentation.Models.csproj", "{20FE0239-D640-4846-8DCA-7833CAC46C07}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WordSearch.Core", "Common\WordSearch.Core\WordSearch.Core.csproj", "{144266C4-F864-4F42-BE6B-EDA2D31D56B2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -196,6 +198,18 @@ Global
 		{20FE0239-D640-4846-8DCA-7833CAC46C07}.Release|iPhone.Build.0 = Release|Any CPU
 		{20FE0239-D640-4846-8DCA-7833CAC46C07}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
 		{20FE0239-D640-4846-8DCA-7833CAC46C07}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
+		{144266C4-F864-4F42-BE6B-EDA2D31D56B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{144266C4-F864-4F42-BE6B-EDA2D31D56B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{144266C4-F864-4F42-BE6B-EDA2D31D56B2}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{144266C4-F864-4F42-BE6B-EDA2D31D56B2}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{144266C4-F864-4F42-BE6B-EDA2D31D56B2}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{144266C4-F864-4F42-BE6B-EDA2D31D56B2}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{144266C4-F864-4F42-BE6B-EDA2D31D56B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{144266C4-F864-4F42-BE6B-EDA2D31D56B2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{144266C4-F864-4F42-BE6B-EDA2D31D56B2}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{144266C4-F864-4F42-BE6B-EDA2D31D56B2}.Release|iPhone.Build.0 = Release|Any CPU
+		{144266C4-F864-4F42-BE6B-EDA2D31D56B2}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{144266C4-F864-4F42-BE6B-EDA2D31D56B2}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

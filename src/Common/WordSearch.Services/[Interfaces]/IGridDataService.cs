@@ -7,6 +7,6 @@
 
     public interface IGridDataService
     {
-        Task<GridDataModel> GetGridData(GameSettingsModel gameSettings);
+        Task<GridDataModel> GetGridData(AdvancedGameSettingsModel gameSettings);
     }
 }

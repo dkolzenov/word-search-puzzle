@@ -1,6 +1,6 @@
-﻿namespace WordSearch.Presentation.Models.GameSettings
+﻿namespace WordSearch.Models.GameSettings
 {
-    public class GameSettingsModel
+    public class BasicGameSettingsModel
     {
         public string WordLanguage { get; set; } = null!;
 

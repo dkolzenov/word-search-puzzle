@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
@@ -12,6 +12,7 @@
   <ItemGroup>
     <ProjectReference Include="..\WordSearch.Data\WordSearch.Data.csproj" />
     <ProjectReference Include="..\WordSearch.Models\WordSearch.Models.csproj" />
+    <ProjectReference Include="..\WordSearch.Presentation.Models\WordSearch.Presentation.Models.csproj" />
   </ItemGroup>
 
 </Project>

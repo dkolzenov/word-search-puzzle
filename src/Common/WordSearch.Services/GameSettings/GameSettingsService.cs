@@ -29,7 +29,7 @@
             _gameSettingsRepository = gameSettingsRepository;
         }
 
-        public async Task<AdvancedGameSettingsModel> GetSettings(
+        public async Task<GameSettingsModel> GetSettings(
             DifficultyType difficultyType)
         {
             try
@@ -40,13 +40,13 @@
                 var result = await _gameSettingsRepository
                     .QueryAsync(difficultyQuery);
 
-                var settings = _mapper.Map<AdvancedGameSettingsModel>(result[0]);
+                var settings = _mapper.Map<GameSettingsModel>(result[0]);
 
                 return settings;
             }
             catch (Exception ex)
             {
-                return await Task.FromException<AdvancedGameSettingsModel>(
+                return await Task.FromException<GameSettingsModel>(
                     ex.InnerException);
             }
         }

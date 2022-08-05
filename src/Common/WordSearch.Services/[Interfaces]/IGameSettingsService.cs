@@ -7,6 +7,6 @@
 
     public interface IGameSettingsService
     {
-        Task<AdvancedGameSettingsModel> GetSettings(DifficultyType difficultyType);
+        Task<GameSettingsModel> GetSettings(DifficultyType difficultyType);
     }
 }

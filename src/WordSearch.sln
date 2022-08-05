@@ -28,7 +28,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WordSearch.Assets", "Common
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WordSearch.Mappers", "Common\WordSearch.Mappers\WordSearch.Mappers.csproj", "{E79B29CC-DC94-461C-A7DF-D28C6ECCAD35}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WordSearch.Presentation.Models", "Common\WordSearch.Presentation.Models\WordSearch.Presentation.Models.csproj", "{20FE0239-D640-4846-8DCA-7833CAC46C07}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WordSearch.Presentation.Models", "Common\WordSearch.Presentation.Models\WordSearch.Presentation.Models.csproj", "{20FE0239-D640-4846-8DCA-7833CAC46C07}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

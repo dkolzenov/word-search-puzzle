@@ -23,7 +23,7 @@
             CreateMap<CharacterEntity, CharacterModel>();
             CreateMap<GridEntity, GridModel>();
             CreateMap<WordEntity, WordModel>();
-            CreateMap<GameSettingsEntity, GameSettingsModel>();
+            CreateMap<GameSettingsEntity, AdvancedGameSettingsModel>();
             CreateMap<DirectionEntity, DirectionModel>();
 
             #endregion
@@ -33,15 +33,15 @@
             CreateMap<CharacterModel, CharacterEntity>();
             CreateMap<GridModel, GridEntity>();
             CreateMap<WordModel, WordEntity>();
-            CreateMap<GameSettingsModel, GameSettingsEntity>();
+            CreateMap<AdvancedGameSettingsModel, GameSettingsEntity>();
             CreateMap<DirectionModel, DirectionEntity>();
 
             #endregion
 
             #region Models to Models
 
-            CreateMap<GameMenuModel, GameSettingsModel>();
-            CreateMap<GameSettingsModel, GameMenuModel>();
+            CreateMap<GameMenuModel, BasicGameSettingsModel>();
+            CreateMap<BasicGameSettingsModel, GameMenuModel>();
 
             #endregion
         }

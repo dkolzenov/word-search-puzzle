@@ -1,6 +1,7 @@
 ﻿namespace WordSearch.Services.Character
 {
     using System;
+    using System.Linq;
     using System.Threading.Tasks;
     using System.Collections.Generic;
 
@@ -41,7 +42,9 @@
                 var result = await _characterRepository
                     .QueryAsync(scriptQuery);
 
-                var characters = _mapper.Map<List<CharacterModel>>(result);
+                var characters = _mapper
+                    .Map<IEnumerable<CharacterModel>>(result[0])
+                    .ToList();
 
                 return characters;
             }

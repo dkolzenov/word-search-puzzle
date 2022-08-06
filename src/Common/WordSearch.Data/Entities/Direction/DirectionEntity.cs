@@ -2,7 +2,7 @@
 {
     using System.ComponentModel.DataAnnotations.Schema;
 
-    [Table("Directions")]
+    [Table("Direction")]
     public class DirectionEntity
     {
         public int Id { get; set; }

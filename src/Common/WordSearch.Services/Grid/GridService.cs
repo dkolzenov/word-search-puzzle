@@ -2,7 +2,6 @@
 {
     using System;
     using System.Threading.Tasks;
-    using System.Collections.Generic;
 
     using AutoMapper;
 
@@ -11,7 +10,6 @@
     using WordSearch.Services.Grid.Enums;
     using WordSearch.Data.Repositories.Interfaces;
     using WordSearch.Models.Grid;
-    using WordSearch.Models.Cell;
 
     public class GridService : IGridService
     {
@@ -45,9 +43,7 @@
 
                 var grid = _mapper.Map<GridModel>(result[0]);
 
-                var cells = await _cellService.GetCells(grid.Row, grid.Column);
-
-                PlaceCellsOnGrid(ref grid, cells);
+                grid.Cells = await _cellService.GetCells(grid.Row, grid.Column);
 
                 return grid;
             }
@@ -55,21 +51,6 @@
             {
                 return await Task.FromException<GridModel>(
                     ex.InnerException);
-            }
-        }
-
-        private void PlaceCellsOnGrid(
-            ref GridModel grid,
-            List<CellModel> cells)
-        {
-            for (int i = 0; i < grid.Row; i++)
-            {
-                for (int j = 0; j < grid.Column; j++)
-                {
-                    int cellIndex = i * grid.Column + j;
-
-                    grid[i, j] = cells[cellIndex];
-                }
             }
         }
     }

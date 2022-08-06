@@ -1,6 +1,6 @@
 ﻿namespace WordSearch.Presentation.Models.GameMenu
 {
-    public class GameSettingsSelectionModel
+    public class GameMenuModel
     {
         public string WordLanguage { get; set; } = null!;
 

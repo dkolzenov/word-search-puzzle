@@ -40,8 +40,8 @@
 
             #region Models to Models
 
-            CreateMap<GameSettingsSelectionModel, GameSettingsModel>();
-            CreateMap<GameSettingsModel, GameSettingsSelectionModel>();
+            CreateMap<GameMenuModel, GameSettingsModel>();
+            CreateMap<GameSettingsModel, GameMenuModel>();
 
             #endregion
         }

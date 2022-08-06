@@ -8,17 +8,23 @@
 
     public class CellService : ICellService
     {
-        public Task<List<CellModel>> GetCells(int count)
+        public Task<List<CellModel>> GetCells(int row, int column)
         {
-            var cellList = new List<CellModel>();
+            var cells = new List<CellModel>();
 
-            for (int i = 0; i < count; i++)
+            for (int i = 1; i <= row; i++)
             {
-                var cell = new CellModel();
-
-                cellList.Add(cell);
+                for (int j = 1; j <= column; j++)
+                {
+                    var cell = new CellModel()
+                    {
+                        Row = i,
+                        Column = j
+                    };
+                    cells.Add(cell);
+                }
             }
-            return Task.FromResult(cellList);
+            return Task.FromResult(cells);
         }
     }
 }

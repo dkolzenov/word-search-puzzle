@@ -4,8 +4,8 @@
     {
         public int Id { get; set; }
 
-        public string Value { get; set; } = null!;
+        public char Value { get; set; }
 
-        public string Sctipt { get; set; } = null!;
+        public string Script { get; set; } = null!;
     }
 }

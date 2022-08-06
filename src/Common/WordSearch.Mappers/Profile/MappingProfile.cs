@@ -4,6 +4,7 @@
 
     using AutoMapper;
 
+    using WordSearch.Mappers.Converters;
     using WordSearch.Data.Entities.Character;
     using WordSearch.Data.Entities.Grid;
     using WordSearch.Data.Entities.Word;
@@ -22,26 +23,17 @@
         {
             #region Entities to Models
 
-            CreateMap<CharacterEntity, CharacterModel>().ForMember(
-                dest => dest.Characters,
-                opt => opt.MapFrom(
-                    p => new List<char>(
-                        p.Characters.ToCharArray())));
+            CreateMap<CharacterEntity, CharacterModel>();
+            CreateMap<CharacterEntity, List<CharacterModel>>()
+                .ConvertUsing<CharacterConverter>();
+
+            CreateMap<WordEntity, WordModel>();
+            CreateMap<WordEntity, List<WordModel>>()
+                .ConvertUsing<WordConverter>();
 
             CreateMap<GridEntity, GridModel>();
-            CreateMap<WordEntity, WordModel>();
             CreateMap<GameSettingsEntity, GameSettingsModel>();
             CreateMap<DirectionEntity, DirectionModel>();
-
-            #endregion
-
-            #region Models to Entities
-
-            CreateMap<CharacterModel, CharacterEntity>();
-            CreateMap<GridModel, GridEntity>();
-            CreateMap<WordModel, WordEntity>();
-            CreateMap<GameSettingsModel, GameSettingsEntity>();
-            CreateMap<DirectionModel, DirectionEntity>();
 
             #endregion
 

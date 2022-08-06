@@ -7,13 +7,14 @@
     using WordSearch.Models.Word;
     using WordSearch.Data.Entities.Word;
 
-    public class WordConverter : ITypeConverter<WordEntity, List<WordModel>>
+    public class WordConverter
+        : ITypeConverter<WordEntity, IEnumerable<WordModel>>
     {
         private const string SplitSeparator = " ";
 
-        public List<WordModel> Convert(
+        public IEnumerable<WordModel> Convert(
             WordEntity source,
-            List<WordModel> destination,
+            IEnumerable<WordModel> destination,
             ResolutionContext context)
         {
             string[] words = source.Words.Split(SplitSeparator);
@@ -24,9 +25,8 @@
 
                 wordModel.Value = word;
 
-                destination.Add(wordModel);
+                yield return wordModel;
             }
-            return destination;
         }
     }
 }

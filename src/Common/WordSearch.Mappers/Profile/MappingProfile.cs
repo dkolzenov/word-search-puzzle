@@ -1,5 +1,7 @@
 ﻿namespace WordSearch.Mappers.Profile
 {
+    using System.Collections.Generic;
+
     using AutoMapper;
 
     using WordSearch.Data.Entities.Character;
@@ -20,7 +22,12 @@
         {
             #region Entities to Models
 
-            CreateMap<CharacterEntity, CharacterModel>();
+            CreateMap<CharacterEntity, CharacterModel>().ForMember(
+                dest => dest.Characters,
+                opt => opt.MapFrom(
+                    p => new List<char>(
+                        p.Characters.ToCharArray())));
+
             CreateMap<GridEntity, GridModel>();
             CreateMap<WordEntity, WordModel>();
             CreateMap<GameSettingsEntity, GameSettingsModel>();

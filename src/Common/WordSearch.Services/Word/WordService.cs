@@ -1,6 +1,7 @@
 ﻿namespace WordSearch.Services.Word
 {
     using System;
+    using System.Linq;
     using System.Threading.Tasks;
     using System.Collections.Generic;
 
@@ -43,15 +44,14 @@
                 var categoryQuery = _wordFactory
                     .CreateCategoryQuery(categoryType);
 
-                var maxLengthQuery = _wordFactory
-                    .CreateMaxLengthQuery(maxLength);
-
                 var result = await _wordRepository.QueryAsync(
                     languageQuery,
-                    categoryQuery,
-                    maxLengthQuery);
+                    categoryQuery);
 
-                var words = _mapper.Map<List<WordModel>>(result);
+                var words = _mapper
+                    .Map<IEnumerable<WordModel>>(result[0])
+                    .Where(word => word.Value.Length <= maxLength)
+                    .ToList();
 
                 return words;
             }

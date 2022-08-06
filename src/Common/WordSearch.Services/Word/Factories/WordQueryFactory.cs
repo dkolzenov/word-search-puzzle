@@ -35,11 +35,5 @@
 
             return Words => Words.Language == language;
         }
-
-        public Expression<Func<WordEntity, bool>> CreateMaxLengthQuery(
-            int maxLength)
-        {
-            return Words => Words.Value.Length <= maxLength;
-        }
     }
 }

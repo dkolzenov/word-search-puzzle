@@ -17,9 +17,9 @@
             };
         }
 
-        public string GetScriptString(ScriptType fontType)
+        public string GetScriptString(ScriptType scriptType)
         {
-            return _map[fontType];
+            return _map[scriptType];
         }
     }
 }

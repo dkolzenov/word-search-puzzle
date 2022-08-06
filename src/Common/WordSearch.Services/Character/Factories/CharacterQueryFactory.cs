@@ -10,19 +10,19 @@
 
     public class CharacterQueryFactory : ICharacterQueryFactory
     {
-        private readonly FontToStringMap _fontMap;
+        private readonly ScriptToStringMap _scriptMap;
 
         public CharacterQueryFactory()
         {
-            _fontMap = new FontToStringMap();
+            _scriptMap = new ScriptToStringMap();
         }
 
-        public Expression<Func<CharacterEntity, bool>> CreateFontQuery(
-            FontType fontType)
+        public Expression<Func<CharacterEntity, bool>> CreateScriptQuery(
+            ScriptType scriptType)
         {
-            string font = _fontMap.GetFontString(fontType);
+            string script = _scriptMap.GetScriptString(scriptType);
 
-            return Characters => Characters.Font == font;
+            return Characters => Characters.Script == script;
         }
     }
 }

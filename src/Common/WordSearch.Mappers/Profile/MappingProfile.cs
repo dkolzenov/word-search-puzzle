@@ -24,11 +24,11 @@
             #region Entities to Models
 
             CreateMap<CharacterEntity, CharacterModel>();
-            CreateMap<CharacterEntity, List<CharacterModel>>()
+            CreateMap<CharacterEntity, IEnumerable<CharacterModel>>()
                 .ConvertUsing<CharacterConverter>();
 
             CreateMap<WordEntity, WordModel>();
-            CreateMap<WordEntity, List<WordModel>>()
+            CreateMap<WordEntity, IEnumerable<WordModel>>()
                 .ConvertUsing<WordConverter>();
 
             CreateMap<GridEntity, GridModel>();

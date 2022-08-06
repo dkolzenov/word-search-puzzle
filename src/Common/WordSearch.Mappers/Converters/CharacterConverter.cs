@@ -8,11 +8,11 @@
     using WordSearch.Data.Entities.Character;
 
     public class CharacterConverter
-        : ITypeConverter<CharacterEntity, List<CharacterModel>>
+        : ITypeConverter<CharacterEntity, IEnumerable<CharacterModel>>
     {
-        public List<CharacterModel> Convert(
+        public IEnumerable<CharacterModel> Convert(
             CharacterEntity source,
-            List<CharacterModel> destination,
+            IEnumerable<CharacterModel> destination,
             ResolutionContext context)
         {
             char[] characters = source.Characters.ToCharArray();
@@ -23,9 +23,8 @@
 
                 characterModel.Value = character;
 
-                destination.Add(characterModel);
+                yield return characterModel;
             }
-            return destination;
         }
     }
 }

@@ -92,7 +92,7 @@
         private async void GetAllCharacters()
         {
             Characters = await _characterService.GetCharacters(
-                FontType.Cyrillic);
+                ScriptType.Cyrillic);
         }
 
         private async void GetGridInfo()

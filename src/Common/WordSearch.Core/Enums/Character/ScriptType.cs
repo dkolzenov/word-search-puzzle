@@ -1,4 +1,4 @@
-﻿namespace WordSearch.Services.Character.Enums
+﻿namespace WordSearch.Core.Enums.Character
 {
     public enum ScriptType
     {

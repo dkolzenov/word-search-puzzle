@@ -7,13 +7,6 @@
 
     public class GridModel
     {
-        private readonly List<CellModel> _cells;
-
-        public GridModel()
-        {
-            _cells = new List<CellModel>();
-        }
-
         public int Id { get; set; }
 
         public int Row { get; set; }
@@ -21,6 +14,8 @@
         public int Column { get; set; }
 
         public string Size { get; set; } = null!;
+
+        public List<CellModel> Cells { get; set; } = null!;
 
         public CellModel this[int rowIndex, int columnIndex]
         {
@@ -31,7 +26,7 @@
 
                 int index = rowIndex * Column + columnIndex;
 
-                return _cells[index];
+                return Cells[index];
             }
             set
             {
@@ -40,7 +35,7 @@
 
                 int index = rowIndex * Column + columnIndex;
 
-                _cells[index] = value;
+                Cells[index] = value;
             }
         }
 

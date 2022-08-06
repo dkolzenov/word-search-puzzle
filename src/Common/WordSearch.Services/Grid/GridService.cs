@@ -45,9 +45,7 @@
 
                 var grid = _mapper.Map<GridModel>(result[0]);
 
-                var totalCells = grid.Row * grid.Column;
-
-                var cells = await _cellService.GetCells(totalCells);
+                var cells = await _cellService.GetCells(grid.Row, grid.Column);
 
                 PlaceCellsOnGrid(ref grid, cells);
 
@@ -62,19 +60,15 @@
 
         private void PlaceCellsOnGrid(
             ref GridModel grid,
-            List<CellModel> cellList)
+            List<CellModel> cells)
         {
             for (int i = 0; i < grid.Row; i++)
             {
                 for (int j = 0; j < grid.Column; j++)
                 {
                     int cellIndex = i * grid.Column + j;
-                    CellModel cell = cellList[cellIndex];
 
-                    cell.Row = i + 1;
-                    cell.Column = j + 1;
-
-                    grid[i, j] = cell;
+                    grid[i, j] = cells[cellIndex];
                 }
             }
         }

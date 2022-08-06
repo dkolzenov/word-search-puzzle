@@ -2,13 +2,13 @@
 {
     using System.ComponentModel.DataAnnotations.Schema;
 
-    [Table("Characters")]
+    [Table("Character")]
     public class CharacterEntity
     {
         public int Id { get; set; }
 
-        public string Value { get; set; } = null!;
+        public string Characters { get; set; } = null!;
 
-        public string Font { get; set; } = null!;
+        public string Script { get; set; } = null!;
     }
 }

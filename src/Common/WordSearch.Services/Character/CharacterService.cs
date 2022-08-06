@@ -30,13 +30,16 @@
             _characterRepository = characterRepository;
         }
 
-        public async Task<List<CharacterModel>> GetCharacters(FontType fontType)
+        public async Task<List<CharacterModel>> GetCharacters(
+            ScriptType scriptType)
         {
             try
             {
-                var fontQuery = _characterFactory.CreateFontQuery(fontType);
+                var scriptQuery = _characterFactory
+                    .CreateScriptQuery(scriptType);
 
-                var result = await _characterRepository.QueryAsync(fontQuery);
+                var result = await _characterRepository
+                    .QueryAsync(scriptQuery);
 
                 var characters = _mapper.Map<List<CharacterModel>>(result);
 

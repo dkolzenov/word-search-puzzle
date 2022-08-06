@@ -8,6 +8,6 @@
 
     public interface ICharacterService
     {
-        Task<List<CharacterModel>> GetCharacters(FontType fontType);
+        Task<List<CharacterModel>> GetCharacters(ScriptType scriptType);
     }
 }

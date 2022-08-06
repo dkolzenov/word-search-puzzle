@@ -8,7 +8,7 @@
 
     public interface ICharacterQueryFactory
     {
-        Expression<Func<CharacterEntity, bool>> CreateFontQuery(
-            FontType fontType);
+        Expression<Func<CharacterEntity, bool>> CreateScriptQuery(
+            ScriptType scriptType);
     }
 }

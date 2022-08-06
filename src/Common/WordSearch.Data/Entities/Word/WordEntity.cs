@@ -2,12 +2,12 @@
 {
     using System.ComponentModel.DataAnnotations.Schema;
 
-    [Table("Words")]
+    [Table("Word")]
     public class WordEntity
     {
         public int Id { get; set; }
 
-        public string Value { get; set; } = null!;
+        public string Words { get; set; } = null!;
 
         public string Category { get; set; } = null!;
 

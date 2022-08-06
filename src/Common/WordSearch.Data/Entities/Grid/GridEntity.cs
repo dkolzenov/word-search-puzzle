@@ -2,7 +2,7 @@
 {
     using System.ComponentModel.DataAnnotations.Schema;
 
-    [Table("Grids")]
+    [Table("Grid")]
     public class GridEntity
     {
         public int Id { get; set; }

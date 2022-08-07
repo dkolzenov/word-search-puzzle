@@ -1,9 +1,11 @@
 ﻿namespace WordSearch.Models.Character
 {
+    using WordSearch.Core.Enums.Character;
+
     public class CharacterModel
     {
         public char Value { get; set; }
 
-        public string Script { get; set; } = null!;
+        public ScriptType Script { get; set; }
     }
 }

@@ -4,7 +4,7 @@
     using System.Linq.Expressions;
 
     using WordSearch.Data.Entities.Character;
-    using WordSearch.Services.Character.Enums;
+    using WordSearch.Core.Enums.Character;
 
     public interface ICharacterQueryFactory
     {

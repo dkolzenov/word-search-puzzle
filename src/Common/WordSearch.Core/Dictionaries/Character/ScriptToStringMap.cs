@@ -1,8 +1,8 @@
-﻿namespace WordSearch.Services.Character.Dictionaries
+﻿namespace WordSearch.Core.Dictionaries.Character
 {
     using System.Collections.Generic;
 
-    using WordSearch.Services.Character.Enums;
+    using WordSearch.Core.Enums.Character;
 
     public class ScriptToStringMap
     {

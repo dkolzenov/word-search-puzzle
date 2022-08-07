@@ -4,7 +4,7 @@
     using System.Linq.Expressions;
 
     using WordSearch.Data.Entities.Direction;
-    using WordSearch.Services.Direction.Enums;
+    using WordSearch.Core.Enums.Direction;
 
     public interface IDirectionQueryFactory
     {

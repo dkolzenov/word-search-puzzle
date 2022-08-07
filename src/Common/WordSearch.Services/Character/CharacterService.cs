@@ -9,9 +9,9 @@
 
     using WordSearch.Services.Interfaces;
     using WordSearch.Services.Character.Factories.Interfaces;
-    using WordSearch.Services.Character.Enums;
     using WordSearch.Data.Repositories.Interfaces;
     using WordSearch.Models.Character;
+    using WordSearch.Core.Enums.Character;
 
     public class CharacterService : ICharacterService
     {

@@ -1,4 +1,4 @@
-﻿namespace WordSearch.Services.Grid.Enums
+﻿namespace WordSearch.Core.Enums.Grid
 {
     public enum SizeType
     {

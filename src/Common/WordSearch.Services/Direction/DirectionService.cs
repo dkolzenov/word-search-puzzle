@@ -8,9 +8,9 @@
 
     using WordSearch.Services.Interfaces;
     using WordSearch.Services.Direction.Factories.Interfaces;
-    using WordSearch.Services.Direction.Enums;
     using WordSearch.Data.Repositories.Interfaces;
     using WordSearch.Models.Direction;
+    using WordSearch.Core.Enums.Direction;
 
     public class DirectionService : IDirectionService
     {

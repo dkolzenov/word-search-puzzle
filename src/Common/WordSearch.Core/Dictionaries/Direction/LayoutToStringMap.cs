@@ -1,8 +1,8 @@
-﻿namespace WordSearch.Services.Direction.Dictionaries
+﻿namespace WordSearch.Core.Dictionaries.Direction
 {
     using System.Collections.Generic;
 
-    using WordSearch.Services.Direction.Enums;
+    using WordSearch.Core.Enums.Direction;
 
     public class LayoutToStringMap
     {

@@ -1,8 +1,8 @@
-﻿namespace WordSearch.Services.GameSettings.Dictionaries
+﻿namespace WordSearch.Core.Dictionaries.GameSettings
 {
     using System.Collections.Generic;
 
-    using WordSearch.Services.GameSettings.Enums;
+    using WordSearch.Core.Enums.GameSettings;
 
     public class DifficultyToStringMap
     {

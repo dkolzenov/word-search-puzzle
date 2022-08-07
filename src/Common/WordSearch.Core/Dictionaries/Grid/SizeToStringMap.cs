@@ -1,8 +1,8 @@
-﻿namespace WordSearch.Services.Grid.Dictionaries
+﻿namespace WordSearch.Core.Dictionaries.Grid
 {
     using System.Collections.Generic;
 
-    using WordSearch.Services.Grid.Enums;
+    using WordSearch.Core.Enums.Grid;
 
     public class SizeToStringMap
     {

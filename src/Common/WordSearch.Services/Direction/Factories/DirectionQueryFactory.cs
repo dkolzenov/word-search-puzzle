@@ -3,10 +3,10 @@
     using System;
     using System.Linq.Expressions;
 
-    using WordSearch.Services.Direction.Enums;
-    using WordSearch.Services.Direction.Dictionaries;
     using WordSearch.Services.Direction.Factories.Interfaces;
     using WordSearch.Data.Entities.Direction;
+    using WordSearch.Core.Enums.Direction;
+    using WordSearch.Core.Dictionaries.Direction;
 
     public class DirectionQueryFactory : IDirectionQueryFactory
     {

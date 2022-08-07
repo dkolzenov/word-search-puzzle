@@ -10,6 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\WordSearch.Core\WordSearch.Core.csproj" />
     <ProjectReference Include="..\WordSearch.Data\WordSearch.Data.csproj" />
     <ProjectReference Include="..\WordSearch.Models\WordSearch.Models.csproj" />
   </ItemGroup>

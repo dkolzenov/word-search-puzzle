@@ -7,9 +7,9 @@
 
     using WordSearch.Services.Interfaces;
     using WordSearch.Services.GameSettings.Factories.Interfaces;
-    using WordSearch.Services.GameSettings.Enums;
     using WordSearch.Data.Repositories.Interfaces;
     using WordSearch.Models.GameSettings;
+    using WordSearch.Core.Enums.GameSettings;
 
     public class GameSettingsService : IGameSettingsService
     {

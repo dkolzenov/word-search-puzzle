@@ -9,12 +9,12 @@
 
     using WordSearch.Presentation.ViewModels.Base;
     using WordSearch.Services.Interfaces;
-    using WordSearch.Services.Word.Enums;
-    using WordSearch.Services.Character.Enums;
-    using WordSearch.Services.Grid.Enums;
-    using WordSearch.Services.GameSettings.Enums;
     using WordSearch.Models.Word;
     using WordSearch.Models.Character;
+    using WordSearch.Core.Enums.Word;
+    using WordSearch.Core.Enums.Grid;
+    using WordSearch.Core.Enums.Character;
+    using WordSearch.Core.Enums.GameSettings;
 
     public class MainPageViewModel : BaseViewModel
     {

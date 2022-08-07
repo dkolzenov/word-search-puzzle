@@ -4,7 +4,7 @@
     using System.Linq.Expressions;
 
     using WordSearch.Data.Entities.Grid;
-    using WordSearch.Services.Grid.Enums;
+    using WordSearch.Core.Enums.Grid;
 
     public interface IGridQueryFactory
     {

@@ -3,10 +3,10 @@
     using System;
     using System.Linq.Expressions;
 
-    using WordSearch.Services.Character.Enums;
-    using WordSearch.Services.Character.Dictionaries;
     using WordSearch.Services.Character.Factories.Interfaces;
     using WordSearch.Data.Entities.Character;
+    using WordSearch.Core.Enums.Character;
+    using WordSearch.Core.Dictionaries.Character;
 
     public class CharacterQueryFactory : ICharacterQueryFactory
     {

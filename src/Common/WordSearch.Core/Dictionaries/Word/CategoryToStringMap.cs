@@ -1,8 +1,8 @@
-﻿namespace WordSearch.Services.Word.Dictionaries
+﻿namespace WordSearch.Core.Dictionaries.Word
 {
     using System.Collections.Generic;
 
-    using WordSearch.Services.Word.Enums;
+    using WordSearch.Core.Enums.Word;
 
     public class CategoryToStringMap
     {

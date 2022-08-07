@@ -4,7 +4,7 @@
     using System.Linq.Expressions;
 
     using WordSearch.Data.Entities.Word;
-    using WordSearch.Services.Word.Enums;
+    using WordSearch.Core.Enums.Word;
 
     public interface IWordQueryFactory
     {

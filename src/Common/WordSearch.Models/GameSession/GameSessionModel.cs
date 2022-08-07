@@ -4,6 +4,7 @@
 
     using WordSearch.Models.Word;
     using WordSearch.Models.Grid;
+    using WordSearch.Core.Enums.Word;
 
     public class GameSessionModel
     {
@@ -13,6 +14,6 @@
 
         public List<WordModel> Words { get; set; } = null!;
 
-        public string WordCategory { get; set; } = null!;
+        public CategoryType WordCategory { get; set; }
     }
 }

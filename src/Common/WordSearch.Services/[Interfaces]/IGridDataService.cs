@@ -2,7 +2,7 @@
 {
     using System.Threading.Tasks;
 
-    using WordSearch.Models.DataGrid;
+    using WordSearch.Models.GridData;
     using WordSearch.Models.GameSettings;
 
     public interface IGridDataService

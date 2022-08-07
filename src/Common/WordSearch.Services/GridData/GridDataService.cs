@@ -1,15 +1,20 @@
 ﻿namespace WordSearch.Services.GridData
 {
-    using System;
     using System.Threading.Tasks;
+    using System.Collections.Generic;
 
     using WordSearch.Services.Interfaces;
-    using WordSearch.Services.Word.Enums;
-    using WordSearch.Models.DataGrid;
+    using WordSearch.Models.GridData;
     using WordSearch.Models.GameSettings;
+    using WordSearch.Models.Word;
+    using WordSearch.Models.Character;
+    using WordSearch.Core.Enums.Character;
+    using WordSearch.Core.Dictionaries.GridData;
 
     public class GridDataService : IGridDataService
     {
+        private readonly WordLanguageToCharacterScriptMap _languageToScriptMap;
+
         private readonly ICharacterService _characterService;
 
         private readonly IWordService _wordService;
@@ -18,6 +23,7 @@
             ICharacterService characterService,
             IWordService wordService)
         {
+            _languageToScriptMap = new WordLanguageToCharacterScriptMap();
             _characterService = characterService;
             _wordService = wordService;
         }
@@ -25,17 +31,38 @@
         public async Task<GridDataModel> GetGridData(
             GameSettingsModel gameSettings)
         {
-            var wordLanguage = Enum.Parse<LanguageType>(
+            List<WordModel> words = await GetWords(gameSettings);
+            List<CharacterModel> characters = await GetCharacters(gameSettings);
+
+            var gridData = new GridDataModel()
+            {
+                Words = words,
+                Characters = characters
+            };
+            return gridData;
+        }
+
+        private async Task<List<WordModel>> GetWords(
+            GameSettingsModel gameSettings)
+        {
+            List<WordModel> words = await _wordService.GetWords(
                 gameSettings.WordLanguage,
-                ignoreCase: true);
-
-            var wordCategory = Enum.Parse<CategoryType>(
                 gameSettings.WordCategory,
-                ignoreCase: true);
+                gameSettings.MaxWordLength);
 
-            var words = await _wordService.GetWords(wordLanguage, wordCategory);
+            return words;
+        }
 
-            throw new NotImplementedException();
+        private async Task<List<CharacterModel>> GetCharacters(
+            GameSettingsModel gameSettings)
+        {
+            ScriptType script = _languageToScriptMap
+                .GetScriptType(gameSettings.WordLanguage);
+
+            List<CharacterModel> characters = await _characterService
+                .GetCharacters(script);
+
+            return characters;
         }
     }
 }

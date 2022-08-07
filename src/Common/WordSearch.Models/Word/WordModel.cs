@@ -1,11 +1,13 @@
 ﻿namespace WordSearch.Models.Word
 {
+    using WordSearch.Core.Enums.Word;
+
     public class WordModel
     {
         public string Value { get; set; } = null!;
 
-        public string Category { get; set; } = null!;
+        public CategoryType Category { get; set; }
 
-        public string Language { get; set; } = null!;
+        public LanguageType Language { get; set; }
     }
 }

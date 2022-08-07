@@ -2,8 +2,8 @@
 {
     using System.Threading.Tasks;
 
-    using WordSearch.Services.Grid.Enums;
     using WordSearch.Models.Grid;
+    using WordSearch.Core.Enums.Grid;
 
     public interface IGridService
     {

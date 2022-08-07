@@ -3,10 +3,10 @@
     using System;
     using System.Linq.Expressions;
 
-    using WordSearch.Services.GameSettings.Enums;
-    using WordSearch.Services.GameSettings.Dictionaries;
     using WordSearch.Services.GameSettings.Factories.Interfaces;
     using WordSearch.Data.Entities.GameSettings;
+    using WordSearch.Core.Enums.GameSettings;
+    using WordSearch.Core.Dictionaries.GameSettings;
 
     public class GameSettingsQueryFactory : IGameSettingsQueryFactory
     {

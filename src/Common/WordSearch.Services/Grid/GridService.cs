@@ -7,9 +7,9 @@
 
     using WordSearch.Services.Interfaces;
     using WordSearch.Services.Grid.Factories.Interfaces;
-    using WordSearch.Services.Grid.Enums;
     using WordSearch.Data.Repositories.Interfaces;
     using WordSearch.Models.Grid;
+    using WordSearch.Core.Enums.Grid;
 
     public class GridService : IGridService
     {

@@ -3,8 +3,8 @@
     using System.Threading.Tasks;
     using System.Collections.Generic;
 
-    using WordSearch.Services.Word.Enums;
     using WordSearch.Models.Word;
+    using WordSearch.Core.Enums.Word;
 
     public interface IWordService
     {

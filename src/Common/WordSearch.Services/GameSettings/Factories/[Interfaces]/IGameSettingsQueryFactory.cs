@@ -4,7 +4,7 @@
     using System.Linq.Expressions;
 
     using WordSearch.Data.Entities.GameSettings;
-    using WordSearch.Services.GameSettings.Enums;
+    using WordSearch.Core.Enums.GameSettings;
 
     public interface IGameSettingsQueryFactory
     {

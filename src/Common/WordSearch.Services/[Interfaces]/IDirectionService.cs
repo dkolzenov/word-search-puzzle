@@ -3,8 +3,8 @@
     using System.Threading.Tasks;
     using System.Collections.Generic;
 
-    using WordSearch.Services.Direction.Enums;
     using WordSearch.Models.Direction;
+    using WordSearch.Core.Enums.Direction;
 
     public interface IDirectionService
     {

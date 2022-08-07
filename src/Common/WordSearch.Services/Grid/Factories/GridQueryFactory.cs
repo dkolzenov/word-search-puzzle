@@ -3,10 +3,10 @@
     using System;
     using System.Linq.Expressions;
 
-    using WordSearch.Services.Grid.Enums;
-    using WordSearch.Services.Grid.Dictionaries;
     using WordSearch.Services.Grid.Factories.Interfaces;
     using WordSearch.Data.Entities.Grid;
+    using WordSearch.Core.Enums.Grid;
+    using WordSearch.Core.Dictionaries.Grid;
 
     public class GridQueryFactory : IGridQueryFactory
     {

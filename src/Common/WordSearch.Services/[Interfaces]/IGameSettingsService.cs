@@ -2,8 +2,8 @@
 {
     using System.Threading.Tasks;
 
-    using WordSearch.Services.GameSettings.Enums;
     using WordSearch.Models.GameSettings;
+    using WordSearch.Core.Enums.GameSettings;
 
     public interface IGameSettingsService
     {

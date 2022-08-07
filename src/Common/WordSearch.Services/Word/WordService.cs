@@ -9,9 +9,9 @@
 
     using WordSearch.Services.Interfaces;
     using WordSearch.Services.Word.Factories.Interfaces;
-    using WordSearch.Services.Word.Enums;
     using WordSearch.Data.Repositories.Interfaces;
     using WordSearch.Models.Word;
+    using WordSearch.Core.Enums.Word;
 
     public class WordService : IWordService
     {

@@ -3,10 +3,10 @@
     using System;
     using System.Linq.Expressions;
 
-    using WordSearch.Services.Word.Enums;
-    using WordSearch.Services.Word.Dictionaries;
     using WordSearch.Services.Word.Factories.Interfaces;
     using WordSearch.Data.Entities.Word;
+    using WordSearch.Core.Enums.Word;
+    using WordSearch.Core.Dictionaries.Word;
 
     public class WordQueryFactory : IWordQueryFactory
     {

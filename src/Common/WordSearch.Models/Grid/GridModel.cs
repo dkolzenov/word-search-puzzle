@@ -4,6 +4,7 @@
     using System.Collections.Generic;
 
     using WordSearch.Models.Cell;
+    using WordSearch.Core.Enums.Grid;
 
     public class GridModel
     {
@@ -13,7 +14,7 @@
 
         public int Column { get; set; }
 
-        public string Size { get; set; } = null!;
+        public SizeType Size { get; set; }
 
         public List<CellModel> Cells { get; set; } = null!;
 

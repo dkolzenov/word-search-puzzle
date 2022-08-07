@@ -1,4 +1,4 @@
-﻿namespace WordSearch.Models.DataGrid
+﻿namespace WordSearch.Models.GridData
 {
     using System.Collections.Generic;
 

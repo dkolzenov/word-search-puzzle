@@ -1,14 +1,18 @@
 ﻿namespace WordSearch.Models.GameSettings
 {
+    using WordSearch.Core.Enums.Word;
+    using WordSearch.Core.Enums.Grid;
+    using WordSearch.Core.Enums.GameSettings;
+
     public class GameSettingsModel
     {
-        public string WordLanguage { get; set; } = null!;
+        public LanguageType WordLanguage { get; set; }
 
-        public string WordCategory { get; set; } = null!;
+        public CategoryType WordCategory { get; set; }
 
-        public string Difficulty { get; set; } = null!;
+        public DifficultyType Difficulty { get; set; }
 
-        public string GridSize { get; set; } = null!;
+        public SizeType GridSize { get; set; }
 
         public int WordCount { get; set; }
 

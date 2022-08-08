@@ -7,8 +7,6 @@
     using WordSearch.Services.Word.Factories;
     using WordSearch.Services.Word.Factories.Interfaces;
     using WordSearch.Services.Character;
-    using WordSearch.Services.Character.Factories;
-    using WordSearch.Services.Character.Factories.Interfaces;
     using WordSearch.Services.Grid;
     using WordSearch.Services.Grid.Factories;
     using WordSearch.Services.Grid.Factories.Interfaces;
@@ -29,9 +27,6 @@
             containerRegistry.RegisterSingleton<IWordService, WordService>();
 
             // CharacterService
-            containerRegistry.RegisterSingleton<
-                ICharacterQueryFactory, CharacterQueryFactory>();
-
             containerRegistry.RegisterSingleton<
                 ICharacterService, CharacterService>();
 

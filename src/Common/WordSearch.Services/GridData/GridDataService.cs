@@ -1,68 +1,51 @@
 ﻿namespace WordSearch.Services.GridData
 {
+    using System;
     using System.Threading.Tasks;
-    using System.Collections.Generic;
 
     using WordSearch.Services.Interfaces;
     using WordSearch.Models.GridData;
     using WordSearch.Models.GameSettings;
-    using WordSearch.Models.Word;
-    using WordSearch.Models.Character;
-    using WordSearch.Core.Enums.Character;
-    using WordSearch.Core.Dictionaries.GridData;
 
     public class GridDataService : IGridDataService
     {
-        private readonly WordLanguageToCharacterScriptMap _languageToScriptMap;
+        private readonly IWordService _wordService;
 
         private readonly ICharacterService _characterService;
 
-        private readonly IWordService _wordService;
-
         public GridDataService(
-            ICharacterService characterService,
-            IWordService wordService)
+            IWordService wordService,
+            ICharacterService characterService)
         {
-            _languageToScriptMap = new WordLanguageToCharacterScriptMap();
-            _characterService = characterService;
             _wordService = wordService;
+            _characterService = characterService;
         }
 
         public async Task<GridDataModel> GetGridDataAsync(
             GameSettingsModel gameSettings)
         {
-            List<WordModel> words = await GetWords(gameSettings);
-            List<CharacterModel> characters = await GetCharacters(gameSettings);
-
-            var gridData = new GridDataModel()
+            try
             {
-                Words = words,
-                Characters = characters
-            };
-            return gridData;
-        }
+                var words = await _wordService.GetWordsAsync(
+                    gameSettings.WordLanguage,
+                    gameSettings.WordCategory,
+                    gameSettings.MaxWordLength);
 
-        private async Task<List<WordModel>> GetWords(
-            GameSettingsModel gameSettings)
-        {
-            List<WordModel> words = await _wordService.GetWordsAsync(
-                gameSettings.WordLanguage,
-                gameSettings.WordCategory,
-                gameSettings.MaxWordLength);
+                var characters = await _characterService.GetCharactersAsync(
+                    gameSettings.WordLanguage);
 
-            return words;
-        }
-
-        private async Task<List<CharacterModel>> GetCharacters(
-            GameSettingsModel gameSettings)
-        {
-            ScriptType script = _languageToScriptMap
-                .GetScriptType(gameSettings.WordLanguage);
-
-            List<CharacterModel> characters = await _characterService
-                .GetCharactersAsync(script);
-
-            return characters;
+                var gridData = new GridDataModel()
+                {
+                    Words = words,
+                    Characters = characters
+                };
+                return gridData;
+            }
+            catch (Exception ex)
+            {
+                return await Task.FromException<GridDataModel>(
+                    ex.InnerException);
+            }
         }
     }
 }

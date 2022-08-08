@@ -4,10 +4,11 @@
     using System.Collections.Generic;
 
     using WordSearch.Models.Character;
-    using WordSearch.Core.Enums.Character;
+    using WordSearch.Core.Enums.Word;
 
     public interface ICharacterService
     {
-        Task<List<CharacterModel>> GetCharactersAsync(ScriptType scriptType);
+        Task<List<CharacterModel>> GetCharactersAsync(
+            LanguageType languageType);
     }
 }

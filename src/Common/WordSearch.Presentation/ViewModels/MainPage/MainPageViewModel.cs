@@ -92,7 +92,7 @@
         private async void GetAllCharacters()
         {
             Characters = await _characterService.GetCharactersAsync(
-                ScriptType.Cyrillic);
+                LanguageType.Russian);
         }
 
         private async void GetGridInfo()

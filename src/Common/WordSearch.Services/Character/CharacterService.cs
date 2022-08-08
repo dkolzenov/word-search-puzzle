@@ -10,13 +10,22 @@
     using WordSearch.Services.Interfaces;
     using WordSearch.Data.Repositories.Interfaces;
     using WordSearch.Models.Character;
+    using WordSearch.Core.Enums.Word;
     using WordSearch.Core.Enums.Character;
+    using WordSearch.Core.Dictionaries.Character;
 
     public class CharacterService : ICharacterService
     {
+        private static readonly CharacterScriptMap _characterScriptMap;
+
         private readonly IMapper _mapper;
 
         private readonly ICharacterRepository _characterRepository;
+
+        static CharacterService()
+        {
+            _characterScriptMap = new CharacterScriptMap();
+        }
 
         public CharacterService(
             IMapper mapper,
@@ -27,10 +36,13 @@
         }
 
         public async Task<List<CharacterModel>> GetCharactersAsync(
-            ScriptType scriptType)
+            LanguageType languageType)
         {
             try
             {
+                ScriptType scriptType = _characterScriptMap
+                    .GetScriptType(languageType);
+
                 var result = await _characterRepository
                     .GetCharactersAsync(scriptType);
 

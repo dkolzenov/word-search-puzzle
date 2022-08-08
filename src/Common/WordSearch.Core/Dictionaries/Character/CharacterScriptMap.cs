@@ -1,15 +1,15 @@
-﻿namespace WordSearch.Core.Dictionaries.GridData
+﻿namespace WordSearch.Core.Dictionaries.Character
 {
     using System.Collections.Generic;
 
     using WordSearch.Core.Enums.Word;
     using WordSearch.Core.Enums.Character;
 
-    public class WordLanguageToCharacterScriptMap
+    public class CharacterScriptMap
     {
         private readonly Dictionary<LanguageType, ScriptType> _map;
 
-        public WordLanguageToCharacterScriptMap()
+        public CharacterScriptMap()
         {
             _map = new Dictionary<LanguageType, ScriptType>()
             {

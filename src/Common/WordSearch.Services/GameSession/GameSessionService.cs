@@ -32,7 +32,7 @@
             GameSettingsSelectionModel gameSettingsSelection)
         {
             var gameSettingsResult = await _gameSettingsService
-                .GetSettings(gameSettingsSelection.Difficulty);
+                .GetGameSettingsAsync(gameSettingsSelection.Difficulty);
 
             var gameSettings = _mapper
                 .Map(gameSettingsSelection, gameSettingsResult);

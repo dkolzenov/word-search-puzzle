@@ -43,7 +43,7 @@
 
                 var grid = _mapper.Map<GridModel>(result[0]);
 
-                grid.Cells = await _cellService.GetCells(grid.Row, grid.Column);
+                grid.Cells = await _cellService.GetCellsAsync(grid.Row, grid.Column);
 
                 return grid;
             }

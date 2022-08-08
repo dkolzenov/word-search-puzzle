@@ -10,6 +10,7 @@
     using WordSearch.Services.Cell;
     using WordSearch.Services.GridData;
     using WordSearch.Services.Direction;
+    using WordSearch.Services.GameSession;
 
     public static class ServicesRegistryExtension
     {
@@ -33,6 +34,9 @@
 
             containerRegistry.RegisterSingleton<
                 IDirectionService, DirectionService>();
+
+            containerRegistry.RegisterSingleton<
+                IGameSessionService, GameSessionService>();
         }
     }
 }

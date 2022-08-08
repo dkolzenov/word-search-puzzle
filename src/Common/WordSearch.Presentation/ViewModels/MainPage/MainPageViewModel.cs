@@ -97,7 +97,7 @@
 
         private async void GetGridInfo()
         {
-            var gridModel = await _gridService.GetGrid(SizeType.Medium);
+            var gridModel = await _gridService.GetGridAsync(SizeType.Medium);
 
             GridInfo = $"{gridModel.Id} {gridModel.Row} {gridModel.Column} " +
                 $"{gridModel.Size}";

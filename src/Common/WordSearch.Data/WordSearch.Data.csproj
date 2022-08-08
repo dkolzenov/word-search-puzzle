@@ -11,8 +11,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\WordSearch.Assets\WordSearch.Assets.csproj" />
+    <ProjectReference Include="..\WordSearch.Core\WordSearch.Core.csproj" />
     <ProjectReference Include="..\WordSearch.Helpers\WordSearch.Helpers.csproj" />
-    <ProjectReference Include="..\WordSearch.Models\WordSearch.Models.csproj" />
   </ItemGroup>
 
 </Project>

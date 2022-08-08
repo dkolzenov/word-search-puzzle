@@ -7,6 +7,6 @@
 
     public interface IGridService
     {
-        Task<GridModel> GetGrid(SizeType size);
+        Task<GridModel> GetGridAsync(SizeType size);
     }
 }

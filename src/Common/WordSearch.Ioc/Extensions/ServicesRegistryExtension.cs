@@ -9,6 +9,7 @@
     using WordSearch.Services.GameSettings;
     using WordSearch.Services.Cell;
     using WordSearch.Services.GridData;
+    using WordSearch.Services.Direction;
 
     public static class ServicesRegistryExtension
     {
@@ -29,6 +30,9 @@
 
             containerRegistry.RegisterSingleton<
                 IGridDataService, GridDataService>();
+
+            containerRegistry.RegisterSingleton<
+                IDirectionService, DirectionService>();
         }
     }
 }

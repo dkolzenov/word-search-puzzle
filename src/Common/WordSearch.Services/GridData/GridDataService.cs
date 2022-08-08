@@ -60,7 +60,7 @@
                 .GetScriptType(gameSettings.WordLanguage);
 
             List<CharacterModel> characters = await _characterService
-                .GetCharacters(script);
+                .GetCharactersAsync(script);
 
             return characters;
         }

@@ -91,7 +91,7 @@
 
         private async void GetAllCharacters()
         {
-            Characters = await _characterService.GetCharacters(
+            Characters = await _characterService.GetCharactersAsync(
                 ScriptType.Cyrillic);
         }
 

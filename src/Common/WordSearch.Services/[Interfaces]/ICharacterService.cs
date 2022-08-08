@@ -9,6 +9,6 @@
     public interface ICharacterService
     {
         Task<List<CharacterModel>> GetCharactersAsync(
-            LanguageType languageType);
+            LanguageType wordLanguageType);
     }
 }

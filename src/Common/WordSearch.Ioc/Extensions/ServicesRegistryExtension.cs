@@ -11,8 +11,6 @@
     using WordSearch.Services.Grid.Factories;
     using WordSearch.Services.Grid.Factories.Interfaces;
     using WordSearch.Services.GameSettings;
-    using WordSearch.Services.GameSettings.Factories;
-    using WordSearch.Services.GameSettings.Factories.Interfaces;
     using WordSearch.Services.Cell;
 
     public static class ServicesRegistryExtension
@@ -37,9 +35,6 @@
             containerRegistry.RegisterSingleton<IGridService, GridService>();
 
             // GameSettingsService
-            containerRegistry.RegisterSingleton<
-                IGameSettingsQueryFactory, GameSettingsQueryFactory>();
-
             containerRegistry.RegisterSingleton<
                 IGameSettingsService, GameSettingsService>();
 

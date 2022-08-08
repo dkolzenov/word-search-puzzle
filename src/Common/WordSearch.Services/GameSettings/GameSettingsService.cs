@@ -6,7 +6,6 @@
     using AutoMapper;
 
     using WordSearch.Services.Interfaces;
-    using WordSearch.Services.GameSettings.Factories.Interfaces;
     using WordSearch.Data.Repositories.Interfaces;
     using WordSearch.Models.GameSettings;
     using WordSearch.Core.Enums.GameSettings;
@@ -15,17 +14,13 @@
     {
         private readonly IMapper _mapper;
 
-        private readonly IGameSettingsQueryFactory _gameSettingsFactory;
-
         private readonly IGameSettingsRepository _gameSettingsRepository;
 
         public GameSettingsService(
             IMapper mapper,
-            IGameSettingsQueryFactory gameSettingsFactory,
             IGameSettingsRepository gameSettingsRepository)
         {
             _mapper = mapper;
-            _gameSettingsFactory = gameSettingsFactory;
             _gameSettingsRepository = gameSettingsRepository;
         }
 
@@ -34,13 +29,10 @@
         {
             try
             {
-                var difficultyQuery = _gameSettingsFactory
-                    .CreateDifficultyQuery(difficultyType);
-
                 var result = await _gameSettingsRepository
-                    .QueryAsync(difficultyQuery);
+                    .GetGameSettingsAsync(difficultyType);
 
-                var settings = _mapper.Map<GameSettingsModel>(result[0]);
+                var settings = _mapper.Map<GameSettingsModel>(result);
 
                 return settings;
             }

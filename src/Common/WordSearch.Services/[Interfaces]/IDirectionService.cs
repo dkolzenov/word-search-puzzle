@@ -8,6 +8,6 @@
 
     public interface IDirectionService
     {
-        Task<List<DirectionModel>> GetDirections(LayoutType layoutType);
+        Task<List<DirectionModel>> GetDirectionsAsync(LayoutType layoutType);
     }
 }

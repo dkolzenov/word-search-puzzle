@@ -45,7 +45,7 @@
         private async Task<List<WordModel>> GetWords(
             GameSettingsModel gameSettings)
         {
-            List<WordModel> words = await _wordService.GetWords(
+            List<WordModel> words = await _wordService.GetWordsAsync(
                 gameSettings.WordLanguage,
                 gameSettings.WordCategory,
                 gameSettings.MaxWordLength);

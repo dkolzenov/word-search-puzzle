@@ -84,7 +84,7 @@
 
         private async void GetAllWords()
         {
-            Words = await _wordService.GetWords(
+            Words = await _wordService.GetWordsAsync(
                 LanguageType.Russian,
                 CategoryType.Animals);
         }

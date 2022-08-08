@@ -28,7 +28,7 @@
             _wordService = wordService;
         }
 
-        public async Task<GridDataModel> GetGridData(
+        public async Task<GridDataModel> GetGridDataAsync(
             GameSettingsModel gameSettings)
         {
             List<WordModel> words = await GetWords(gameSettings);

@@ -6,7 +6,6 @@
     using AutoMapper;
 
     using WordSearch.Services.Interfaces;
-    using WordSearch.Services.Grid.Factories.Interfaces;
     using WordSearch.Data.Repositories.Interfaces;
     using WordSearch.Models.Grid;
     using WordSearch.Core.Enums.Grid;
@@ -15,20 +14,16 @@
     {
         private readonly IMapper _mapper;
 
-        private readonly IGridQueryFactory _gridFactory;
-
         private readonly IGridRepository _gridRepository;
 
         private readonly ICellService _cellService;
 
         public GridService(
             IMapper mapper,
-            IGridQueryFactory gridFactory,
             IGridRepository gridRepository,
             ICellService cellService)
         {
             _mapper = mapper;
-            _gridFactory = gridFactory;
             _gridRepository = gridRepository;
             _cellService = cellService;
         }
@@ -37,11 +32,9 @@
         {
             try
             {
-                var sizeQuery = _gridFactory.CreateSizeQuery(sizeType);
+                var result = await _gridRepository.GetGridAsync(sizeType);
 
-                var result = await _gridRepository.QueryAsync(sizeQuery);
-
-                var grid = _mapper.Map<GridModel>(result[0]);
+                var grid = _mapper.Map<GridModel>(result);
 
                 grid.Cells = await _cellService
                     .GetCellsAsync(grid.Row, grid.Column);

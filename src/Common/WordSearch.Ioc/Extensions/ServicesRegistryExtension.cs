@@ -4,8 +4,6 @@
 
     using WordSearch.Services.Interfaces;
     using WordSearch.Services.Word;
-    using WordSearch.Services.Word.Factories;
-    using WordSearch.Services.Word.Factories.Interfaces;
     using WordSearch.Services.Character;
     using WordSearch.Services.Grid;
     using WordSearch.Services.GameSettings;
@@ -16,9 +14,6 @@
         public static void RegisterServicesSingleton(
             this IContainerRegistry containerRegistry)
         {
-            containerRegistry.RegisterSingleton<
-                IWordQueryFactory, WordQueryFactory>();
-
             containerRegistry.RegisterSingleton<IWordService, WordService>();
 
             containerRegistry.RegisterSingleton<

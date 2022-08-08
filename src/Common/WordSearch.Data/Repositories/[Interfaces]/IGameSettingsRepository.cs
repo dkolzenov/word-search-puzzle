@@ -7,6 +7,7 @@
 
     public interface IGameSettingsRepository : IRepositoryBase<GameSettingsEntity>
     {
-        Task<GameSettingsEntity> GetGameSettings(DifficultyType difficultyType);
+        Task<GameSettingsEntity> GetGameSettingsAsync(
+            DifficultyType difficultyType);
     }
 }

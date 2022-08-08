@@ -18,7 +18,7 @@
         {
         }
 
-        public async Task<GameSettingsEntity> GetGameSettings(
+        public async Task<GameSettingsEntity> GetGameSettingsAsync(
             DifficultyType difficultyType)
         {
             try

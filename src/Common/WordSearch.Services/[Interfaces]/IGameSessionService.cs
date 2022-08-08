@@ -7,7 +7,7 @@
 
     public interface IGameSessionService
     {
-        Task<GameSessionModel> GetGameSessionData(
+        Task<GameSessionModel> GetGameSessionDataAsync(
             GameSettingsSelectionModel gameSettingsSelection);
     }
 }

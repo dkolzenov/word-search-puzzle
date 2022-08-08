@@ -28,7 +28,7 @@
             _wordService = wordService;
         }
 
-        public async Task<GridDataModel> GetGridData(
+        public async Task<GridDataModel> GetGridDataAsync(
             GameSettingsModel gameSettings)
         {
             List<WordModel> words = await GetWords(gameSettings);
@@ -45,7 +45,7 @@
         private async Task<List<WordModel>> GetWords(
             GameSettingsModel gameSettings)
         {
-            List<WordModel> words = await _wordService.GetWords(
+            List<WordModel> words = await _wordService.GetWordsAsync(
                 gameSettings.WordLanguage,
                 gameSettings.WordCategory,
                 gameSettings.MaxWordLength);
@@ -60,7 +60,7 @@
                 .GetScriptType(gameSettings.WordLanguage);
 
             List<CharacterModel> characters = await _characterService
-                .GetCharacters(script);
+                .GetCharactersAsync(script);
 
             return characters;
         }

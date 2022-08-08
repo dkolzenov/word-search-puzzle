@@ -28,16 +28,17 @@
             _gridDataService = gridDataService;
         }
 
-        public async Task<GameSessionModel> GetGameSessionData(
+        public async Task<GameSessionModel> GetGameSessionDataAsync(
             GameSettingsSelectionModel gameSettingsSelection)
         {
             var gameSettingsResult = await _gameSettingsService
-                .GetSettings(gameSettingsSelection.Difficulty);
+                .GetGameSettingsAsync(gameSettingsSelection.Difficulty);
 
             var gameSettings = _mapper
                 .Map(gameSettingsSelection, gameSettingsResult);
 
-            var gridData = await _gridDataService.GetGridData(gameSettings);
+            var gridData = await _gridDataService
+                .GetGridDataAsync(gameSettings);
 
             return new GameSessionModel();
         }

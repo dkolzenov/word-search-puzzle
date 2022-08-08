@@ -84,20 +84,20 @@
 
         private async void GetAllWords()
         {
-            Words = await _wordService.GetWords(
+            Words = await _wordService.GetWordsAsync(
                 LanguageType.Russian,
                 CategoryType.Animals);
         }
 
         private async void GetAllCharacters()
         {
-            Characters = await _characterService.GetCharacters(
+            Characters = await _characterService.GetCharactersAsync(
                 ScriptType.Cyrillic);
         }
 
         private async void GetGridInfo()
         {
-            var gridModel = await _gridService.GetGrid(SizeType.Medium);
+            var gridModel = await _gridService.GetGridAsync(SizeType.Medium);
 
             GridInfo = $"{gridModel.Id} {gridModel.Row} {gridModel.Column} " +
                 $"{gridModel.Size}";
@@ -106,7 +106,7 @@
         private async void GetGameSettings()
         {
             var settingsModel = await _gameSettingsService
-                .GetSettings(DifficultyType.Easy);
+                .GetGameSettingsAsync(DifficultyType.Easy);
 
             GameSettingsInfo = $"{settingsModel.Difficulty} " +
                 $"{settingsModel.GridSize} {settingsModel.WordCount} " +

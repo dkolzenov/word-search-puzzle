@@ -8,7 +8,7 @@
 
     public interface IWordService
     {
-        Task<List<WordModel>> GetWords(
+        Task<List<WordModel>> GetWordsAsync(
             LanguageType languageType,
             CategoryType categoryType,
             int maxLength = int.MaxValue);

@@ -30,7 +30,7 @@
             _directionRepository = directionRepository;
         }
 
-        public async Task<List<DirectionModel>> GetDirections(
+        public async Task<List<DirectionModel>> GetDirectionsAsync(
             LayoutType layoutType)
         {
             try

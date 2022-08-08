@@ -31,7 +31,7 @@
             _wordRepository = wordRepository;
         }
 
-        public async Task<List<WordModel>> GetWords(
+        public async Task<List<WordModel>> GetWordsAsync(
             LanguageType languageType,
             CategoryType categoryType,
             int maxLength = int.MaxValue)

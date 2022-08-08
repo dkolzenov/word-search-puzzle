@@ -33,7 +33,7 @@
             _cellService = cellService;
         }
 
-        public async Task<GridModel> GetGrid(SizeType sizeType)
+        public async Task<GridModel> GetGridAsync(SizeType sizeType)
         {
             try
             {
@@ -43,7 +43,8 @@
 
                 var grid = _mapper.Map<GridModel>(result[0]);
 
-                grid.Cells = await _cellService.GetCells(grid.Row, grid.Column);
+                grid.Cells = await _cellService
+                    .GetCellsAsync(grid.Row, grid.Column);
 
                 return grid;
             }

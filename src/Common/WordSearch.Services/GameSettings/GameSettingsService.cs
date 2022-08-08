@@ -29,7 +29,7 @@
             _gameSettingsRepository = gameSettingsRepository;
         }
 
-        public async Task<GameSettingsModel> GetSettings(
+        public async Task<GameSettingsModel> GetGameSettingsAsync(
             DifficultyType difficultyType)
         {
             try

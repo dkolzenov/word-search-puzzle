@@ -7,6 +7,6 @@
 
     public interface ICellService
     {
-        Task<List<CellModel>> GetCells(int row, int column);
+        Task<List<CellModel>> GetCellsAsync(int row, int column);
     }
 }

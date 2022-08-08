@@ -11,6 +11,7 @@
     using WordSearch.Services.GridData;
     using WordSearch.Services.Direction;
     using WordSearch.Services.GameSession;
+    using WordSearch.Services.GridDataPlacement;
 
     public static class ServicesRegistryExtension
     {
@@ -37,6 +38,9 @@
 
             containerRegistry.RegisterSingleton<
                 IGameSessionService, GameSessionService>();
+
+            containerRegistry.RegisterSingleton<
+                IGridDataPlacementService, GridDataPlacementService>();
         }
     }
 }

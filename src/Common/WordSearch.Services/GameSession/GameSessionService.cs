@@ -37,7 +37,8 @@
             var gameSettings = _mapper
                 .Map(gameSettingsSelection, gameSettingsResult);
 
-            var gridData = await _gridDataService.GetGridData(gameSettings);
+            var gridData = await _gridDataService
+                .GetGridDataAsync(gameSettings);
 
             return new GameSessionModel();
         }

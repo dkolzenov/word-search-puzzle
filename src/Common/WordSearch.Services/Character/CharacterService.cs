@@ -8,7 +8,6 @@
     using AutoMapper;
 
     using WordSearch.Services.Interfaces;
-    using WordSearch.Services.Character.Factories.Interfaces;
     using WordSearch.Data.Repositories.Interfaces;
     using WordSearch.Models.Character;
     using WordSearch.Core.Enums.Character;
@@ -17,17 +16,13 @@
     {
         private readonly IMapper _mapper;
 
-        private readonly ICharacterQueryFactory _characterFactory;
-
         private readonly ICharacterRepository _characterRepository;
 
         public CharacterService(
             IMapper mapper,
-            ICharacterQueryFactory characterFactory,
             ICharacterRepository characterRepository)
         {
             _mapper = mapper;
-            _characterFactory = characterFactory;
             _characterRepository = characterRepository;
         }
 
@@ -36,14 +31,11 @@
         {
             try
             {
-                var scriptQuery = _characterFactory
-                    .CreateScriptQuery(scriptType);
-
                 var result = await _characterRepository
-                    .QueryAsync(scriptQuery);
+                    .GetCharactersAsync(scriptType);
 
                 var characters = _mapper
-                    .Map<IEnumerable<CharacterModel>>(result[0])
+                    .Map<IEnumerable<CharacterModel>>(result)
                     .ToList();
 
                 return characters;

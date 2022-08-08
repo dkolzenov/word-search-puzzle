@@ -45,7 +45,8 @@
                 {
                     Grid = grid,
                     Words = words,
-                    Characters = characters
+                    Characters = characters,
+                    WordCount = gameSettings.WordCount
                 };
                 return gridData;
             }

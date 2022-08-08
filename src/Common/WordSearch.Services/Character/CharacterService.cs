@@ -31,7 +31,7 @@
             _characterRepository = characterRepository;
         }
 
-        public async Task<List<CharacterModel>> GetCharacters(
+        public async Task<List<CharacterModel>> GetCharactersAsync(
             ScriptType scriptType)
         {
             try

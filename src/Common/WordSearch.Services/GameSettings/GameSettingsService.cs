@@ -8,7 +8,6 @@
     using WordSearch.Services.Interfaces;
     using WordSearch.Data.Repositories.Interfaces;
     using WordSearch.Models.GameSettings;
-    using WordSearch.Core.Enums.GameSettings;
 
     public class GameSettingsService : IGameSettingsService
     {
@@ -25,16 +24,18 @@
         }
 
         public async Task<GameSettingsModel> GetGameSettingsAsync(
-            DifficultyType difficultyType)
+            GameSettingsSelectionModel gameSettingsSelection)
         {
             try
             {
                 var result = await _gameSettingsRepository
-                    .GetGameSettingsAsync(difficultyType);
+                    .GetGameSettingsAsync(gameSettingsSelection.Difficulty);
 
-                var settings = _mapper.Map<GameSettingsModel>(result);
+                var gameSettings = _mapper.Map<GameSettingsModel>(result);
 
-                return settings;
+                gameSettings = _mapper.Map(gameSettingsSelection, gameSettings);
+
+                return gameSettings;
             }
             catch (Exception ex)
             {

@@ -3,27 +3,20 @@
     using System;
     using System.Threading.Tasks;
 
-    using AutoMapper;
-
     using WordSearch.Services.Interfaces;
     using WordSearch.Models.GameSettings;
     using WordSearch.Models.GameSession;
-    using WordSearch.Core.Enums.GameSettings;
 
     public class GameSessionService : IGameSessionService
     {
-        private readonly IMapper _mapper;
-
         private readonly IGameSettingsService _gameSettingsService;
 
         private readonly IGridDataService _gridDataService;
 
         public GameSessionService(
-            IMapper mapper,
             IGameSettingsService gameSettingsService,
             IGridDataService gridDataService)
         {
-            _mapper = mapper;
             _gameSettingsService = gameSettingsService;
             _gridDataService = gridDataService;
         }
@@ -31,16 +24,21 @@
         public async Task<GameSessionModel> GetGameSessionDataAsync(
             GameSettingsSelectionModel gameSettingsSelection)
         {
-            var gameSettingsResult = await _gameSettingsService
-                .GetGameSettingsAsync(gameSettingsSelection.Difficulty);
+            try
+            {
+                var gameSettings = await _gameSettingsService
+                    .GetGameSettingsAsync(gameSettingsSelection);
 
-            var gameSettings = _mapper
-                .Map(gameSettingsSelection, gameSettingsResult);
+                var gridData = await _gridDataService
+                    .GetGridDataAsync(gameSettings);
 
-            var gridData = await _gridDataService
-                .GetGridDataAsync(gameSettings);
-
-            return new GameSessionModel();
+                return new GameSessionModel();
+            }
+            catch (Exception ex)
+            {
+                return await Task.FromException<GameSessionModel>(
+                    ex.InnerException);
+            }
         }
     }
 }

@@ -36,12 +36,12 @@
         }
 
         public async Task<List<CharacterModel>> GetCharactersAsync(
-            LanguageType languageType)
+            LanguageType wordLanguageType)
         {
             try
             {
                 ScriptType scriptType = _characterScriptMap
-                    .GetScriptType(languageType);
+                    .GetScriptType(wordLanguageType);
 
                 var result = await _characterRepository
                     .GetCharactersAsync(scriptType);

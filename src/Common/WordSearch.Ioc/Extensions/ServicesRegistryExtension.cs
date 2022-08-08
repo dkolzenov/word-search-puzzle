@@ -8,6 +8,9 @@
     using WordSearch.Services.Grid;
     using WordSearch.Services.GameSettings;
     using WordSearch.Services.Cell;
+    using WordSearch.Services.GridData;
+    using WordSearch.Services.Direction;
+    using WordSearch.Services.GameSession;
 
     public static class ServicesRegistryExtension
     {
@@ -25,6 +28,15 @@
                 IGameSettingsService, GameSettingsService>();
 
             containerRegistry.RegisterSingleton<ICellService, CellService>();
+
+            containerRegistry.RegisterSingleton<
+                IGridDataService, GridDataService>();
+
+            containerRegistry.RegisterSingleton<
+                IDirectionService, DirectionService>();
+
+            containerRegistry.RegisterSingleton<
+                IGameSessionService, GameSessionService>();
         }
     }
 }

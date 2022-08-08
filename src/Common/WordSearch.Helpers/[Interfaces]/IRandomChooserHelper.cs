@@ -3,8 +3,6 @@
     using System;
     using System.Collections.Generic;
 
-    using WordSearch.Models.Word;
-
     public interface IRandomChooserHelper
     {
         int GetRandomIntValue(int minValue = 0, int maxValue = int.MaxValue);
@@ -14,10 +12,5 @@
         T GetRandomItem<T>(List<T> sourceList);
 
         List<T> GetRandomUniqueList<T>(List<T> sourceList, int randomCount);
-
-        List<WordModel> GetRandomUniqueWordList(
-            List<WordModel> wordList,
-            int wordCount,
-            int maxWordLength);
     }
 }

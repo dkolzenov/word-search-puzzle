@@ -1,5 +1,6 @@
 ﻿namespace WordSearch.Models.GameSession
 {
+    using System;
     using System.Collections.Generic;
 
     using WordSearch.Models.Word;
@@ -8,7 +9,7 @@
 
     public class GameSessionModel
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
 
         public GridModel Grid { get; set; } = null!;
 

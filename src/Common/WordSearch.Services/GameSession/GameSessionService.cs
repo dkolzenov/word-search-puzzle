@@ -28,7 +28,7 @@
             _gridDataService = gridDataService;
         }
 
-        public async Task<GameSessionModel> GetGameSessionData(
+        public async Task<GameSessionModel> GetGameSessionDataAsync(
             GameSettingsSelectionModel gameSettingsSelection)
         {
             var gameSettingsResult = await _gameSettingsService

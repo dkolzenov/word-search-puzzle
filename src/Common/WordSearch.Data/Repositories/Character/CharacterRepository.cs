@@ -9,16 +9,12 @@
     using WordSearch.Data.Entities.Character;
     using WordSearch.Data.Contexts.ApplicationDb;
     using WordSearch.Core.Enums.Character;
-    using WordSearch.Core.Dictionaries.Character;
 
     public class CharacterRepository
         : RepositoryBase<CharacterEntity>, ICharacterRepository
     {
-        private readonly ScriptToStringMap _scriptMap;
-
         public CharacterRepository(ApplicationDbContext context) : base(context)
         {
-            _scriptMap = new ScriptToStringMap();
         }
 
         public async Task<CharacterEntity> GetCharactersAsync(
@@ -26,10 +22,10 @@
         {
             try
             {
-                string script = _scriptMap.GetScriptString(scriptType);
+                string script = scriptType.ToString().ToLower();
 
                 var result = await QueryAsync(
-                    characters => characters.Script == script);
+                    character => character.Script == script);
 
                 CharacterEntity characters = result.FirstOrDefault();
 
@@ -37,7 +33,8 @@
             }
             catch (Exception ex)
             {
-                return await Task.FromException<CharacterEntity>(ex);
+                return await Task.FromException<CharacterEntity>(
+                    ex.InnerException);
             }
         }
     }

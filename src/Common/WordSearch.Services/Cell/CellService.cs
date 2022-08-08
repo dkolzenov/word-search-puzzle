@@ -8,7 +8,7 @@
 
     public class CellService : ICellService
     {
-        public Task<List<CellModel>> GetCells(int row, int column)
+        public Task<List<CellModel>> GetCellsAsync(int row, int column)
         {
             var cells = new List<CellModel>();
 

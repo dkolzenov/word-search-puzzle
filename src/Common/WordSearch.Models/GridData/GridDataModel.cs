@@ -13,5 +13,7 @@
         public List<WordModel> Words { get; set; } = null!;
 
         public List<CharacterModel> Characters { get; set; } = null!;
+
+        public int WordCount { get; set; }
     }
 }

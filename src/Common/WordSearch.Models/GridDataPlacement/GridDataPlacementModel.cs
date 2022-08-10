@@ -7,7 +7,7 @@
 
     public class GridDataPlacementModel
     {
-        public GridModel Grid { get; set; } = null!;
+        public GridModel DataGrid { get; set; } = null!;
 
         public List<WordModel> RandomWords { get; set; } = null!;
     }

@@ -42,7 +42,7 @@
                 var gameSessionData = new GameSessionModel()
                 {
                     Id = Guid.NewGuid(),
-                    Grid = gridDataPlacement.Grid,
+                    DataGrid = gridDataPlacement.DataGrid,
                     Words = gridDataPlacement.RandomWords,
                     WordCategory = gameSettings.WordCategory
                 };

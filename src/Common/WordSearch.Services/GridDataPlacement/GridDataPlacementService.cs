@@ -2,29 +2,30 @@
 {
     using System;
     using System.Threading.Tasks;
-
-    using AutoMapper;
+    using System.Collections.Generic;
 
     using WordSearch.Services.Interfaces;
     using WordSearch.Helpers.Interfaces;
+    using WordSearch.Models.Word;
+    using WordSearch.Models.Grid;
     using WordSearch.Models.GridData;
     using WordSearch.Models.GridDataPlacement;
 
     public class GridDataPlacementService : IGridDataPlacementService
     {
-        private readonly IMapper _mapper;
+        private readonly IWordInsertService _wordInsertService;
 
-        private readonly IDirectionService _directionService;
+        private readonly ICharacterInsertService _characterInsertService;
 
         private readonly IRandomChooserHelper _randomChooserHelper;
 
         public GridDataPlacementService(
-            IMapper mapper,
-            IDirectionService directionService,
+            IWordInsertService wordInsertService,
+            ICharacterInsertService characterInsertService,
             IRandomChooserHelper randomChooserHelper)
         {
-            _mapper = mapper;
-            _directionService = directionService;
+            _wordInsertService = wordInsertService;
+            _characterInsertService = characterInsertService;
             _randomChooserHelper = randomChooserHelper;
         }
 
@@ -33,15 +34,21 @@
         {
             try
             {
-                var cells = gridData.Grid.Cells;
-
-                var randomWords = _randomChooserHelper
+                List<WordModel> randomWords = _randomChooserHelper
                     .GetRandomUniqueList(gridData.Words, gridData.WordCount);
 
-                // TODO: temp plug
+                GridModel dataGrid = gridData.Grid;
+
+                randomWords.ForEach(async word =>
+                    dataGrid = await _wordInsertService
+                        .GetWordInsertedGrid(dataGrid, word));
+
+                dataGrid = await _characterInsertService
+                    .GetCharacterInsertedGrid(dataGrid, gridData.Characters);
+
                 return new GridDataPlacementModel()
                 {
-                    Grid = gridData.Grid,
+                    DataGrid = dataGrid,
                     RandomWords = randomWords
                 };
             }

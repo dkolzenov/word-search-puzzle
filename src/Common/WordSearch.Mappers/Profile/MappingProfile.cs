@@ -39,6 +39,9 @@
 
             #region Models to Models
 
+            CreateMap<WordModel, IEnumerable<CharacterModel>>()
+                .ConvertUsing<WordToCharacterConverter>();
+
             CreateMap<GameMenuModel, GameSettingsSelectionModel>();
             CreateMap<GameSettingsSelectionModel, GameMenuModel>();
             CreateMap<GameSettingsModel, GameSettingsSelectionModel>();

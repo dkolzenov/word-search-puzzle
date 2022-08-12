@@ -49,19 +49,23 @@
 
                 while (emptyCells.Count != 0)
                 {
-                    CellModel randomCell = _randomChooserHelper
+                    CellModel cell = _randomChooserHelper
                         .GetRandomItem(emptyCells);
 
-                    DirectionModel randomDirection = await _wordDirectionService
-                        .GetPossibleRandomDirection(grid, word, randomCell);
+                    DirectionModel direction = await _wordDirectionService
+                        .GetValidRandomDirection(grid, word, cell);
 
-                    var characters = _mapper
-                        .Map<IEnumerable<CharacterModel>>(word);
-
-                    foreach (var character in characters)
+                    if (direction is null)
                     {
                         // TODO: continue...
                     }
+
+                    var characters = _mapper
+                        .Map<IEnumerable<CharacterModel>>(word)
+                        .ToList();
+
+                    characters.ForEach(character =>
+                        grid[cell.Row, cell.Column].Character = character);
                 }
                 return grid;
             }

@@ -9,7 +9,7 @@
 
     public interface IWordDirectionService
     {
-        Task<DirectionModel> GetPossibleRandomDirection(
+        Task<DirectionModel> GetValidRandomDirection(
             GridModel grid,
             WordModel word,
             CellModel startCell);

@@ -10,14 +10,11 @@
     using WordSearch.Models.Grid;
     using WordSearch.Models.Word;
     using WordSearch.Models.Cell;
-    using WordSearch.Models.Character;
     using WordSearch.Models.Direction;
     using WordSearch.Core.Enums.Direction;
 
     public class WordDirectionService : IWordDirectionService
     {
-        private readonly Predicate<CharacterModel> IsCharacterNull = (x) => x is null;
-
         private readonly IDirectionService _directionService;
 
         private readonly IRandomChooserHelper _randomChooserHelper;
@@ -30,7 +27,7 @@
             _randomChooserHelper = randomChooserHelper;
         }
 
-        public async Task<DirectionModel> GetPossibleRandomDirection(
+        public async Task<DirectionModel> GetValidRandomDirection(
             GridModel grid,
             WordModel word,
             CellModel startCell)
@@ -60,12 +57,15 @@
                         foreach (var character in characters)
                         {
                             // TODO: continue...
-                            if (IsCharacterNull(startCell.Character) ||
-                                startCell.Character.Value != character)
+                            if (startCell.Character is null ||
+                                startCell.Character.Value != character ||
+                                IsOutsideOfGrid(grid, startCell))
                             {
-                                startCell.Row += randomDirection.RowMovement;
-                                startCell.Column += randomDirection.ColumnMovement;
+                                directions.Remove(randomDirection);
+                                break;
                             }
+                            startCell.Row += randomDirection.RowMovement;
+                            startCell.Column += randomDirection.ColumnMovement;
                         }
                     }
                 }
@@ -76,5 +76,12 @@
                     ex.InnerException);
             }
         }
+
+        private bool IsOutsideOfGrid(GridModel grid, CellModel cell)
+        {
+            return cell.Row > grid.Row || cell.Column > grid.Column;
+        }
+
+        private bool 
     }
 }

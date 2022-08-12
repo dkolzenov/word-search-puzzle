@@ -52,14 +52,12 @@
                         DirectionModel randomDirection = _randomChooserHelper
                             .GetRandomItem(directions);
 
-                        string characters = word.Value;
-
-                        foreach (var character in characters)
+                        foreach (var character in word.Value)
                         {
                             // TODO: continue...
-                            if (startCell.Character is null ||
-                                startCell.Character.Value != character ||
-                                IsOutsideOfGrid(grid, startCell))
+                            if (!startCell.IsCharacterNull() ||
+                                startCell.IsCharacterMatch(character) ||
+                                startCell.IsOutsideOfGrid(grid))
                             {
                                 directions.Remove(randomDirection);
                                 break;
@@ -68,6 +66,7 @@
                             startCell.Column += randomDirection.ColumnMovement;
                         }
                     }
+                    layoutTypes.Remove(randomLayoutType);
                 }
             }
             catch (Exception ex)
@@ -76,12 +75,23 @@
                     ex.InnerException);
             }
         }
+    }
 
-        private bool IsOutsideOfGrid(GridModel grid, CellModel cell)
+    internal static class CellExtension
+    {
+        public static bool IsCharacterNull(this CellModel cell)
+        {
+            return cell.Character is null;
+        }
+
+        public static bool IsCharacterMatch(this CellModel cell, char character)
+        {
+            return cell.Character.Value == character;
+        }
+
+        public static bool IsOutsideOfGrid(this CellModel cell, GridModel grid)
         {
             return cell.Row > grid.Row || cell.Column > grid.Column;
         }
-
-        private bool 
     }
 }

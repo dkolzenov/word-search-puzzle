@@ -54,17 +54,16 @@
 
                         foreach (var character in word.Value)
                         {
-                            // TODO: continue...
                             if (!startCell.IsCharacterNull() ||
-                                startCell.IsCharacterMatch(character) ||
+                                !startCell.IsCharacterMatch(character) ||
                                 startCell.IsOutsideOfGrid(grid))
                             {
-                                directions.Remove(randomDirection);
                                 break;
                             }
                             startCell.Row += randomDirection.RowMovement;
                             startCell.Column += randomDirection.ColumnMovement;
                         }
+                        directions.Remove(randomDirection);
                     }
                     layoutTypes.Remove(randomLayoutType);
                 }

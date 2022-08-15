@@ -27,7 +27,7 @@
             _randomChooserHelper = randomChooserHelper;
         }
 
-        public async Task<DirectionModel> GetValidRandomDirection(
+        public async Task<DirectionModel?> GetValidRandomDirection(
             GridModel grid,
             WordModel word,
             CellModel startCell)
@@ -54,11 +54,15 @@
 
                         foreach (var character in word.Value)
                         {
-                            if (!startCell.IsCharacterNull() ||
-                                !startCell.IsCharacterMatch(character) ||
+                            if ((!startCell.IsEmpty() &&
+                                !startCell.IsContains(character)) ||
                                 startCell.IsOutsideOfGrid(grid))
                             {
                                 break;
+                            }
+                            else if (character == word.Value.Last())
+                            {
+                                return randomDirection;
                             }
                             startCell.Row += randomDirection.RowMovement;
                             startCell.Column += randomDirection.ColumnMovement;
@@ -67,6 +71,7 @@
                     }
                     layoutTypes.Remove(randomLayoutType);
                 }
+                return null;
             }
             catch (Exception ex)
             {
@@ -78,12 +83,12 @@
 
     internal static class CellExtension
     {
-        public static bool IsCharacterNull(this CellModel cell)
+        public static bool IsEmpty(this CellModel cell)
         {
-            return cell.Character is null;
+            return cell.Character.Value is char.MinValue;
         }
 
-        public static bool IsCharacterMatch(this CellModel cell, char character)
+        public static bool IsContains(this CellModel cell, char character)
         {
             return cell.Character.Value == character;
         }

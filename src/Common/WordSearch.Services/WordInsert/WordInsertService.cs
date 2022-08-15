@@ -23,18 +23,14 @@
 
         private readonly IRandomChooserHelper _randomChooserHelper;
 
-        private readonly IWordDirectionService _wordDirectionService;
-
         public WordInsertService(
             IMapper mapper,
             IDirectionService directionService,
-            IRandomChooserHelper randomChooserHelper,
-            IWordDirectionService wordDirectionService)
+            IRandomChooserHelper randomChooserHelper)
         {
             _mapper = mapper;
             _directionService = directionService;
             _randomChooserHelper = randomChooserHelper;
-            _wordDirectionService = wordDirectionService;
         }
 
         public async Task<GridModel> GetWordInsertedGrid(
@@ -52,20 +48,18 @@
                     CellModel cell = _randomChooserHelper
                         .GetRandomItem(emptyCells);
 
-                    DirectionModel direction = await _wordDirectionService
-                        .GetValidRandomDirection(grid, word, cell);
+                    DirectionModel? direction = await _directionService
+                        .GetValidRandomWordDirectionAsync(grid, word, cell);
 
-                    if (direction is null)
+                    if (!(direction is null))
                     {
-                        // TODO: continue...
+                        var characters = _mapper
+                            .Map<IEnumerable<CharacterModel>>(word)
+                            .ToList();
+
+                        characters.ForEach(character =>
+                            grid[cell.Row, cell.Column].Character = character);
                     }
-
-                    var characters = _mapper
-                        .Map<IEnumerable<CharacterModel>>(word)
-                        .ToList();
-
-                    characters.ForEach(character =>
-                        grid[cell.Row, cell.Column].Character = character);
                 }
                 return grid;
             }

@@ -9,20 +9,25 @@
 
     public class GameSessionService : IGameSessionService
     {
-        private readonly IGameSettingsService _gameSettingsService;
+        private readonly IGridService _gridService;
 
         private readonly IGridDataService _gridDataService;
 
-        private readonly IGridDataPlacementService _gridDataPlacementService;
+        private readonly IDataGridService _dataGridService;
+
+        private readonly IGameSettingsService _gameSettingsService;
 
         public GameSessionService(
-            IGameSettingsService gameSettingsService,
+            IGridService gridService,
             IGridDataService gridDataService,
-            IGridDataPlacementService gridDataPlacementService)
+            IDataGridService dataGridService,
+            IGameSettingsService gameSettingsService
+            )
         {
-            _gameSettingsService = gameSettingsService;
+            _gridService = gridService;
             _gridDataService = gridDataService;
-            _gridDataPlacementService = gridDataPlacementService;
+            _dataGridService = dataGridService;
+            _gameSettingsService = gameSettingsService;
         }
 
         public async Task<GameSessionModel> GetGameSessionDataAsync(
@@ -33,17 +38,19 @@
                 var gameSettings = await _gameSettingsService
                     .GetGameSettingsAsync(gameSettingsSelection);
 
+                var grid = await _gridService
+                    .GetGridAsync(gameSettings.GridSize);
+
                 var gridData = await _gridDataService
                     .GetGridDataAsync(gameSettings);
 
-                var gridDataPlacement = await _gridDataPlacementService
-                    .GetGridDataPlacementAsync(gridData);
+                var dataGrid = await _dataGridService
+                    .GetDataGridAsync(grid, gridData);
 
                 var gameSessionData = new GameSessionModel()
                 {
                     Id = Guid.NewGuid(),
-                    DataGrid = gridDataPlacement.DataGrid,
-                    Words = gridDataPlacement.RandomWords,
+                    DataGrid = dataGrid,
                     WordCategory = gameSettings.WordCategory
                 };
                 return gameSessionData;

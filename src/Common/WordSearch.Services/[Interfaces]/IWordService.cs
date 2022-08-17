@@ -12,5 +12,11 @@
             LanguageType languageType,
             CategoryType categoryType,
             int maxLength = int.MaxValue);
+
+        Task<List<WordModel>> GetRandomWordsAsync(
+            LanguageType languageType,
+            CategoryType categoryType,
+            int count,
+            int maxLength = int.MaxValue);
     }
 }

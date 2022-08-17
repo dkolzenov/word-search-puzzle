@@ -8,6 +8,7 @@
     using AutoMapper;
 
     using WordSearch.Services.Interfaces;
+    using WordSearch.Helpers.Interfaces;
     using WordSearch.Data.Repositories.Interfaces;
     using WordSearch.Models.Word;
     using WordSearch.Core.Enums.Word;
@@ -18,12 +19,16 @@
 
         private readonly IWordRepository _wordRepository;
 
+        private readonly IRandomChooserHelper _randomChooserHelper;
+
         public WordService(
             IMapper mapper,
-            IWordRepository wordRepository)
+            IWordRepository wordRepository,
+            IRandomChooserHelper randomChooserHelper)
         {
             _mapper = mapper;
             _wordRepository = wordRepository;
+            _randomChooserHelper = randomChooserHelper;
         }
 
         public async Task<List<WordModel>> GetWordsAsync(
@@ -42,6 +47,31 @@
                     .ToList();
 
                 return words;
+            }
+            catch (Exception ex)
+            {
+                return await Task.FromException<List<WordModel>>(
+                    ex.InnerException);
+            }
+        }
+
+        public async Task<List<WordModel>> GetRandomWordsAsync(
+            LanguageType languageType,
+            CategoryType categoryType,
+            int count,
+            int maxLength = int.MaxValue)
+        {
+            try
+            {
+                var words = await GetWordsAsync(
+                    languageType,
+                    categoryType,
+                    maxLength);
+
+                var randomWords = _randomChooserHelper
+                    .GetRandomUniqueList(words, count);
+
+                return randomWords;
             }
             catch (Exception ex)
             {

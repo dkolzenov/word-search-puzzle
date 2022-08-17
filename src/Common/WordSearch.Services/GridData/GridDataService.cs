@@ -9,18 +9,14 @@
 
     public class GridDataService : IGridDataService
     {
-        private readonly IGridService _gridService;
-
         private readonly IWordService _wordService;
 
         private readonly ICharacterService _characterService;
 
         public GridDataService(
-            IGridService gridService,
             IWordService wordService,
             ICharacterService characterService)
         {
-            _gridService = gridService;
             _wordService = wordService;
             _characterService = characterService;
         }
@@ -30,12 +26,10 @@
         {
             try
             {
-                var grid = await _gridService.GetGridAsync(
-                    gameSettings.GridSize);
-
-                var words = await _wordService.GetWordsAsync(
+                var randomWords = await _wordService.GetRandomWordsAsync(
                     gameSettings.WordLanguage,
                     gameSettings.WordCategory,
+                    gameSettings.WordCount,
                     gameSettings.MaxWordLength);
 
                 var characters = await _characterService.GetCharactersAsync(
@@ -43,10 +37,8 @@
 
                 var gridData = new GridDataModel()
                 {
-                    Grid = grid,
-                    Words = words,
-                    Characters = characters,
-                    WordCount = gameSettings.WordCount
+                    Words = randomWords,
+                    Characters = characters
                 };
                 return gridData;
             }

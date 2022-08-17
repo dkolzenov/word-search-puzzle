@@ -1,19 +1,15 @@
 ﻿namespace WordSearch.Models.GameSession
 {
     using System;
-    using System.Collections.Generic;
 
-    using WordSearch.Models.Word;
-    using WordSearch.Models.Grid;
+    using WordSearch.Models.DataGrid;
     using WordSearch.Core.Enums.Word;
 
     public class GameSessionModel
     {
         public Guid Id { get; set; }
 
-        public GridModel DataGrid { get; set; } = null!;
-
-        public List<WordModel> Words { get; set; } = null!;
+        public DataGridModel DataGrid { get; set; } = null!;
 
         public CategoryType WordCategory { get; set; }
     }

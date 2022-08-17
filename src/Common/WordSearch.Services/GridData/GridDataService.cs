@@ -33,9 +33,10 @@
                 var grid = await _gridService.GetGridAsync(
                     gameSettings.GridSize);
 
-                var words = await _wordService.GetWordsAsync(
+                var randomWords = await _wordService.GetRandomWordsAsync(
                     gameSettings.WordLanguage,
                     gameSettings.WordCategory,
+                    gameSettings.WordCount,
                     gameSettings.MaxWordLength);
 
                 var characters = await _characterService.GetCharactersAsync(
@@ -44,9 +45,8 @@
                 var gridData = new GridDataModel()
                 {
                     Grid = grid,
-                    Words = words,
-                    Characters = characters,
-                    WordCount = gameSettings.WordCount
+                    Words = randomWords,
+                    Characters = characters
                 };
                 return gridData;
             }

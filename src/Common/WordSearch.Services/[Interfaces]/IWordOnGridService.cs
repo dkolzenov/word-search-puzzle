@@ -7,8 +7,10 @@
 
     public interface IWordOnGridService
     {
-        Task<List<WordOnGridModel>> GetWordsOnGridAsync();
+        Task<List<WordOnGridModel>> GetAllWordsOnGridAsync();
 
-        Task<WordOnGridModel> AddWordOnGridAsync();
+        Task<WordOnGridModel> AddWordOnGridAsync(WordOnGridModel wordOnGrid);
+
+        Task<WordOnGridModel> RemoveWordOnGridAsync(WordOnGridModel wordOnGrid);
     }
 }

@@ -7,7 +7,7 @@ Cross-platform mobile application ***currently in developed*** written on [C#](h
 
 ## Technology stack
 
-* [.NET Standard 2.1](https://learn.microsoft.com/ru-ru/dotnet/standard/net-standard?tabs=net-standard-2-1)
+* [.NET Standard 2.1](https://learn.microsoft.com/en-us/dotnet/standard/net-standard?tabs=net-standard-2-1)
 * [Xamarin.Forms 5.0](https://learn.microsoft.com/en-us/xamarin/xamarin-forms/release-notes/5.0/5.0.0-sr10)
 * [Entity Framework Core 3.0](https://docs.microsoft.com/en-us/ef/core)
 * [SQLite EF Core](https://docs.microsoft.com/en-us/ef/core/providers/sqlite) used as database provider

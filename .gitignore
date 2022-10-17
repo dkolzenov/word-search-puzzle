@@ -478,9 +478,6 @@ Temporary Items
 # iCloud generated files
 *.icloud
 
-### Rider ###
-.idea
-
 ### VisualStudio ###
 
 # User-specific files

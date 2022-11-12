@@ -2,6 +2,10 @@
 # Created by https://www.toptal.com/developers/gitignore/api/csharp,xamarinstudio,visualstudio,android
 # Edit at https://www.toptal.com/developers/gitignore?templates=csharp,xamarinstudio,visualstudio,android
 
+# Databases
+*.db-shm
+*.db-wal
+
 ### Android ###
 # Gradle files
 .gradle/

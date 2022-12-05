@@ -38,6 +38,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WordSearch.Domain", "WordSe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WordSearch.Infrastructure", "WordSearch.Infrastructure\WordSearch.Infrastructure.csproj", "{332D1887-F175-4BEC-94F9-C618261DAC11}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WordSearch.Common", "WordSearch.Common\WordSearch.Common.csproj", "{67AF6DC4-4B01-401E-BBA8-8F0FB62BDD66}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -252,6 +254,18 @@ Global
 		{332D1887-F175-4BEC-94F9-C618261DAC11}.Release|iPhone.Build.0 = Release|Any CPU
 		{332D1887-F175-4BEC-94F9-C618261DAC11}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
 		{332D1887-F175-4BEC-94F9-C618261DAC11}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
+		{67AF6DC4-4B01-401E-BBA8-8F0FB62BDD66}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67AF6DC4-4B01-401E-BBA8-8F0FB62BDD66}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67AF6DC4-4B01-401E-BBA8-8F0FB62BDD66}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{67AF6DC4-4B01-401E-BBA8-8F0FB62BDD66}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{67AF6DC4-4B01-401E-BBA8-8F0FB62BDD66}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{67AF6DC4-4B01-401E-BBA8-8F0FB62BDD66}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{67AF6DC4-4B01-401E-BBA8-8F0FB62BDD66}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67AF6DC4-4B01-401E-BBA8-8F0FB62BDD66}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67AF6DC4-4B01-401E-BBA8-8F0FB62BDD66}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{67AF6DC4-4B01-401E-BBA8-8F0FB62BDD66}.Release|iPhone.Build.0 = Release|Any CPU
+		{67AF6DC4-4B01-401E-BBA8-8F0FB62BDD66}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{67AF6DC4-4B01-401E-BBA8-8F0FB62BDD66}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

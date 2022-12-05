@@ -3,7 +3,7 @@ using WordSearch.Domain.Interfaces;
 namespace WordSearch.Domain.Entities
 {
     /// <summary>
-    /// Список слов
+    /// Набор слов
     /// </summary>
     public class WordSet : IBaseEntity
     {

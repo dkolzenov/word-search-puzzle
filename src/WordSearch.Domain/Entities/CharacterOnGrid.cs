@@ -33,7 +33,7 @@ namespace WordSearch.Domain.Entities
         /// <summary>
         /// Алфавит
         /// </summary>
-        public Alphabet Alphabet { get; set; } = null!;
+        public virtual Alphabet Alphabet { get; set; } = null!;
         
         /// <summary>
         /// Идентификатор слова в сетке
@@ -43,7 +43,7 @@ namespace WordSearch.Domain.Entities
         /// <summary>
         /// Слово в сетке
         /// </summary>
-        public WordOnGrid WordOnGrid { get; set; } = null!;
+        public virtual WordOnGrid WordOnGrid { get; set; } = null!;
         
         /// <summary>
         /// Идентификатор игровой сессии
@@ -53,6 +53,6 @@ namespace WordSearch.Domain.Entities
         /// <summary>
         /// Игровая сессия
         /// </summary>
-        public GameSession GameSession { get; set; } = null!;
+        public virtual GameSession GameSession { get; set; } = null!;
     }
 }

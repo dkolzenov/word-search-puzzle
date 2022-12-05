@@ -28,7 +28,7 @@ namespace WordSearch.Domain.Entities
         /// <summary>
         /// Набор слов
         /// </summary>
-        public WordSet WordSet { get; set; } = null!;
+        public virtual WordSet WordSet { get; set; } = null!;
         
         /// <summary>
         /// Идентификатор направления слова
@@ -38,7 +38,7 @@ namespace WordSearch.Domain.Entities
         /// <summary>
         /// Направление слова
         /// </summary>
-        public WordDirection WordDirection { get; set; } = null!;
+        public virtual WordDirection WordDirection { get; set; } = null!;
         
         /// <summary>
         /// Идентификатор игровой сессии
@@ -48,6 +48,6 @@ namespace WordSearch.Domain.Entities
         /// <summary>
         /// Игровая сессия
         /// </summary>
-        public GameSession GameSession { get; set; } = null!;
+        public virtual GameSession GameSession { get; set; } = null!;
     }
 }

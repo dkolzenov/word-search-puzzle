@@ -6,4 +6,9 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\WordSearch.Application\WordSearch.Application.csproj" />
+      <ProjectReference Include="..\WordSearch.Domain\WordSearch.Domain.csproj" />
+    </ItemGroup>
+
 </Project>

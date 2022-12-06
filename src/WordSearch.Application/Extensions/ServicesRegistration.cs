@@ -1,6 +1,7 @@
 using System;
 using System.Linq;
 using System.Collections.Generic;
+using Microsoft.Extensions.DependencyInjection;
 using Prism.Ioc;
 using WordSearch.Application.Common.Interfaces.Services;
 
@@ -26,17 +27,20 @@ namespace WordSearch.Application.Extensions
 
             for (var i = 0; i < singletonInterfaceTypes.Count; i++)
             {
-                containerRegistry.RegisterSingleton(singletonInterfaceTypes[i], singletonImplTypes[i]);
+                containerRegistry.RegisterServices(services =>
+                    services.AddSingleton(singletonInterfaceTypes[i], singletonImplTypes[i]));
             }
 
             for (var i = 0; i < scopedInterfaceTypes.Count; i++)
             {
-                containerRegistry.RegisterScoped(scopedInterfaceTypes[i], scopedImplTypes[i]);
+                containerRegistry.RegisterServices(services =>
+                    services.AddScoped(scopedInterfaceTypes[i], scopedImplTypes[i]));
             }
 
             for (var i = 0; i < transientInterfaceTypes.Count; i++)
             {
-                containerRegistry.Register(transientInterfaceTypes[i], transientImplTypes[i]);
+                containerRegistry.RegisterServices(services =>
+                    services.AddTransient(transientInterfaceTypes[i], transientImplTypes[i]));
             }
 
             return containerRegistry;

@@ -5,7 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Prism.Ioc;
 using WordSearch.Application.Common.Interfaces;
 
-namespace WordSearch.Application.Extensions
+namespace WordSearch.Infrastructure.Extensions
 {
     public static class ServicesRegistration
     {

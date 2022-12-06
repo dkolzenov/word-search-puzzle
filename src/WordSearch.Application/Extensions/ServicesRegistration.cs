@@ -3,7 +3,7 @@ using System.Linq;
 using System.Collections.Generic;
 using Microsoft.Extensions.DependencyInjection;
 using Prism.Ioc;
-using WordSearch.Application.Common.Interfaces.Services;
+using WordSearch.Application.Common.Interfaces;
 
 namespace WordSearch.Application.Extensions
 {
@@ -19,11 +19,11 @@ namespace WordSearch.Application.Extensions
             var singletonInterfaceTypes = GetOrderedInterfaces<ISingletonService>(assemblyTypes);
             var singletonImplTypes = GetOrderedImplementations<ISingletonService>(assemblyTypes);
 
-            var scopedInterfaceTypes = GetOrderedInterfaces<ISingletonService>(assemblyTypes);
-            var scopedImplTypes = GetOrderedImplementations<ISingletonService>(assemblyTypes);
+            var scopedInterfaceTypes = GetOrderedInterfaces<IScopedService>(assemblyTypes);
+            var scopedImplTypes = GetOrderedImplementations<IScopedService>(assemblyTypes);
 
-            var transientInterfaceTypes = GetOrderedInterfaces<ISingletonService>(assemblyTypes);
-            var transientImplTypes = GetOrderedImplementations<ISingletonService>(assemblyTypes);
+            var transientInterfaceTypes = GetOrderedInterfaces<ITransientService>(assemblyTypes);
+            var transientImplTypes = GetOrderedImplementations<ITransientService>(assemblyTypes);
 
             for (var i = 0; i < singletonInterfaceTypes.Count; i++)
             {

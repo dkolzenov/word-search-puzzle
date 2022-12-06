@@ -1,4 +1,4 @@
-namespace WordSearch.Application.Common.Constants
+namespace WordSearch.Common.Constants
 {
     /// <summary>
     /// Константы валидации длины поля

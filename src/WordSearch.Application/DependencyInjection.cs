@@ -2,7 +2,6 @@ using System.Reflection;
 using FluentValidation;
 using Microsoft.Extensions.DependencyInjection;
 using Prism.Ioc;
-using WordSearch.Application.Extensions;
 
 namespace WordSearch.Application
 {
@@ -15,8 +14,6 @@ namespace WordSearch.Application
             
             containerRegistry.RegisterServices(services =>
                 services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly()));
-            
-            containerRegistry.AddServicesRegistration();
 
             return containerRegistry;
         }

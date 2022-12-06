@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 
 namespace WordSearch.Application.Common.Interfaces
 {
-    public interface IApplicationDbContext : IDisposable
+    public interface IApplicationDbContext : IDisposable, IScopedService
     {
         public DatabaseFacade Database { get; }
 

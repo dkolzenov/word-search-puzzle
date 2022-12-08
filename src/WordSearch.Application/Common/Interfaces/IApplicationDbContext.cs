@@ -3,11 +3,14 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using WordSearch.Domain.Entities;
 
 namespace WordSearch.Application.Common.Interfaces
 {
     public interface IApplicationDbContext : IDisposable, IScopedService
     {
+        public DbSet<Alphabet> Alphabets { get; }
+
         public DatabaseFacade Database { get; }
 
         public DbSet<TEntity> Set<TEntity>() where TEntity : class;

@@ -1,3 +1,4 @@
+using WordSearch.Common.Enums;
 using WordSearch.Domain.Interfaces;
 
 namespace WordSearch.Domain.Entities
@@ -18,11 +19,11 @@ namespace WordSearch.Domain.Entities
         /// <summary>
         /// Категория
         /// </summary>
-        public string Category { get; set; } = null!;
-        
+        public WordSetCategory Category { get; set; }
+
         /// <summary>
-        /// Длина слова
+        /// Язык
         /// </summary>
-        public int WordLength { get; set; }
+        public WordSetLanguage Language { get; set; }
     }
 }

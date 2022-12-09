@@ -10,6 +10,8 @@ namespace WordSearch.Application.Common.Interfaces
     public interface IApplicationDbContext : IDisposable, IScopedService
     {
         public DbSet<Alphabet> Alphabets { get; }
+        
+        public DbSet<WordSet> WordSets { get; }
 
         public DatabaseFacade Database { get; }
 

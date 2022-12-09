@@ -11,13 +11,8 @@ namespace WordSearch.Common.Enums
         Animals,
         
         /// <summary>
-        /// Фрукты
+        /// Еда
         /// </summary>
-        Fruits,
-        
-        /// <summary>
-        /// Овощи
-        /// </summary>
-        Vegetables
+        Food
     }
 }

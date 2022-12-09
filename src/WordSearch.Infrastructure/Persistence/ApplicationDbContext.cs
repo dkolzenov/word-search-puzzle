@@ -8,6 +8,8 @@ namespace WordSearch.Infrastructure.Persistence
     public class ApplicationDbContext : DbContext, IApplicationDbContext
     {
         public DbSet<Alphabet> Alphabets { get; set; }
+        
+        public DbSet<WordSet> WordSets { get; set; }
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {

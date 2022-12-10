@@ -11,8 +11,8 @@ namespace WordSearch.Infrastructure.Persistence.Configurations
         public void Configure(EntityTypeBuilder<Alphabet> builder)
         {
             builder.Property(x => x.Id).ValueGeneratedOnAdd();
-            builder.Property(x => x.Characters).HasMaxLength(LengthValidatorConstant.Name).IsRequired();
-            builder.Property(x => x.Script).HasMaxLength(LengthValidatorConstant.Name).IsRequired();
+            builder.Property(x => x.Characters).HasMaxLength(LengthValidatorConstant.Characters).IsRequired();
+            builder.Property(x => x.Script).HasConversion<string>().IsRequired();
             builder.HasIndex(x => new { x.Characters, x.Script }).IsUnique();
             builder.HasData(AlphabetSeedData.Get());
         }

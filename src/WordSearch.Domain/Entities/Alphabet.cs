@@ -1,3 +1,4 @@
+using WordSearch.Common.Enums;
 using WordSearch.Domain.Interfaces;
 
 namespace WordSearch.Domain.Entities
@@ -18,6 +19,6 @@ namespace WordSearch.Domain.Entities
         /// <summary>
         /// Форма письменности
         /// </summary>
-        public string Script { get; set; } = null!;
+        public AlphabetScript Script { get; set; }
     }
 }

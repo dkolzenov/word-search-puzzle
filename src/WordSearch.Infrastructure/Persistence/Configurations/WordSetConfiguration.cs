@@ -11,8 +11,8 @@ namespace WordSearch.Infrastructure.Persistence.Configurations
         {
             builder.Property(x => x.Id).ValueGeneratedOnAdd();
             builder.Property(x => x.Words).IsRequired();
-            builder.Property(x => x.Category).IsRequired();
-            builder.Property(x => x.Language).IsRequired();
+            builder.Property(x => x.Category).HasConversion<string>().IsRequired();
+            builder.Property(x => x.Language).HasConversion<string>().IsRequired();
             builder.HasIndex(x => x.Words).IsUnique();
             builder.HasData(WordSetSeedData.Get());
         }

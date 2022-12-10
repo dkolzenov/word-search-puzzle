@@ -5,8 +5,10 @@ namespace WordSearch.Common.Constants
     /// </summary>
     public class LengthValidatorConstant
     {
-        public const int Name = 400;
-        
-        public const int Code = 7;
+        public const int Characters = 80;
+
+        public const int Word = 200;
+
+        public const int Character = 1;
     }
 }

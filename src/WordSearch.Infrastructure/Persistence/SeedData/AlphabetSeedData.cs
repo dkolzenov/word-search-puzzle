@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using WordSearch.Common.Enums;
 using WordSearch.Domain.Entities;
 
 namespace WordSearch.Infrastructure.Persistence.SeedData
@@ -15,13 +16,13 @@ namespace WordSearch.Infrastructure.Persistence.SeedData
                 {
                     Id = 1,
                     Characters = "abcdefghijklmnopqrstuvwxyz",
-                    Script = "latin"
+                    Script = AlphabetScript.Latin
                 },
                 new Alphabet
                 {
                     Id = 2,
                     Characters = "абвгдеёжзийклмнопрстуфхцчшщъыьэюя",
-                    Script = "cyrillic"
+                    Script = AlphabetScript.Cyrillic
                 }
             };
         }

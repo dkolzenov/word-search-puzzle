@@ -17,7 +17,7 @@ namespace WordSearch.Infrastructure.Persistence.SeedData
                     Id = 1,
                     Words = "бык жук кит кот лев рак сом сыч чиж ара аист барс бобр волк гусь енот жаба заяц змея " +
                             "клоп конь краб лось морж мышь белка бизон выдра гиена жираф зебра кабан коала кошка " +
-                            "лемур манул норка олень панда песец питон скунс хомяк цапля чайка ягуар кобра",
+                            "лемур манул олень панда питон скунс хомяк цапля чайка ягуар кобра",
                     
                     Category = WordSetCategory.Animals,
                     Language = WordSetLanguage.Russian
@@ -32,7 +32,10 @@ namespace WordSearch.Infrastructure.Persistence.SeedData
                 new WordSet
                 {
                     Id = 3,
-                    Words = "",
+                    Words = "cat dog cow bull pig ant fox bat bug rat goat bear wolf crow lark hare gnat swan lion " +
+                            "frog deer crab wasp pony duck shark goose zebra snake horse mouse sheep eagle tiger " +
+                            "snail puppy crane heron leech raven rhino stork viper hyena panda",
+                    
                     Category = WordSetCategory.Animals,
                     Language = WordSetLanguage.English
                 },

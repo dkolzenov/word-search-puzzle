@@ -8,7 +8,8 @@
     using WordSearch.Bootstrapper.Extensions;
     using WordSearch.Assets.Interfaces;
 
-    public partial class App
+    public partial class 
+        App
     {
         private const string StartPageName = "MainPageView";
 

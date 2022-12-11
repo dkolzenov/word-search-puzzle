@@ -18,12 +18,14 @@
     <ProjectReference Include="..\..\Common\WordSearch.Assets\WordSearch.Assets.csproj" />
     <ProjectReference Include="..\..\Common\WordSearch.IoC\WordSearch.Ioc.csproj" />
     <ProjectReference Include="..\..\Common\WordSearch.Mappers\WordSearch.Mappers.csproj" />
+    <ProjectReference Include="..\WordSearch.Application\WordSearch.Application.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="Core\App.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
+    <Compile Update="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
 
 </Project>

@@ -20,9 +20,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WordSearch.Helpers", "Commo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WordSearch.Ioc", "Common\WordSearch.IoC\WordSearch.Ioc.csproj", "{EA1491CF-B2C0-477B-B5DE-95062C0FD0FD}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WordSearch.Presentation", "Common\WordSearch.Presentation\WordSearch.Presentation.csproj", "{FDF9F414-3F4D-4BC8-AF18-1146EB2725E4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WordSearch.Presentation", "WordSearch.Presentation\WordSearch.Presentation.csproj", "{FDF9F414-3F4D-4BC8-AF18-1146EB2725E4}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WordSearch.Bootstrapper", "Application\WordSearch.Bootstrapper\WordSearch.Bootstrapper.csproj", "{CF02E929-9FE3-4EC8-9C1F-2BBB2C935D54}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WordSearch.Bootstrapper", "WordSearch.Bootstrapper\WordSearch.Bootstrapper.csproj", "{CF02E929-9FE3-4EC8-9C1F-2BBB2C935D54}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WordSearch.Assets", "Common\WordSearch.Assets\WordSearch.Assets.csproj", "{5D1F19AA-690A-41E3-90E7-61545E4F5447}"
 EndProject

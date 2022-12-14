@@ -105,12 +105,12 @@
 
         private async void GetGameSettings()
         {
-            var settingsModel = await _gameSettingsService
+            /*var settingsModel = await _gameSettingsService
                 .GetGameSettingsAsync(DifficultyType.Easy);
 
             GameSettingsInfo = $"{settingsModel.Difficulty} " +
                 $"{settingsModel.GridSize} {settingsModel.WordCount} " +
-                $"{settingsModel.MaxWordLength}";
+                $"{settingsModel.MaxWordLength}";*/
         }
 
         private void InitializeCommand()

@@ -9,21 +9,21 @@ namespace WordSearch.Application.Common.Helpers
     public static class ResourceWriteHelper
     {
         /// <summary>
-        /// Запись
+        /// Запись ресурса
         /// </summary>
-        /// <param name="namespacePath"> Путь к пространству имён </param>
-        /// <param name="resourceDestinationPath"> Путь назначения ресурса </param>
-        public static void Write(string namespacePath, string resourceDestinationPath)
+        /// <param name="namespacePath"> Путь к пространству имён ресурса </param>
+        /// <param name="destinationPath"> Путь назначения ресурса </param>
+        public static void Write(string namespacePath, string destinationPath)
         {
-            if (!File.Exists(resourceDestinationPath))
+            if (!File.Exists(destinationPath))
             {
                 using var stream = Assembly.GetCallingAssembly().GetManifestResourceStream(namespacePath)!;
 
-                var dir = Path.GetDirectoryName(resourceDestinationPath)!;
+                var dir = Path.GetDirectoryName(destinationPath)!;
 
                 Directory.CreateDirectory(dir);
 
-                using var fileStream = new FileStream(resourceDestinationPath, FileMode.OpenOrCreate);
+                using var fileStream = new FileStream(destinationPath, FileMode.OpenOrCreate);
 
                 stream.CopyTo(fileStream);
             }

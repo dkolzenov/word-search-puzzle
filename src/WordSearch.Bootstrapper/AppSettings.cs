@@ -1,5 +1,4 @@
 using System.IO;
-using System.Reflection;
 using Microsoft.Extensions.Configuration;
 using WordSearch.Application.Common.Helpers;
 
@@ -21,7 +20,7 @@ namespace WordSearch.Bootstrapper
         {
             var fullPath = Path.Join(PlatformPathHelper.Path, Name);
 
-            ResourceWriteHelper.Write($"{Assembly.GetExecutingAssembly().GetType().Namespace}.{Name}", fullPath);
+            ResourceWriteHelper.Write($"{typeof(AppSettings).Namespace}.{Name}", fullPath);
 
             Configuration = new ConfigurationBuilder()
                 .AddJsonFile(fullPath)

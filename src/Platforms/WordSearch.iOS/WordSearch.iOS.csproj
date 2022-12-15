@@ -139,10 +139,6 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Application\WordSearch.Bootstrapper\WordSearch.Bootstrapper.csproj">
-      <Project>{cf02e929-9fe3-4ec8-9c1f-2bbb2c935d54}</Project>
-      <Name>WordSearch.Bootstrapper</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\WordSearch.Bootstrapper\WordSearch.Bootstrapper.csproj">
       <Project>{cf02e929-9fe3-4ec8-9c1f-2bbb2c935d54}</Project>
       <Name>WordSearch.Bootstrapper</Name>

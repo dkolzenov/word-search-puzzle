@@ -34,7 +34,7 @@
         {
             try
             {
-                List<WordModel> randomWords = _randomChooserHelper
+                /*List<WordModel> randomWords = _randomChooserHelper
                     .GetRandomUniqueList(gridData.Words, gridData.WordCount);
 
                 GridModel dataGrid = gridData.Grid;
@@ -50,7 +50,8 @@
                 {
                     DataGrid = dataGrid,
                     RandomWords = randomWords
-                };
+                };*/
+                return new GridDataPlacementModel();
             }
             catch (Exception ex)
             {

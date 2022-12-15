@@ -1,5 +1,4 @@
 using System.IO;
-using System.Reflection;
 using Microsoft.Extensions.Configuration;
 using WordSearch.Application.Common.Helpers;
 
@@ -10,7 +9,7 @@ namespace WordSearch.Bootstrapper
     /// </summary>
     public static class AppSettings
     {
-        private const string Name = "appsettings.json";
+        private const string FileName = "appsettings.json";
 
         /// <summary>
         /// Конфигурация
@@ -19,12 +18,11 @@ namespace WordSearch.Bootstrapper
 
         static AppSettings()
         {
-            var fullPath = Path.Join(PlatformPathHelper.Path, Name);
+            var destinationPath = Path.Join(PlatformPathHelper.Path, FileName);
 
-            ResourceWriteHelper.Write($"{Assembly.GetExecutingAssembly().GetType().Namespace}.{Name}", fullPath);
-
+            ResourceWriteHelper.Write($"{typeof(AppSettings).Namespace}.{FileName}", destinationPath);
             Configuration = new ConfigurationBuilder()
-                .AddJsonFile(fullPath)
+                .AddJsonFile(destinationPath)
                 .Build();
         }
     }

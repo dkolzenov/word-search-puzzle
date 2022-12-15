@@ -1,7 +1,7 @@
-﻿namespace WordSearch.iOS
-{
-    using UIKit;
+﻿using UIKit;
 
+namespace WordSearch.iOS
+{
     public class Application
     {
         // This is the main entry point of the application.

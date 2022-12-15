@@ -1,9 +1,7 @@
-using System.IO;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Prism.Ioc;
-using Xamarin.Essentials;
 
 namespace WordSearch.Infrastructure.Extensions
 {
@@ -13,14 +11,15 @@ namespace WordSearch.Infrastructure.Extensions
             IConfiguration configuration) where TDbContext : DbContext
         {
             var currentAssemblyName = typeof(TDbContext).Assembly.GetName().Name;
-            var dbConnectionString = Path.Combine(FileSystem.AppDataDirectory,
-                configuration.GetConnectionString(EnvironmentVariable.DefaultConnection));
+
+            var dbConnectionString = configuration
+                .GetPlatformSpecificDbConnectionString(EnvironmentVariable.DefaultConnection);
 
             containerRegistry.RegisterServices(services =>
                 services.AddDbContext<TDbContext>(options =>
                 {
                     SQLitePCL.Batteries_V2.Init();
-                    options.UseSqlite(dbConnectionString, sqliteOptions =>
+                    options.UseSqlite(dbConnectionString!, sqliteOptions =>
                         sqliteOptions.MigrationsAssembly(currentAssemblyName));
                 }));
         }

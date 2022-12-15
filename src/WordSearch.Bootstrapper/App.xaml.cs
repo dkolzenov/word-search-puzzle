@@ -1,30 +1,31 @@
-﻿namespace WordSearch.Bootstrapper.Core
+﻿using System;
+using System.Diagnostics;
+using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using Prism.Ioc;
+using WordSearch.Application;
+using WordSearch.Application.Common.Interfaces;
+using WordSearch.Infrastructure;
+
+namespace WordSearch.Bootstrapper
 {
-    using System;
-    using System.Diagnostics;
-
-    using Prism.Ioc;
-
-    using WordSearch.Bootstrapper.Extensions;
-    using WordSearch.Assets.Interfaces;
-
     public partial class App
     {
         private const string StartPageName = "MainPageView";
-
-        static App() => new AppBootstrapper();
-
+        
         protected override async void OnInitialized()
         {
             try
             {
                 InitializeComponent();
+                await MigrateDatabaseAsync();
 
-                var result = await NavigationService
-                    .NavigateAsync(StartPageName);
+                var result = await NavigationService.NavigateAsync(StartPageName);
 
                 if (!result.Success)
+                {
                     Debugger.Break();
+                }
             }
             catch (Exception ex)
             {
@@ -33,13 +34,16 @@
             }
         }
 
-        protected override void RegisterTypes(
-            IContainerRegistry containerRegistry)
+        protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
-            var wordSearchDb = Container.Resolve<IWordSearchDatabase>();
+            containerRegistry
+                .AddApplication()
+                .AddInfrastructure(AppSettings.Configuration);
+        }
 
-            containerRegistry.RegisterSqliteDbContext(wordSearchDb);
-            containerRegistry.RegisterAutoMapper();
+        private static async Task MigrateDatabaseAsync()
+        {
+            await Current.Container.Resolve<IApplicationDbContext>().Database.MigrateAsync();
         }
     }
 }

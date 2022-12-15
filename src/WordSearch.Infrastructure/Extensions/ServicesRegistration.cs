@@ -1,6 +1,6 @@
 using System;
-using System.Linq;
 using System.Collections.Generic;
+using System.Linq;
 using Microsoft.Extensions.DependencyInjection;
 using Prism.Ioc;
 using WordSearch.Application.Common.Interfaces;
@@ -57,7 +57,7 @@ namespace WordSearch.Infrastructure.Extensions
         private static IList<Type> GetOrderedInterfaces<T>(IEnumerable<Type> assemblyTypes)
         {
             return assemblyTypes.Where(type =>
-                    type.IsInterface && typeof(T).IsAssignableFrom(type) && type != typeof(Type))
+                    type.IsInterface && typeof(T).IsAssignableFrom(type) && type != typeof(T))
                 .OrderBy(x => x.Name)
                 .ToList();
         }

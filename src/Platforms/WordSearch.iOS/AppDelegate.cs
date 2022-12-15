@@ -1,10 +1,9 @@
-﻿namespace WordSearch.iOS
+﻿using Foundation;
+using UIKit;
+using WordSearch.Bootstrapper;
+
+namespace WordSearch.iOS
 {
-    using Foundation;
-    using UIKit;
-
-    using WordSearch.Bootstrapper.Core;
-
     // The UIApplicationDelegate for the application. This class is responsible for launching the 
     // User Interface of the application, as well as listening (and optionally responding) to 
     // application events from iOS.

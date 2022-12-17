@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using WordSearch.Domain.Entities;
+using WordSearch.Infrastructure.Persistence.SeedData;
 
 namespace WordSearch.Infrastructure.Persistence.Configurations
 {
@@ -12,6 +13,7 @@ namespace WordSearch.Infrastructure.Persistence.Configurations
             builder.Property(x => x.RowCount).IsRequired();
             builder.Property(x => x.ColumnCount).IsRequired();
             builder.Property(x => x.Size).HasConversion<string>();
+            builder.HasData(GridSettingsSeedData.Get());
         }
     }
 }

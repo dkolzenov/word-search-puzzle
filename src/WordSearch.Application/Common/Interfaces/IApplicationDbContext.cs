@@ -12,6 +12,8 @@ namespace WordSearch.Application.Common.Interfaces
         public DbSet<Alphabet> Alphabets { get; }
         
         public DbSet<WordSet> WordSets { get; }
+        
+        public DbSet<CharacterOnGrid> CharactersOnGrid { get; }
 
         public DatabaseFacade Database { get; }
 

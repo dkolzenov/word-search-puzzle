@@ -11,6 +11,8 @@ namespace WordSearch.Infrastructure.Persistence
 
         public DbSet<WordSet> WordSets { get; set; } = null!;
 
+        public DbSet<CharacterOnGrid> CharactersOnGrid { get; set; } = null!;
+
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
         }

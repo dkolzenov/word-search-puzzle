@@ -17,6 +17,13 @@ namespace WordSearch.Infrastructure.Persistence.SeedData
                     WordCount = 1,
                     WordLength = 3,
                     GameSessionSettingsId = 1
+                },
+                new WordOnGridSettings
+                {
+                    Id = 2,
+                    WordCount = 1,
+                    WordLength = 4,
+                    GameSessionSettingsId = 1
                 }
             };
         }

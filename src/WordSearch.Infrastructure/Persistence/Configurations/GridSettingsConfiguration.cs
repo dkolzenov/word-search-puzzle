@@ -11,6 +11,7 @@ namespace WordSearch.Infrastructure.Persistence.Configurations
             builder.Property(x => x.Id).ValueGeneratedOnAdd();
             builder.Property(x => x.RowCount).IsRequired();
             builder.Property(x => x.ColumnCount).IsRequired();
+            builder.Property(x => x.Size).HasConversion<string>();
         }
     }
 }

@@ -9,7 +9,7 @@ namespace WordSearch.Infrastructure.Persistence.Configurations
         public void Configure(EntityTypeBuilder<GameSession> builder)
         {
             builder.Property(x => x.Id).ValueGeneratedOnAdd();
-            builder.Property(x => x.Status).IsRequired();
+            builder.Property(x => x.Status).HasConversion<string>().IsRequired();
 
             builder.HasOne(x => x.GameSessionSettings)
                 .WithMany()

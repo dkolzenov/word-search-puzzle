@@ -15,6 +15,8 @@ namespace WordSearch.Infrastructure.Persistence
 
         public DbSet<GameSession> GameSessions { get; set; } = null!;
 
+        public DbSet<GameSessionSettings> GameSessionSettings { get; set; } = null!;
+
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
         }

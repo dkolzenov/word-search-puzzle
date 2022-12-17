@@ -15,7 +15,9 @@ namespace WordSearch.Application.Common.Interfaces
         
         public DbSet<CharacterOnGrid> CharactersOnGrid { get; }
         
-        public DbSet<GameSession> GameSessions { get; set; }
+        public DbSet<GameSession> GameSessions { get; }
+        
+        public DbSet<GameSessionSettings> GameSessionSettings { get; }
 
         public DatabaseFacade Database { get; }
 

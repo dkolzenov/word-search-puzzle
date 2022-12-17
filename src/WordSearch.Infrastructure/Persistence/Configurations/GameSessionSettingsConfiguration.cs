@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using WordSearch.Domain.Entities;
+using WordSearch.Infrastructure.Persistence.SeedData;
 
 namespace WordSearch.Infrastructure.Persistence.Configurations
 {
@@ -10,6 +11,7 @@ namespace WordSearch.Infrastructure.Persistence.Configurations
         {
             builder.Property(x => x.Id).ValueGeneratedOnAdd();
             builder.Property(x => x.Difficulty).HasConversion<string>().IsRequired();
+            builder.HasData(GameSessionSettingsSeedData.Get());
 
             builder.HasOne(x => x.GridSettings)
                 .WithMany()

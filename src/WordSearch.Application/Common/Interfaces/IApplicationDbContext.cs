@@ -22,6 +22,8 @@ namespace WordSearch.Application.Common.Interfaces
         public DbSet<GridSettings> GridSettings { get; }
         
         public DbSet<WordDirection> WordDirections { get; }
+        
+        public DbSet<WordOnGrid> WordsOnGrid { get; }
 
         public DatabaseFacade Database { get; }
 

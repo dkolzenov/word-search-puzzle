@@ -13,6 +13,8 @@ namespace WordSearch.Infrastructure.Persistence
 
         public DbSet<CharacterOnGrid> CharactersOnGrid { get; set; } = null!;
 
+        public DbSet<GameSession> GameSessions { get; set; } = null!;
+
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
         }

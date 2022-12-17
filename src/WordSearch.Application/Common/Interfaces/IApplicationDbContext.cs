@@ -14,6 +14,8 @@ namespace WordSearch.Application.Common.Interfaces
         public DbSet<WordSet> WordSets { get; }
         
         public DbSet<CharacterOnGrid> CharactersOnGrid { get; }
+        
+        public DbSet<GameSession> GameSessions { get; set; }
 
         public DatabaseFacade Database { get; }
 

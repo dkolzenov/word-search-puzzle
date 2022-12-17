@@ -19,6 +19,8 @@ namespace WordSearch.Infrastructure.Persistence
 
         public DbSet<GridSettings> GridSettings { get; set; } = null!;
 
+        public DbSet<WordDirection> WordDirections { get; set; } = null!;
+
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
         }

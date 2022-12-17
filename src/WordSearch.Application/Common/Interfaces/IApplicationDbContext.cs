@@ -20,6 +20,8 @@ namespace WordSearch.Application.Common.Interfaces
         public DbSet<GameSessionSettings> GameSessionSettings { get; }
         
         public DbSet<GridSettings> GridSettings { get; }
+        
+        public DbSet<WordDirection> WordDirections { get; }
 
         public DatabaseFacade Database { get; }
 

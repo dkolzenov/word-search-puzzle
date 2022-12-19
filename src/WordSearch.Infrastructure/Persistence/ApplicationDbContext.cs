@@ -11,6 +11,20 @@ namespace WordSearch.Infrastructure.Persistence
 
         public DbSet<WordSet> WordSets { get; set; } = null!;
 
+        public DbSet<CharacterOnGrid> CharactersOnGrid { get; set; } = null!;
+
+        public DbSet<GameSession> GameSessions { get; set; } = null!;
+
+        public DbSet<GameSessionSettings> GameSessionSettings { get; set; } = null!;
+
+        public DbSet<GridSettings> GridSettings { get; set; } = null!;
+
+        public DbSet<WordDirection> WordDirections { get; set; } = null!;
+
+        public DbSet<WordOnGrid> WordsOnGrid { get; set; } = null!;
+
+        public DbSet<WordOnGridSettings> WordOnGridSettings { get; set; } = null!;
+
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
         }

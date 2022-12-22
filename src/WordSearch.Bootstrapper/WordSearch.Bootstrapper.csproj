@@ -12,11 +12,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\WordSearch.Application\WordSearch.Application.csproj" />
-    <ProjectReference Include="..\WordSearch.Infrastructure\WordSearch.Infrastructure.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Compile Update="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -26,6 +21,12 @@
   <ItemGroup>
     <None Remove="appsettings.json" />
     <EmbeddedResource Include="appsettings.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\WordSearch.Application\WordSearch.Application.csproj" />
+    <ProjectReference Include="..\WordSearch.Infrastructure\WordSearch.Infrastructure.csproj" />
+    <ProjectReference Include="..\WordSearch.Presentation\WordSearch.Presentation.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Threading;
-using System.Threading.Tasks;
 using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using Linq.PredicateBuilder;
@@ -34,7 +30,8 @@ namespace WordSearch.Infrastructure.Services
             return await DbContext.Set<TEntity>()
                 .Build(builder, options)
                 .AsNoTracking()
-                .ProjectTo<TDto>(Mapper.ConfigurationProvider).ToListAsync(cancellationToken);
+                .ProjectTo<TDto>(Mapper.ConfigurationProvider)
+                .ToListAsync(cancellationToken);
         }
 
         /// <inheritdoc />
